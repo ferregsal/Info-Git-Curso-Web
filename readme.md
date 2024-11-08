@@ -57,3 +57,15 @@ Formador / Desarrollador Web FullStack
   - Resolución de conflictos
   - Rebase
   - Pull Request
+- Presentación de JS
+  - Entornos de ejecución
+    - Browse
+    - Node
+    - Entornos online (Codepen)
+  - Conceptos clave
+    - Datos y variables
+    - Sentencias
+    - Expresiones
+      - Datos (literales)
+      - Variables
+      - Operadores
