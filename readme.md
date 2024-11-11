@@ -15,6 +15,45 @@ Formador / Desarrollador Web FullStack
 - JavaScript - Typescript - Angular - React
 - NodeJS - Express - MongoDB - MySQL
 
+## Alumnos
+
+1. María Jesús
+2. --
+3. --
+
+4. Sergio
+5. --
+6. --
+
+7. --
+8. --
+9. --
+
+10. --
+11. --
+12. --
+
+13. María del Mar
+14. Eva
+15. Almudena
+
+16. --
+17. --
+18. --
+
+Juan Antonio
+Oscar Javier
+Jesús
+David
+Raúl
+Emad
+Jonathan
+Fernando
+Ricardo
+Daniel Alexis
+Jerónimo
+David
+
 ## Semana 1
 
 ### Día 1 (M - 05/11/2024)
