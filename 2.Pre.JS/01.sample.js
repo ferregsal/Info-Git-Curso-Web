@@ -90,3 +90,29 @@ console.log(e);
 
 e = 23;
 console.log(++e);
+
+// coercion
+
+let v1 = 3;
+let v2 = '4';
+// Coerción a number de la variable v2
+console.log(v1 * v2);
+console.log(typeof v2); // string
+// Coerción a string de la variable v1
+console.log(v1 + v2); // '34'
+console.log(typeof v1); // number
+// Casting a number de la variable v2
+console.log(v1 + Number(v2)); // 7
+console.log(true + false); // 1
+
+// Booleans
+
+// Falsies -> false
+console.log(Boolean(false));
+console.log(Boolean(0));
+console.log(Boolean(-0));
+console.log(Boolean(0n));
+console.log(Boolean(''));
+console.log(Boolean(undefined));
+console.log(Boolean(null));
+console.log(Boolean(NaN));

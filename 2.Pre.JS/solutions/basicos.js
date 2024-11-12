@@ -130,13 +130,96 @@ function app() {
 // 12. Crea una función que reciba un número como parámetro y devuelva de alguna manera si el número dado es par o impar.
 // Invócala e imprime por consola el resultado usando la función del ejercicio 6.
 
+function everOrOdd(num) {
+    // Si no es entero o no es número
+    if (!Number.isInteger(num)) {
+        return 'El el valor no es válido';
+    }
+    let result = 'Impar';
+    if (num % 2 === 0) {
+        result = 'Par';
+    }
+    return result;
+}
+
+let value = 0.5;
+render(`${value} es ${everOrOdd(value)}`);
+value = 0;
+render(`${value} es ${everOrOdd(value)}`);
+value = 23;
+render(`${value} es ${everOrOdd(value)}`);
+value = 24;
+render(`${value} es ${everOrOdd(value)}`);
+value = -23;
+render(`${value} es ${everOrOdd(value)}`);
+value = -24;
+render(`${value} es ${everOrOdd(value)}`);
+value = 'Pepe';
+render(`${value} es ${everOrOdd(value)}`);
+value = Infinity;
+render(`${value} es ${everOrOdd(value)}`);
+
 // 15. Crea una función que reciba un número por parámetros e y devuelva de alguna manera si el número recibido es un número primo.
 // Invócala e imprime por consola el resultado usando la función del ejercicio 6.
+
+function isPrime(num) {
+    // Si no es entero o no es número
+    if (!Number.isInteger(num) || num < 0) {
+        return 'El el valor no es válido';
+    }
+
+    if (num < 2) return false;
+
+    for (let i = 2; i < num; i++) {
+        if (num % i === 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function renderPrime(n) {
+    let result = isPrime(n);
+    if (typeof result === 'boolean') {
+        result = result ? 'Es primo' : 'no es primo';
+    }
+    console.log(n, result);
+}
+
+renderPrime(-1);
+renderPrime(0);
+renderPrime(1);
+renderPrime(2);
+renderPrime(9);
 
 // Operaciones con bucles o arrays
 
 // 13. Crea una función que reciba un parámetro de tipo string y devuelva  el string revertido. (ejemplo: 'casa' => 'asac).
 // Invócala e imprime por consola el resultado usando la función del ejercicio 6.
 
+function revertString(value) {
+    let accumulator = '';
+    for (let i = value.length - 1; i >= 0; i--) {
+        const iterator = value[i];
+        // accumulator = accumulator + iterator
+        accumulator += iterator;
+    }
+    return accumulator;
+}
+
+console.log(revertString('ornitorrinco'));
+
 // 14. Crea una función que imprima por consola la tabla de multiplicar de un número introducido como parámetro.
 // Mejora: utiliza una función independiente para el render
+
+function createMultiplicationTable(num) {
+    let accumulator = `
+        `;
+    for (let i = 0; i <= 10; i++) {
+        accumulator += `${num} por ${i} es ${num * i}
+        `;
+    }
+    return accumulator;
+}
+
+console.table(createMultiplicationTable(5));

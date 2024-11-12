@@ -18,41 +18,28 @@ Formador / Desarrollador Web FullStack
 ## Alumnos
 
 1. María Jesús
-2. --
-3. --
+2. Jesús
+3. Ricardo
 
-4. Sergio
-5. --
-6. --
+4. Juan Antonio
+5. Emad
+6. Jerónimo
 
-7. --
-8. --
-9. --
+7. Sergio
+8. Jose Luis
+9. Fernando
 
-10. --
-11. --
-12. --
+10. Lucas
+11. Daniel Alexis
+12. David Ubero
 
 13. María del Mar
 14. Eva
 15. Almudena
 
-16. --
-17. --
-18. --
-
-Juan Antonio
-Oscar Javier
-Jesús
-David
-Raúl
-Emad
-Jonathan
-Fernando
-Ricardo
-Daniel Alexis
-Jerónimo
-David
+16. David Fuertes
+17. Oscar Javier
+18. Raúl
 
 ## Semana 1
 
@@ -108,3 +95,25 @@ David
       - Datos (literales)
       - Variables
       - Operadores
+
+### Día 4 (V - 08/11/2024)
+
+Ejercicios de introducción a JS
+
+## Semana 2
+
+### Dia 1 (L 11/11/2024)
+
+- Funciones
+
+Ejercicios de introducción a JS
+
+### Día 2 (M 12/11/2024)
+
+- Estructuras de control
+
+### Día 3 (X 13/11/2024)
+
+J 16/11/2024 sin clase
+
+### Día 4 (V 15/11/2024)
