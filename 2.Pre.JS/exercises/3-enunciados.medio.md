@@ -1,4 +1,4 @@
-### Ejercicios Week 0
+# Ejercicios Week 0
 
 ## Nivel Medio
 
