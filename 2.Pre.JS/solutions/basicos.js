@@ -207,17 +207,23 @@ function revertString(value) {
     return accumulator;
 }
 
-console.log(revertString('ornitorrinco'));
+function revertStringByArray(value = '') {
+    // const array = value.split()
+    // array.reverse()
+    // const result = array.join('')
+    // return result
+    return value.split('').reverse().join('');
+}
+
+console.log(revertStringByArray('ornitorrinco verde'));
 
 // 14. Crea una función que imprima por consola la tabla de multiplicar de un número introducido como parámetro.
 // Mejora: utiliza una función independiente para el render
 
 function createMultiplicationTable(num) {
-    let accumulator = `
-        `;
+    let accumulator = [];
     for (let i = 0; i <= 10; i++) {
-        accumulator += `${num} por ${i} es ${num * i}
-        `;
+        accumulator.push(`${num} por ${i} es ${num * i}`);
     }
     return accumulator;
 }

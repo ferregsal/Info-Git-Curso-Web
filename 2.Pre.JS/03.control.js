@@ -113,3 +113,5 @@ function rollDiceUntil(value) {
 }
 
 rollDiceUntil(6);
+
+console.log(Number.MAX_VALUE * 2);
