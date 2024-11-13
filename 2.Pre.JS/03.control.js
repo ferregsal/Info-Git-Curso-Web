@@ -88,3 +88,28 @@ for (let i = 0; i < cad.length; i++) {
     const element = cad[i];
     console.log(element);
 }
+
+// Tirar hasta que salga un valor
+
+function rollDiceUntil(value) {
+    if (value < 1 || value > 6) {
+        console.log('Valor fuera de rango');
+        return;
+    }
+    let accumulator = 0;
+    let dice = 0;
+    // for (let i = 0; dice !== value; i++) {
+    //     dice = Math.trunc(Math.random() * 6) + 1;
+    //     console.log('Valor del dado:', dice);
+    //     // accumulator = accumulator + dice
+    //     accumulator += dice;
+    // }
+    while (dice !== value) {
+        dice = Math.trunc(Math.random() * 6) + 1;
+        console.log('Valor del dado:', dice);
+        accumulator += dice;
+    }
+    console.log('Total:', accumulator);
+}
+
+rollDiceUntil(6);

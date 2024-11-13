@@ -111,6 +111,8 @@ Ejercicios de introducción a JS
 ### Día 2 (M 12/11/2024)
 
 - Estructuras de control
+  - Condicionales
+  - Iteraciones
 
 ### Día 3 (X 13/11/2024)
 
