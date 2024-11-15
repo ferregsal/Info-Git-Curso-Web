@@ -114,8 +114,33 @@ Ejercicios de introducción a JS
   - Condicionales
   - Iteraciones
 
+Ejercicios de introducción a JS
+
 ### Día 3 (X 13/11/2024)
+
+- Tipos de datos
+  - Tipos primitivos (Repaso)
+  - Objetos
+    - Objetos literales
+    - Arrays
+    - Métodos de arrays: mutables e inmutables
+
+Ejercicios de introducción a JS: bloque 2
 
 J 16/11/2024 sin clase
 
 ### Día 4 (V 15/11/2024)
+
+Ejercicios de introducción a JS: bloque 2
+
+## Semana 3
+
+### Dia 1 (L 18/11/2024)
+
+### Dia 2 (M 19/11/2024)
+
+### Dia 3 (X 20/11/2024)
+
+### Dia 4 (J 21/11/2024)
+
+### Dia 5 (V 22/11/2024)

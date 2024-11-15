@@ -16,6 +16,100 @@ console.log(removeLastFirst('PatatA'));
 
 // 2. Escribe una función que reciba una palabra y revise si es un palíndromo.
 
+// palindrimo => algo === algo alreves
+
+function revertStringByArray(value = '') {
+    return value.split('').reverse().join('');
+}
+
+function removeSpaces(value = '') {
+    return value.replaceAll(' ', '');
+}
+
+function removeAccents(value = '') {
+    const vocals = 'aeiou';
+    const invalids = 'áéíóúü';
+    const characters = value.split('');
+
+    for (let i = 0; i < characters.length; i++) {
+        const character = characters[i];
+        if (invalids.includes(character)) {
+            switch (character) {
+                case 'á':
+                    characters[i] = vocals[0];
+                    break;
+                case 'é':
+                    characters[i] = vocals[1];
+                    break;
+                case 'í':
+                    characters[i] = vocals[2];
+                    break;
+                case 'ó':
+                    characters[i] = vocals[3];
+                    break;
+                case 'ú':
+                case 'ü':
+                    characters[i] = vocals[4];
+                    break;
+            }
+        }
+    }
+
+    return characters.join('');
+}
+
+function removeAccentsPro(value = '') {
+    const vocals = 'aeiou';
+    const invalids = 'áéíóúü';
+    const characters = value.split('');
+
+    for (let i = 0; i < characters.length; i++) {
+        const character = characters[i];
+        if (invalids.includes(character)) {
+            switch (character) {
+                case 'á':
+                    characters[i] = vocals[0];
+                    break;
+                case 'é':
+                    characters[i] = vocals[1];
+                    break;
+                case 'í':
+                    characters[i] = vocals[2];
+                    break;
+                case 'ó':
+                    characters[i] = vocals[3];
+                    break;
+                case 'ú':
+                case 'ü':
+                    characters[i] = vocals[4];
+                    break;
+            }
+        }
+    }
+
+    return characters.join('');
+}
+
+function isPalindrome(value = '') {
+    const valueLowerCase = value.toLocaleLowerCase();
+    // quitar espacios
+    // 1. usar el string ....
+    const noSpacesValue = removeSpaces(valueLowerCase);
+    // 2. convertir en array ...
+    // const noSpacesValue = valueLowerCase.split(' ').join('')
+    const noAccentsValue = removeAccents(noSpacesValue);
+
+    const inverseValue = revertStringByArray(noAccentsValue);
+    return noAccentsValue === inverseValue;
+}
+
+let sample = 'atar a la rata';
+console.log(sample, 'is palindrome: ', isPalindrome(sample));
+sample = 'dábale arroz a la zorra el abad';
+console.log(sample, 'is palindrome: ', isPalindrome(sample));
+sample = 'no soy palíndromo';
+console.log(sample, 'is palindrome: ', isPalindrome(sample));
+
 // 3. Crea una función que cuente las vocales que contiene una palabra dada por parámetros.
 
 const countVocals = function (value = '') {
