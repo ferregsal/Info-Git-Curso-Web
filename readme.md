@@ -1,6 +1,7 @@
 # IFCD0210 - Programación con tecnologías web
 
 Documentación Certificado de Profesionalidad IFCD0210 - Desarrollo de aplicaciones con tecnologías web.
+Centro de Formación Digital San Blas (CFD-SB)
 
 ## Formador
 
@@ -137,7 +138,28 @@ Ejercicios de introducción a JS: bloque 2
 
 ### Dia 1 (L 18/11/2024)
 
+- Lenguajes de marcado: HTML
+
+- Entorno: VSC (Extensiones) - Chrome
+
+- Conceptos - Validación
+- UX - Accesibilidad - SEO - WPO
+
+- Ejemplo inicial - ejercicio
+- head -> metadata, title, links (favicon)
+- body -> principales etiquetas
+
 ### Dia 2 (M 19/11/2024)
+
+- Continuamos el ejemplo inicial
+
+- Estructura del estándar HTML
+
+- Sectioning v. grouping
+
+- Sectioning levels:
+  - headings (implícito)
+  - etiquetas semánticas (explícitas)
 
 ### Dia 3 (X 20/11/2024)
 
