@@ -833,7 +833,7 @@ Redefinidas semanticamente
 La etiqueta `a` se usa para definir enlaces a otras páginas, a otros documentos, a otros recursos, a otros fragmentos de la misma página, a otros protocolos, a otros servicios, etc. dependiendo del valor del atributo `href`.
 
 - URL absoluta
-- URL relativa
+- URL relativa a inicio / al documento
 - URL ancla
 - URL otros protocolos mailto, tel,
 - URL fragmento
@@ -897,7 +897,7 @@ El atributo `alt` se usa para definir el texto alternativo de la imagen, que se 
 
 El atributo `src` se usa para definir la URL de la imagen, que puede ser una URL absoluta, una URL relativa, una URL de datos, etc.
 
-El formato de las imágenes puede ser de muchos tipos. Los más comunes entre los bitmaps o rasters han sido tradicionalmente `jpg` o `jpeg` (JPEG), `png` (Portable Network Graphics) y `gif` (Graphics Interchange Format), junto con otros menos comunes como `bmp` (Bitmap), `tiff` o `tif` (Tagged Image File Format), `ico` (Icon), `cur` (Cursor), `jp2` (JPEG 2000), `jpx`, `jpf`, `jpm`, `mj2` (JPEG 2000 Part 2). Progresivamente se van incorporando formatos modernos como `webp` (Web Picture), `avif` (AV1 Image File Format), `apng` (Animated Portable Network Graphics), `heif` o `heic` (High Efficiency Image File Format). Ademaás pueden usarse imágenes vectoriales en formato `svg` (Scalable Vector Graphics).
+El formato de las imágenes puede ser de muchos tipos. Los más comunes entre los bitmaps o rasters han sido tradicionalmente `jpg` o `jpeg` (JPEG), `png` (Portable Network Graphics) y `gif` (Graphics Interchange Format), junto con otros menos comunes como `bmp` (Bitmap), `tiff` o `tif` (Tagged Image File Format), `ico` (Icon), `cur` (Cursor), `jp2` (JPEG 2000), `jpx`, `jpf`, `jpm`, `mj2` (JPEG 2000 Part 2). Progresivamente se van incorporando formatos modernos como `webp` (Web Picture), `avif` (AV1 Image File Format), `apng` (Animated Portable Network Graphics), `heif` o `heic` (High Efficiency Image File Format). Además pueden usarse imágenes vectoriales en formato `svg` (Scalable Vector Graphics).
 
 #### Tamaños de las imágenes
 
