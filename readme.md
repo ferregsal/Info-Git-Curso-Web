@@ -163,6 +163,47 @@ Ejercicios de introducción a JS: bloque 2
 
 ### Dia 3 (X 20/11/2024)
 
+- Etiquetas de sección y agrupamiento
+
+- Ejercicio: Construcción de una Web de recetas por todos los alumnos
+
+  - Creación de un repo privado con acceso a todos
+  - Protección de la main y política de ramas
+  - Creación de una GitHub page
+  - Clonado por cada alumno
+  - Creación de una rama para cada grupo (por 1 alumno del grupo)
+  - Fetch de las ramas y acceso a la rama asignada
+  - Inicio del trabajo individual
+
 ### Dia 4 (J 21/11/2024)
 
+- Continuación del ejercicio
+
+  - Trabajo individual en cada receta
+  - Uso de PRs para incorporar el trabajo a Main
+  - Comprobación del proceso CI/CD
+
+- Corrección del trabajo hasta ahora
+
+  - Falta integración de elementos comunes (header, footer)
+  - Ajuste de main a su verdadera funcionalidad
+
+- Etiquetas Text-Level
+- Etiquetas de enlace
+- Elementos embebidos
+
 ### Dia 5 (V 22/11/2024)
+
+- Elementos embebidos (iframe)
+- Tablas
+- Formularios
+- Etiquetas interactivas (details/summary, dialog)
+
+- Continuación del ejercicio:
+  - Correcciones indicadas
+  - Revisión de metadatos
+  - Opción: listas de definiciones, blockquote...
+  - Incorporación de elementos text-level: strong...
+  - Incorporación de Vídeo
+  - Opción: Uso de una tabla para indicar los ingredientes
+  - Formulario de contacto
