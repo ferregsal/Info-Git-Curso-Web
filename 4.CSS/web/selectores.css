@@ -1,0 +1,76 @@
+/* Selectores */
+
+/* Selector de etiqueta*/
+
+h1,
+h2,
+h3 {
+    color: brown;
+}
+
+/* Selector de clase */
+
+.interesting {
+    color: chartreuse;
+    background-color: black;
+}
+
+/* [class='sports']  */
+.sports {
+    font-size: 1.2rem;
+}
+
+/* Selectores de atributo*/
+
+[title] {
+    color: chocolate;
+}
+
+[title='Párrafo muy interesante'] {
+    background-color: rgb(197, 222, 223);
+}
+
+/* Selector de Id */
+
+#p1 {
+    color: blueviolet;
+}
+
+/* Alternativa con atributos
+
+[id='p1'] {
+    color: blueviolet;
+} */
+
+/* Selectores Combinados */
+
+/* 
+Descendiente: espacio
+Hijo >
+Hermano ~ 
+Hermano siguiente o adyacente + */
+
+article p {
+    text-decoration: underline;
+}
+
+article > p {
+    font-weight: bold;
+}
+
+article ~ p {
+    color: crimson;
+}
+
+article + p {
+    background-color: bisque;
+}
+
+aside {
+    background-color: darkkhaki;
+
+    & > p {
+        color: darkblue;
+        font-weight: bold;
+    }
+}
