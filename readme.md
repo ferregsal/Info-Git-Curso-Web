@@ -207,3 +207,14 @@ Ejercicios de introducción a JS: bloque 2
   - Incorporación de Vídeo
   - Opción: Uso de una tabla para indicar los ingredientes
   - Formulario de contacto
+
+## Semana 4
+
+## Día 1 (27/11/2024)
+
+- CSS
+  - Referencias
+  - Conceptos básicos
+    - Añadir CSS
+    - Selectores
+- Ejemplo practica: añadir CSS a las recetas

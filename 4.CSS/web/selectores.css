@@ -30,6 +30,21 @@ h3 {
     background-color: rgb(197, 222, 223);
 }
 
+/* Empiece por */
+[title^='Párrafo'] {
+    /* Propiedades */
+}
+
+/* Contenga */
+[title*='Párrafo'] {
+    /* Propiedades */
+}
+
+/* Termine */
+[title$='Párrafo'] {
+    /* Propiedades */
+}
+
 /* Selector de Id */
 
 #p1 {
@@ -73,4 +88,39 @@ aside {
         color: darkblue;
         font-weight: bold;
     }
+}
+
+/* Pseudo-elementos [::]
+Pseudo-clases [:]*/
+
+p::first-letter {
+    font-size: 2rem;
+}
+
+p::first-line {
+    text-decoration: underline;
+}
+
+button:hover {
+    font-size: 1.4rem;
+}
+
+:nth-child(3n) section:nth-of-type(2) a:not(:last-of-type) {
+}
+
+section .sports {
+}
+
+section:has(.sports) {
+}
+
+:is(section, article) :is(h1, h2, h3) {
+}
+
+section,
+article {
+    color: bisque;
+}
+
+:where(section, article) p {
 }
