@@ -80,6 +80,9 @@
 - [📖 ☀️Lenguaje CSS](https://lenguajecss.com/css/)
   Colección de artículos de Manz.dev
 
+- [📋 ☀️CURSO de CSS desde CERO 2021 Para principiantes](https://www.youtube.com/watch?v=-k-w8JpTNwA&list=PLROIqh_5RZeDbvISffzihyxzqJBt_z3-Z)
+  Lista de reproducción de vídeos de Dorian Designs con un completo curso de CSS
+
 ## Selectores, cascada y herencia
 
 - [📖 ☀️Cascada de CSS](https://lenguajecss.com/cascada-css/)
@@ -98,10 +101,24 @@
 - [🕹️ 🌍FrontEnd Mentor](https://www.frontendmentor.io/)
   Challenges to improve your skills in HTML, CSS, and JavaScript
 
+- [🕹️ 🌍CSS Projects](https://projects.css.education/index.html)
+  Course Web with practical projects by Jen Kramer from Frontend Masters
+  Cada uno incluye link a CodePen con el punto de inicio y el resultado final
+
+  - Project 1: Style Guide, Columns and Cover
+  - Project 2: Backgrounds and Overflow
+  - Project 3: Wacky Grid
+  - Project 4: Quirky Team
+  - Project 5: Outrageous Cards
+  - References, Next Steps, and Congratulations!
+
 ## Flexbox
 
 - [📖 🌍CSS Flexbox Layout Guide](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
   Artículo de CSS-Tricks
+
+- [📹 ☀️Cómo usar las MEDIA QUERIES en FLEXBOX CSS para crear layouts RESPONSIVE](https://www.youtube.com/watch?v=pu6ArfDxxpE)
+  Video de Kiko Palomares
 
 ### Ejercicios: flexbox
 
@@ -116,8 +133,6 @@
 
 - [🕹️ 🌍Play Flexbox Zombies](https://flexboxzombies.com/) Hay que crear cuenta para jugar
   Juego de zombies para aprender Flexbox
-
-- [Cómo usar las MEDIA QUERIES en FLEXBOX CSS para crear layouts RESPONSIVE](https://www.youtube.com/watch?v=pu6ArfDxxpE)
 
 ## Grid
 
@@ -137,7 +152,7 @@
 - [📋 🌍CSS Custom Properties](https://www.youtube.com/playlist?list=PL4-IK0AVhVjOT2KBB5TSbD77OmfHvtqUi)
   Lista de reproducción de vídeos de Kevin Powell
 
-  Muy completa visión del usu de variables. En el último video se incluye la posibilidad de modificar las variables desde JavaScript.
+  Muy completa visión del uso de variables. En el último video se incluye la posibilidad de modificar las variables desde JavaScript.
 
   Respecto a esto último, ver también el artículo de CSS-Tricks [Using CSS Variables in JavaScript](https://css-tricks.com/updating-a-css-variable-with-javascript/)
   y el artículo de Coding Nomads [Change CSS Styles With JavaScript](https://codingnomads.com/change-style-css-javascript#changing-css-variables)
