@@ -218,3 +218,13 @@ Ejercicios de introducción a JS: bloque 2
     - Añadir CSS
     - Selectores
 - Ejemplo practica: añadir CSS a las recetas
+
+## Día 2 (28/11/2024)
+
+- CSS
+  - Selectores: ejercicios
+  - Cascada: especificidad y herencia. Ejercicios
+  - Variables (custom properties)
+  - Funciones: calc(), min(), max()
+  - Pseudo-clases y pseudo-elementos
+    - e.g. ::mark() -> details (summary) / dialog
