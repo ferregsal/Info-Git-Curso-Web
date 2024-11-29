@@ -24,35 +24,7 @@
       color: blue !important;
     }
   </style>
-  <style>
-    a:hover::before {
-      content: '👍';
-    }
-
-    section::after {
-      content: '';
-      background-color: rgba(137, 43, 226, 0.32);
-      width: 100%;
-      height: 100%;
-    }
-
-    :is(summary, li)::marker {
-      color: brown;
-      font-size: 1.3rem;
-    }
-
-    section {
-      display: none;
-    }
-
-    section:target {
-      display: block;
-      border: 2px solid gainsboro;
-    }
-  </style>
-
 </head>
-
 
 <body>
   <header>
@@ -68,39 +40,6 @@
   <div>
     <a href="#tres">Otro sitio...</a>
   </div>
-
-  <section id="uno">
-    <h2>Usando un after</h2>
-    <a href="#">Ocultar</a>
-  </section>
-
-  <dialog>
-    Esto es un dialog
-  </dialog>
-
-  <details>
-    <summary>
-      <h3 style="display: inline;">FAQ¿...?</h3>
-    </summary>
-    <p>contenido</p>
-    <p>contenido</p>
-    <p>contenido</p>
-  </details>
-  <details>
-    <summary>
-      FAQ ¿...?
-    </summary>
-    contenido
-  </details>
-
-  <ol>
-    <li>sample</li>
-    <li>sample</li>
-    <li>sample</li>
-    <li>sample</li>
-    <li>sample</li>
-  </ol>
-
 </body>
 
 </html>
