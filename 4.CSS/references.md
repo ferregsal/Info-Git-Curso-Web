@@ -80,6 +80,14 @@
 - [📖 ☀️Lenguaje CSS](https://lenguajecss.com/css/)
   Colección de artículos de Manz.dev
 
+- [📋 ☀️Curso de CSS desde cero completo](https://www.youtube.com/playlist?list=PLUofhDIg_38q7l8gV4IVCz_pjUeyD99_j)
+  Lista de reproducción de vídeos de Midudev con un completo curso de CSS
+
+  - ¡APRENDE CSS GRATIS! Curso de CSS desde cero para principiantes
+  - ¡Guía de CSS Flexbox para aprender de forma sencilla!
+  - Aprende CSS Grid MUY FÁCIL con ejercicios
+  - Aprende Animaciones con CSS y Scroll Animations sin JavaScript
+
 - [📋 ☀️CURSO de CSS desde CERO 2021 Para principiantes](https://www.youtube.com/watch?v=-k-w8JpTNwA&list=PLROIqh_5RZeDbvISffzihyxzqJBt_z3-Z)
   Lista de reproducción de vídeos de Dorian Designs con un completo curso de CSS
 
