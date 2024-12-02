@@ -228,3 +228,15 @@ Ejercicios de introducción a JS: bloque 2
   - Funciones: calc(), min(), max()
   - Pseudo-clases y pseudo-elementos
     - e.g. ::mark() -> details (summary) / dialog
+
+## Día 3 (29/11/2024)
+
+- Repaso: CSS Vars & PseudoClases
+- Box Model
+- Layouts: Displays tradicionales / Float
+
+## Semana 5
+
+## Día 1 (02/12/2024)
+
+-
