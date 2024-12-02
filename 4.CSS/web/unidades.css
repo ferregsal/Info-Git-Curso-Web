@@ -1,0 +1,40 @@
+section.no-se-hace {
+    font-size: 24px;
+}
+
+section.rem {
+    font-size: 1.5rem;
+    article {
+        font-size: 1.5rem;
+        div {
+            font-size: 1.5rem;
+            p {
+                font-size: 1.5rem;
+            }
+        }
+    }
+}
+
+section.em {
+    font-size: 1.5em;
+    article {
+        font-size: 1.5em;
+        div {
+            font-size: 1.5em;
+            p {
+                font-size: 1.5em;
+            }
+        }
+    }
+}
+
+section.fit {
+    div {
+        img {
+            border: 2px solid;
+            width: 300px;
+            height: 300px;
+            object-fit: scale-down;
+        }
+    }
+}
