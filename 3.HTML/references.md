@@ -146,6 +146,9 @@ Formatos de imágenes:
 
   Video: [📹 🌍How To Load Images Like A Pro](https://www.youtube.com/watch?v=hJ7Rg1821Q0)
 
+- [📖 🌍Responsive Images in Practice](https://alistapart.com/article/responsive-images-in-practice/)
+  Artículo de A List Apart by Eric Portis, November 04, 2014
+
 - [📹 ☀️Optimiza Imágenes de tu Sitio Web con SRCSET](https://www.youtube.com/watch?app=desktop&v=R2-ZWHU2nxU)
   Vídeo de lasfito
 

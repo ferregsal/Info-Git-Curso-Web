@@ -147,10 +147,19 @@
 - [📖 🌍CSS Grid Layout Guide](https://css-tricks.com/snippets/css/complete-guide-grid/)
   Artículo de CSS-Tricks
 
+- [📖 🌍A Deep Dive Into CSS Grid minmax()](https://ishadeed.com/article/css-grid-minmax/)
+  Artículo de Ahmad Shadeed
+
 ### Ejercicios: grid
 
 - [🕹️ 🌍Play Grid Garden](https://cssgridgarden.com/)
   Juego de jardín para aprender CSS Grid
+
+- [🕹️ 🌍Play Grid Attack](https://codingfantasy.com/games/css-grid-attack)
+  Juego de aventuras para aprender CSS Grid
+
+- [🕹️ 🌍Play Grid Critters](https://gridcritters.com/)
+  Juego de aliens para aprender CSS Grid. De pago
 
 ## Custom properties (variables)
 
