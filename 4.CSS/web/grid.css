@@ -10,10 +10,6 @@ p {
     padding: 1rem;
 }
 
-.anchor {
-    anchor-name: --red;
-}
-
 section.grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -27,11 +23,12 @@ section.grid {
     }
 
     p:nth-of-type(2) {
-        background-color: rgba(165, 42, 42);
+        background-color: brown;
         color: bisque;
         grid-column: -1 / -3;
         grid-row: 1 / 3;
         z-index: 1;
+        anchor-name: --red-p;
     }
 
     p:nth-of-type(5) {
@@ -60,10 +57,13 @@ section.icon {
     p:nth-of-type(2) {
         background-color: rgba(10, 53, 10, 0.467);
         border-radius: 50%;
-        position: absolute;
-        position-anchor: --red;
-        position-area: top right;
-        /* inset-area: top right; */
+        /* position: absolute; */
+        position: fixed;
+        position-anchor: --red-p;
+        /* top: anchor(center);
+        right: anchor(center); */
+        position-area: center center;
+        z-index: 2;
     }
 }
 
