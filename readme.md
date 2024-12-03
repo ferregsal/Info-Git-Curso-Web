@@ -228,6 +228,7 @@ Ejercicios de introducción a JS: bloque 2
   - Funciones: calc(), min(), max()
   - Pseudo-clases y pseudo-elementos
     - e.g. ::mark() -> details (summary) / dialog
+  - Propiedades lógicas
 
 ## Día 3 (29/11/2024)
 
@@ -239,4 +240,18 @@ Ejercicios de introducción a JS: bloque 2
 
 ## Día 1 (02/12/2024)
 
--
+- CSS: Lenguaje y funcionalidades
+  - Colores
+    - Notaciones: funciones de notación
+    - Herramientas
+- Unidades
+  - Valores sin unidad
+  - Absolutas
+  - Relativas
+- Layouts
+  - Revisión del Box-Model
+    - object-fit
+  - Flex: Ejercicios
+  - Grid
+
+## Día 2 (03/12/2024)
