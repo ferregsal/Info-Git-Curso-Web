@@ -60,8 +60,8 @@ section.icon {
         /* position: absolute; */
         position: fixed;
         position-anchor: --red-p;
-        /* top: anchor(center);
-        right: anchor(center); */
+        /* top: anchor(--red-p center);
+        right: anchor(--red-p center); */
         position-area: center center;
         z-index: 2;
     }
