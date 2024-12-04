@@ -28,10 +28,14 @@ body {
     font-family: var(--font-base);
     background-color: bisque;
     min-width: 260px;
-
     /* @media (width > 400px) {
         background-color: brown;
     } */
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 h1,
@@ -45,6 +49,9 @@ img {
 }
 
 nav {
+    max-width: 900px;
+    margin: 0 auto;
+
     ul {
         list-style: none;
         margin: 0;
@@ -61,8 +68,6 @@ header {
     color: bisque;
     padding: 2rem;
     nav {
-        position: sticky;
-        top: 0;
         ul {
             display: flex;
             flex-wrap: wrap;
@@ -107,25 +112,44 @@ main {
     border: 1px solid brown;
 }
 
+dialog {
+    border: none;
+    background-color: bisque;
+    top: 7rem;
+    left: 0;
+    width: 50%;
+    padding: 1rem;
+
+    li {
+        padding-block: 0.5rem;
+    }
+
+    .close {
+        text-align: right;
+        button {
+            padding: 0.2rem;
+        }
+    }
+}
+
 @media (width > 470px) {
-    body {
-        background-color: rgb(250, 206, 153);
-    }
-    .menu-mobile {
-        display: none;
-    }
+    header {
+        .menu-mobile {
+            display: none;
+        }
 
-    .menu-tablet {
-        display: initial;
-    }
+        .menu-tablet {
+            display: initial;
+        }
 
-    .menu-header {
-        flex-basis: 100%;
-        text-align: center;
-        padding-block-end: 0.5rem;
-        a {
-            display: block;
+        .menu-header {
+            flex-basis: 100%;
+            text-align: center;
             padding-block-end: 0.5rem;
+            a {
+                display: block;
+                padding-block-end: 0.5rem;
+            }
         }
     }
 }
@@ -138,26 +162,26 @@ main {
 }
 
 @media (width > 650px) {
-    header nav ul {
-        align-items: baseline;
-    }
+    header {
+        nav ul {
+            align-items: baseline;
+        }
+        .menu-header {
+            flex-basis: auto;
+            padding-block-end: 0rem;
+            margin-inline-end: auto;
 
-    .menu-header {
-        flex-basis: auto;
-        padding-block-end: 0rem;
-        margin-inline-end: auto;
-
-        a {
-            display: initial;
-            /* padding-block-end: 0.5rem; */
+            a {
+                display: initial;
+                /* padding-block-end: 0.5rem; */
+            }
         }
     }
-}
 
-/* @media (min-width: 700px) { */
-@media (width > 700px) {
-    body {
-        background-color: rgb(237, 187, 126);
+    .main-img {
+        float: right;
+        padding-inline-start: 1rem;
+        width: 50%;
     }
 
     .articles-wrapper {
@@ -165,8 +189,15 @@ main {
         grid-template-columns: 1fr 1fr;
         gap: 1.5rem;
     }
+    .final-content {
+        columns: 2;
+    }
+}
+
+/* @media (min-width: 700px) { */
+@media (width > 700px) {
 }
 
 /* @media (min-width: 800px) { */
-@media (width > 1000px) {
+@media (width > 850px) {
 }
