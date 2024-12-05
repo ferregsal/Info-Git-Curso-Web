@@ -236,6 +236,7 @@
   - fixed
   - sticky
     > **sticky**: new _value_ for position CSS property
+  - anchor
 - Creating consistent spacing
 
 ### Z-index and stacking contexts
@@ -433,6 +434,20 @@
 
 ## 7. Dynamic CSS
 
+### Transforms
+
+- Rotation
+  - `rotate()`, `rotateX()`, `rotateY()`, `rotateZ()`, `rotate3d()`
+- Scale
+  - `scale()`, `scaleX()`, `scaleY()`, `scaleZ()`, `scale3d()`
+- Translation
+  - `translate()`, `translateX()`, `translateY()`, `translateZ()`, `translate3d()`
+- Skew
+  - `skew()`, `skewX()`, `skewY()`
+- Perspective
+  - `perspective` property
+    > _CSS property_ that determines the distance between the z=0 plane and the user in order to give a 3D-positioned element some perspective.
+
 ### Transitions
 
 - Transition properties
@@ -452,20 +467,6 @@
 - Accessibility considerations
   - `prefers-reduced-motion` media query
 - Performance considerations
-
-### Transforms
-
-- Rotation
-  - `rotate()`, `rotateX()`, `rotateY()`, `rotateZ()`, `rotate3d()`
-- Scale
-  - `scale()`, `scaleX()`, `scaleY()`, `scaleZ()`, `scale3d()`
-- Translation
-  - `translate()`, `translateX()`, `translateY()`, `translateZ()`, `translate3d()`
-- Skew
-  - `skew()`, `skewX()`, `skewY()`
-- Perspective
-  - `perspective` property
-    > _CSS property_ that determines the distance between the z=0 plane and the user in order to give a 3D-positioned element some perspective.
 
 ### Animations
 
