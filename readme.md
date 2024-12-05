@@ -281,3 +281,21 @@ Ejercicios de introducción a JS: bloque 2
   - Imágenes
 
 ## Día 3 (05/12/2024) - M1.01 12
+
+- RWD Ejemplo (final)
+  - Subgrid
+  - repeat(auto-fit, mimmax(px, fr))
+- Vistazo a otros elementos de CSS
+  - Textos & Tipografías
+    - Listas
+    - Modos de escritura
+  - Formas y gráficos
+    - Bordes, figuras y máscaras
+    - Sombras
+    - Backgrounds
+    - Gradientes
+    - Filtros
+    - Mezclas (Blends)
+- CSS Dinámico
+  - Transformaciones
+  - Transiciones y animaciones
