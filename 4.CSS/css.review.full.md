@@ -151,19 +151,29 @@
 ### Box Model
 
 - Content and sizing. Extrinsic sizing v. intrinsic sizing
-  - min-content
-  - max-content
+  - `min-content`
+  - `max-content`
     > _sizing keyword_ for intrinsic sizing that represents the intrinsic minimum or maximum width of the content.
     > For text content min-content means that the content will take all soft-wrapping opportunities, becoming as small as the longest word.
-- The areas of the box model (content, padding, border, outline & shadow, margin)
+- The areas of the box model
+  - `content`
+  - `padding`
+  - `border`
+  - `margin`
+- Other elements that don't take up space
+  - `outline`: line outside of the element's border
+  - `box-shadow`: also outside of the border
 - Debugging the box model
 - Controlling the box model: `box-sizing`
 - Box dimensions
-  - width / height
-  - aspect-ratio
+  - `width` / `height`
+  - `aspect-ratio`
     > new _CSS property_ that sets a preferred aspect ratio for the box, which will be used in the calculation of auto sizes and some other layout functions. E.g. use with iFrames
-  - object-fit
+  - `object-fit`
     > _CSS property_ that sets how the content of a replaced element, such as an <img> or <video>, should be resized to fit its container.
+    > Supported values respecting aspect-ratio are contain (show all), cover (show as big as possible) and scale-down.
+  - `object-position`
+    > new _CSS property_ that sets the alignment of the replaced element inside its box.
 - Break rules: `break-before`\*\*
   > new _CSS property_ that sets how page, column, or region breaks should behave before a generated box. If there is no generated box, the property is ignored.
 
