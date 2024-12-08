@@ -36,6 +36,7 @@ body {
 .container {
     max-width: 900px;
     margin: 0 auto;
+    padding-inline: 2rem;
 }
 
 h1,
@@ -66,7 +67,7 @@ nav {
 header {
     background-color: brown;
     color: bisque;
-    padding: 2rem;
+    padding-block: 2rem;
     nav {
         ul {
             display: flex;
@@ -96,7 +97,7 @@ footer {
 }
 
 main {
-    margin: 1.9rem 2rem;
+    margin-block: 1.9rem;
 
     h1,
     h2,
@@ -183,13 +184,13 @@ dialog {
             display: flex;
             gap: 1rem;
 
-            & > div {
+            & > .left {
                 /* width: 40%; */
-                flex-basis: 40%;
+                flex: 0 1 45%;
             }
-            & > img {
+            & > .right {
                 /* width: 60%; */
-                flex-basis: 60%;
+                flex: 0 1 55%;
             }
         }
 
@@ -237,4 +238,17 @@ dialog {
 
 /* @media (min-width: 800px) { */
 @media (width > 850px) {
+    .section-principios {
+        .intro-wrapper {
+            & .left {
+                flex: 0 1 60%;
+                width: 50%;
+            }
+
+            & > .right {
+                flex: 0 1 30%;
+                width: 50%;
+            }
+        }
+    }
 }
