@@ -280,7 +280,7 @@ Ejercicios de introducción a JS: bloque 2
   - Contenido
   - Imágenes
 
-## Día 3 (05/12/2024) - M1.01 12
+## Día 4 (05/12/2024) - M1.01 12
 
 - RWD Ejemplo (final)
   - Subgrid
@@ -299,3 +299,31 @@ Ejercicios de introducción a JS: bloque 2
 - CSS Dinámico
   - Transformaciones
   - Transiciones y animaciones
+
+## Semana 6
+
+## Día 1 (09/12/2024) - M1.02 01
+
+- Revisión del Challenge planteado
+- Conceptos de Arquitectura Web y Navegadores
+- Regreso a JS: ejercicios
+
+## Día 2 (10/12/2024) - M1.02 02
+
+## Día 3 (11/12/2024) - M1.02 03
+
+## Día 4 (12/12/2024) - M1.02 04
+
+## Día 5 (13/12/2024) - M1.02 05
+
+## Semana 7
+
+## Día 1 (16/12/2024) - M1.02 06
+
+## Día 2 (17/12/2024) - M1.02 07
+
+## Día 3 (18/12/2024) - M1.02 08
+
+## Día 4 (19/12/2024) - M1.02 09
+
+## Día 5 (20/12/2024) - M1.02 10
