@@ -24,3 +24,14 @@ Consumidos en la intro: 30 horas (6 días)
   - Condiciones
   - Iteraciones
 - Objetos
+
+## Objetivos
+
+- Configurar entorno (linter, testing)
+- Conceptos y modelo mental
+- Datos, variables, tipos, comparación
+- Challenge (2): Función strictEquals
+- Testing a partir del ejemplo anterior
+- Challenge (3): Funciones de Array 1
+- Challenge (4): Funciones de Array 2
+- Alt Challenge (FitzBuz)
