@@ -310,6 +310,8 @@ Ejercicios de introducción a JS: bloque 2
 
 ## Día 2 (10/12/2024) - M1.02 02
 
+- Share excalidrow: <https://excalidraw.com/#json=1SjqFzjaIJFdFAeU7efOl,07_DWNPbcbRkdmIKXMaxKg>
+
 ## Día 3 (11/12/2024) - M1.02 03
 
 ## Día 4 (12/12/2024) - M1.02 04
