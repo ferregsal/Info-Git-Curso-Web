@@ -44,7 +44,7 @@ Formador / Desarrollador Web FullStack
 
 ## Semana 1
 
-### Día 1 (M - 05/11/2024)
+### Día 1 (M - 05/11/2024) - Git 01
 
 - Presentación del curso
 - Introducción a la Web
@@ -63,7 +63,7 @@ Formador / Desarrollador Web FullStack
     - Repository
   - Commits
 
-### Día 2 (X - 06/11/2024)
+### Día 2 (X - 06/11/2024) - Git 02
 
 - Introducción a GitHub
   - Creación de cuenta en GitHub
@@ -77,7 +77,7 @@ Formador / Desarrollador Web FullStack
   - Ramas
   - Merge. Fast Forward y Recursive
 
-### Día 3 (J - 07/11/2024)
+### Día 3 (J - 07/11/2024) - Git 03
 
 - Git. Continuación
   - Conflictos
@@ -97,19 +97,19 @@ Formador / Desarrollador Web FullStack
       - Variables
       - Operadores
 
-### Día 4 (V - 08/11/2024)
+### Día 4 (V - 08/11/2024) - ES 01
 
 Ejercicios de introducción a JS
 
 ## Semana 2
 
-### Dia 1 (L 11/11/2024)
+### Dia 1 (L 11/11/2024) - ES 02
 
 - Funciones
 
 Ejercicios de introducción a JS
 
-### Día 2 (M 12/11/2024)
+### Día 2 (M 12/11/2024) - ES 03
 
 - Estructuras de control
   - Condicionales
@@ -117,7 +117,7 @@ Ejercicios de introducción a JS
 
 Ejercicios de introducción a JS
 
-### Día 3 (X 13/11/2024)
+### Día 3 (X 13/11/2024) - ES 04
 
 - Tipos de datos
   - Tipos primitivos (Repaso)
@@ -130,13 +130,13 @@ Ejercicios de introducción a JS: bloque 2
 
 J 16/11/2024 sin clase
 
-### Día 4 (V 15/11/2024)
+### Día 4 (V 15/11/2024) - ES 05
 
 Ejercicios de introducción a JS: bloque 2
 
 ## Semana 3
 
-### Dia 1 (L 18/11/2024)
+### Dia 1 (L 18/11/2024) - M1.U1 01
 
 - Lenguajes de marcado: HTML
 
@@ -149,7 +149,7 @@ Ejercicios de introducción a JS: bloque 2
 - head -> metadata, title, links (favicon)
 - body -> principales etiquetas
 
-### Dia 2 (M 19/11/2024)
+### Dia 2 (M 19/11/2024) - M1.01 02
 
 - Continuamos el ejemplo inicial
 
@@ -161,7 +161,7 @@ Ejercicios de introducción a JS: bloque 2
   - headings (implícito)
   - etiquetas semánticas (explícitas)
 
-### Dia 3 (X 20/11/2024)
+### Dia 3 (X 20/11/2024) - M1.01 03
 
 - Etiquetas de sección y agrupamiento
 
@@ -175,7 +175,7 @@ Ejercicios de introducción a JS: bloque 2
   - Fetch de las ramas y acceso a la rama asignada
   - Inicio del trabajo individual
 
-### Dia 4 (J 21/11/2024)
+### Dia 4 (J 21/11/2024) - M1.01 04
 
 - Continuación del ejercicio
 
@@ -192,7 +192,7 @@ Ejercicios de introducción a JS: bloque 2
 - Etiquetas de enlace
 - Elementos embebidos
 
-### Dia 5 (V 22/11/2024)
+### Dia 5 (V 22/11/2024) - M1.01 05
 
 - Elementos embebidos (iframe)
 - Tablas
@@ -210,7 +210,7 @@ Ejercicios de introducción a JS: bloque 2
 
 ## Semana 4
 
-## Día 1 (27/11/2024)
+## Día 1 (27/11/2024) - M1.01 06
 
 - CSS
   - Referencias
@@ -219,7 +219,7 @@ Ejercicios de introducción a JS: bloque 2
     - Selectores
 - Ejemplo practica: añadir CSS a las recetas
 
-## Día 2 (28/11/2024)
+## Día 2 (28/11/2024) - M1.01 07
 
 - CSS
   - Selectores: ejercicios
@@ -230,7 +230,7 @@ Ejercicios de introducción a JS: bloque 2
     - e.g. ::mark() -> details (summary) / dialog
   - Propiedades lógicas
 
-## Día 3 (29/11/2024)
+## Día 3 (29/11/2024) - M1.01 08
 
 - Repaso: CSS Vars & PseudoClases
 - Box Model
@@ -238,7 +238,7 @@ Ejercicios de introducción a JS: bloque 2
 
 ## Semana 5
 
-## Día 1 (02/12/2024)
+## Día 1 (02/12/2024) - M1.01 09
 
 - CSS: Lenguaje y funcionalidades
   - Colores
@@ -254,4 +254,76 @@ Ejercicios de introducción a JS: bloque 2
   - Flex: Ejercicios
   - Grid
 
-## Día 2 (03/12/2024)
+## Día 2 (03/12/2024) - M1.01 10
+
+- Grid: Ejercicios
+- Position
+  - Relative
+  - Absolute
+  - Anchor
+- Directivas (rules) CSS
+- RWD
+  - Conceptos: Desktop first v. Mobile First
+  - Media types
+  - Media queries (@media (<query>))
+    - Nueva notación
+  - Ejemplo
+    - Head & Nav
+
+## Día 3 (04/12/2024) - M1.01 11
+
+- Position
+  - Anchor
+  - Fixed & Sticky
+- RWD Ejemplo
+  - Responsive Nav
+  - Contenido
+  - Imágenes
+
+## Día 4 (05/12/2024) - M1.01 12
+
+- RWD Ejemplo (final)
+  - Subgrid
+  - repeat(auto-fit, mimmax(px, fr))
+- Vistazo a otros elementos de CSS
+  - Textos & Tipografías
+    - Listas
+    - Modos de escritura
+  - Formas y gráficos
+    - Bordes, figuras y máscaras
+    - Sombras
+    - Backgrounds
+    - Gradientes
+    - Filtros
+    - Mezclas (Blends)
+- CSS Dinámico
+  - Transformaciones
+  - Transiciones y animaciones
+
+## Semana 6
+
+## Día 1 (09/12/2024) - M1.02 01
+
+- Revisión del Challenge planteado
+- Conceptos de Arquitectura Web y Navegadores
+- Regreso a JS: ejercicios
+
+## Día 2 (10/12/2024) - M1.02 02
+
+## Día 3 (11/12/2024) - M1.02 03
+
+## Día 4 (12/12/2024) - M1.02 04
+
+## Día 5 (13/12/2024) - M1.02 05
+
+## Semana 7
+
+## Día 1 (16/12/2024) - M1.02 06
+
+## Día 2 (17/12/2024) - M1.02 07
+
+## Día 3 (18/12/2024) - M1.02 08
+
+## Día 4 (19/12/2024) - M1.02 09
+
+## Día 5 (20/12/2024) - M1.02 10
