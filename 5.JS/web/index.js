@@ -1,4 +1,4 @@
-import { createHeader } from './components/header.js';
+import { createHeader_brown } from './components/header.js';
 import { tttGame } from './ttt.js';
 
 console.log('Index loaded');
@@ -45,6 +45,28 @@ function checkDOM(params) {
 }
 
 const title = 'Juegos';
-document.querySelector('header').outerHTML = createHeader(title);
+document.querySelector('header').outerHTML = createHeader_brown(title);
 
 tttGame();
+
+const elementButton = document.querySelector('.test button');
+// elementButton.setAttribute('disabled', '');
+// html: <button disabled></button>
+// DOM: disabled=true
+// DOM attributes:
+//      0: disabled
+//      disabled: disabled
+elementButton.disabled = true;
+// html: <button disabled></button>
+// DOM: disabled=true
+// DOM attributes:
+//      0: disabled
+//      disabled: disabled
+console.dir(elementButton);
+console.log('disable', elementButton.disabled);
+console.log('attributes', elementButton.attributes);
+
+elementButton.removeAttribute('disabled', '');
+// elementButton.disabled = false;
+console.log('disable', elementButton.disabled);
+console.log('attributes', elementButton.attributes);
