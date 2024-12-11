@@ -31,3 +31,69 @@ Hazte las siguientes preguntas:
 - ¿Qué vale la j?
 
 Si necesitas practicar, un buen ejercicio es crear un reloj que te indique las horas: un for que cuenta horas con un for en su interior que cuenta minutos. Un console log te puede mostrar que para cada vuelta del primer loop, el de dentro da 60. ¿Sabrías crear una alarma que te imprima "Despierta!" a las 7:15?
+
+## Contenido
+
+- Datos y variables
+  - Datos: 8 - string - number - boolean - undefined - null - (bigInt) - (symbol) - object
+  - Operador typeof
+- Tipos de variables -> débil y dinámico
+
+```TS
+  let foo: string
+  foo = ''
+```
+
+```JS
+let foo
+foo = 4
+```
+
+- Coercion y casting
+
+  - A Boolean:
+    - Falsy: false, null, undefined, NaN, 0, -0, 0n, ''
+    - Truthy: TODO lo demás
+
+- Sentencias y expresiones
+  - sentencias (statements) --> instrucciones, comandos, JS haz esto..
+  - expresiones (expressions) --> ¿JS dime algo?
+
+```JS
+const foo = Math.random();
+const baz = 2 + 2 * 4 / 4;
+```
+
+- Sentencias de control
+
+```JS
+if(!foo) {....}
+if(foo === 0) {....}
+```
+
+```JS
+for(i = 0; i < z; i++) {...}
+```
+
+```JS
+function foo() {...}
+const foo = function() {...}
+
+...
+
+foo()
+
+```
+
+- Objetos
+
+Colecciones de datos
+
+- indexados ----> array
+- nombrados ----> object
+
+```js
+const data = ['Pepe', 22];
+
+data.foo = 'Soy un array';
+```

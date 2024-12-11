@@ -311,6 +311,15 @@ Ejercicios de introducción a JS: bloque 2
 ## Día 2 (10/12/2024) - M1.02 02
 
 - Share excalidrow: <https://excalidraw.com/#room=682f4b93591314b4482f,uWtj0erMVYlY-3ll0_LoSQ>
+- JS: Modelo mental
+  - Variables y datos
+  - Objetos
+  - Asignación vía variables
+  - Mutabilidad v. inmutabilidad
+- JS en la Web
+  - DOM
+  - Acceso secuencial
+  - Acceso directo: get v. query
 
 ## Día 3 (11/12/2024) - M1.02 03
 
