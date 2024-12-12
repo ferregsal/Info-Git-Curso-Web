@@ -20,7 +20,7 @@ console.log('Index loaded');
 // const button = document.querySelector('form button')
 // button.addEventListener('click', greeting)
 
-function checkDOM(params) {
+function checkDOM() {
     // El DOM como "árbol" de objetos
     console.dir(document);
 
@@ -54,13 +54,13 @@ document
 tttGame();
 
 const elementButton = document.querySelector('.test button');
-// elementButton.setAttribute('disabled', '');
-// html: <button disabled></button>
+elementButton.setAttribute('class', 'patata');
+//html: <button disabled></button>
 // DOM: disabled=true
 // DOM attributes:
 //      0: disabled
 //      disabled: disabled
-elementButton.disabled = true;
+// elementButton.disabled = true;
 // html: <button disabled></button>
 // DOM: disabled=true
 // DOM attributes:
@@ -70,7 +70,7 @@ console.dir(elementButton);
 console.log('disable', elementButton.disabled);
 console.log('attributes', elementButton.attributes);
 
-elementButton.removeAttribute('disabled', '');
-// elementButton.disabled = false;
-console.log('disable', elementButton.disabled);
-console.log('attributes', elementButton.attributes);
+elementButton.removeAttribute('disabled');
+// // elementButton.disabled = false;
+// console.log('disable', elementButton.disabled);
+// console.log('attributes', elementButton.attributes);

@@ -165,6 +165,11 @@ section.ttt {
             align-items: center;
         }
     }
+
+    .current-player {
+        color: var(--color-accent);
+        transform: scale(110%);
+    }
 }
 
 section.test {
