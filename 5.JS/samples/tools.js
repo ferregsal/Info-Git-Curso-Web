@@ -1,6 +1,6 @@
 // Módulo
 
-export function foo() {
+function foo() {
     console.log('Soy foo');
 }
 
@@ -18,47 +18,60 @@ export function countWords(sentence = '') {
 // letras mayúsculas,
 // letras minúsculas
 // y números.
-export function randomDigit() {
-    return Math.trunc(Math.random() * 10);
+
+// Generalizada en randomIntegerInInterval
+// function randomDigit() {
+//     return Math.trunc(Math.random() * 10);
+// }
+
+function randomIntegerInInterval(min, max) {
+    return Math.trunc(Math.random() * (max + 1 - min) + min);
 }
 
-export function randomIntegerInInterval(min, max) {
-    return Math.trunc(Math.random() * (max - min) + min);
-}
-export function randomLetter() {
-    const letters = 'abcdefghijklmnñopqrstuvwxyz';
-    const position = [randomIntegerInInterval(0, letters.length - 1)];
+function randomLetter() {
+    const letters = 'abcdefghijklmnñopqrstuwxyz';
+    // return letters[0]
+    const position = randomIntegerInInterval(0, letters.length - 1);
     return letters[position];
 }
 
-export function shuffleString(word = '') {
+function shuffleString(word = '') {
     const initialLetters = word.split('');
     const finalLetters = [];
 
     for (let i = 0; i < word.length; i++) {
         const n = randomIntegerInInterval(0, initialLetters.length - 1);
         const letter = initialLetters.splice(n, 1);
-        finalLetters.push(letter);
+        finalLetters.push(letter[0]);
     }
 
     return finalLetters.join('');
 }
 
-export function generatePassword(Lenght) {
-    let rounds = 2;
-    if (Lenght > 6) {
-        rounds = Math.ceil(Lenght / 3);
-    }
+// S de SOLID
+// Single Responsibility
+
+export function generatePassword(length) {
+    // Sin ternario
+    // let rounds = 2;
+    // if (length > 6) {
+    //     rounds = Math.ceil(length / 3);
+    // }
+
+    // Usando el operador ternario
+    let rounds = length <= 6 ? 2 : Math.ceil(length / 3);
     let result = '';
+
     for (let i = 0; i < rounds; i++) {
         result += randomIntegerInInterval(0, 9);
         result += randomLetter();
         result += randomLetter().toUpperCase();
     }
-    // if (Lenght > 6) result = result.slice(0, Lenght);
 
-    //  return result;
+    if (length > 6) result = result.slice(0, length);
 
-    result = Lenght <= 6 ? result : (result = result.slice(0, Lenght));
     return shuffleString(result);
+
+    // Usando el operador ternario
+    // return shuffleString( length <= 6 ? result : result.slice(0, length));
 }
