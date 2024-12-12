@@ -316,12 +316,16 @@ Ejercicios de introducción a JS: bloque 2
   - Objetos
   - Asignación vía variables
   - Mutabilidad v. inmutabilidad
-- JS en la Web
+- JS en la Web. Ejemplo HTML "Saludos"
   - DOM
   - Acceso secuencial
   - Acceso directo: get v. query
 
 ## Día 3 (11/12/2024) - M1.02 03
+
+- Revisión: Modelo Mental
+- Ejercicio: Tres en raya
+- Modificación de elementos del DOM
 
 ## Día 4 (12/12/2024) - M1.02 04
 
