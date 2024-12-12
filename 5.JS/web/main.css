@@ -166,3 +166,9 @@ section.ttt {
         }
     }
 }
+
+section.test {
+    button {
+        padding: var(--space-half) var(--space);
+    }
+}

@@ -1,4 +1,4 @@
-import { createHeader_brown } from './components/header.js';
+import { createHeader } from './components/header.js';
 import { tttGame } from './ttt.js';
 
 console.log('Index loaded');
@@ -45,7 +45,11 @@ function checkDOM(params) {
 }
 
 const title = 'Juegos';
-document.querySelector('header').outerHTML = createHeader_brown(title);
+// document.querySelector('header').outerHTML = createHeader_brown(title);
+
+document
+    .querySelector('body')
+    .insertAdjacentHTML('afterBegin', createHeader(title));
 
 tttGame();
 
