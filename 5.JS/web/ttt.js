@@ -135,6 +135,7 @@ export function tttGame() {
 // Comprobar si ya hay 3 piezas de un jugador
 // Permitir movimientos solo a las casillas vacías y cercanas
 // Comprobar si un jugador ganó
+// https://www.youtube.com/watch?v=ZbLPTM9lZCY
 // Mostrar un mensaje de victoria
 
 function checkWinner(value) {
