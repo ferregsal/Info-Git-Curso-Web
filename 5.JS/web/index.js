@@ -54,7 +54,7 @@ document
 tttGame();
 
 const elementButton = document.querySelector('.test button');
-elementButton.setAttribute('class', 'patata');
+elementButton.setAttribute('class', 'some-class');
 //html: <button disabled></button>
 // DOM: disabled=true
 // DOM attributes:
