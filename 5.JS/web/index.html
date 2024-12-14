@@ -5,19 +5,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Ejercicios de JS en la Web" />
-  <title>Juegos</title>
+  <title>Inicio - Juegos</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet" />
   <link rel="shortcut icon" href="favicon.svg" type="image/x-icon" />
-  <link rel="stylesheet" href="./reset.css" />
+  <link rel="stylesheet" href="./guide.css" />
   <link rel="stylesheet" href="./main.css" />
   <script src="./index.js" type="module" defer></script>
 </head>
 
 <body>
-
-
   <!-- beforebegin
   <div class="sample">
     afterbegin
@@ -28,59 +26,86 @@
   afterend -->
 
   <main data-id="2">
+
+    <section>
+      <h2>Proyecto demo: Juegos</h2>
+      <p>
+        Este proyecto es una demostración de la aplicación de 
+        <strong>JavaScript en la Web.</strong> 
+        Se trata de una serie de <strong>juegos</strong>
+         sencillos de programar repartidos a lo largo de varias páginas.
+      </p>
+      <dl>
+        <div>
+
+          <dt>Unidad formativa&nbsp;2</dt>
+          <dd><strong>Desarrollo y reutilización de componentes
+            software y multimedia mediante lenguajes de guión</strong></dd>
+          <dd>(código: UF1842)</dd>
+        </div>
+        <div>
+          <dt>Módulo</dt>
+          <dd><strong> Programación web
+            en el entorno cliente
+          </strong></dd>
+          <dd>(código: MF0491_3)</dd>
+        </div>
+        <div>
+          <dt>Certificado de profesionalidad</dt>
+          <dd><strong>Desarrollo de aplicaciones con tecnologías Web</strong></dd>
+          <dd>(IFCD0210)</dd>
+        </div>
+      </dl>
+      <p>
+      
+    </section>
+
+    </p>
+
     <section class="players">
       <form>
         <label>
           <span>User 1</span>
-          <input type="text" id="user1" placeholder="Dime tu alias" required>
+          <input type="text" id="user1" placeholder="Dime tu alias" required />
         </label>
         <label>
           <span>User 2</span>
-          <input type="text" id="user2" placeholder="Dime tu alias" required>
+          <input type="text" id="user2" placeholder="Dime tu alias" required />
         </label>
         <div>
           <button type="submit">Guardar</button>
         </div>
       </form>
     </section>
-    <section class="ttt">
-      <h2>Tres en raya</h2>
-      <menu>
-        <li><button data-id="0">Simular Juego</button></li>
-        <li><button data-id="1">Borrar tablero</button></li>
-      </menu>
-      <dl>
-        <div class="players">
-          <dt>Players</dt>
-          <dd></dd>
-          <dd></dd>
-        </div>
-        <div>
-          <dt>Player1 Mode</dt>
-          <dt>Player2 Mode</dt>
-          <dd>Demo</dd>
-        </div>
-      </dl>
-      <div class="wrapper">
-        <div class="board">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-        <div class="info"></div>
-      </div>
-      <dialog class="info"></dialog>
-    </section>
     <section class="test">
       <button>Test</button>
     </section>
   </main>
+
+  <footer>
+    <address>
+      <span>
+        <a href="https://cursoscastraining.es/cursos-subvencionados/centro-de-formacion-digital-de-san-blas/"
+          target="_blank">
+          CAS Training
+        </a>
+      </span>
+      <span><a href="https://www.comunidad.madrid/centros/centro-formacion-digital-san-blas" target="_blank">
+          Centro de Formación Digital San Blas (CFD-SB)
+        </a></span>
+      <span>C. de Arcos de Jalón, 15</span>
+      <span> San Blas</span>
+      <span>28037 Madrid</span>
+    </address>
+    <p>
+      Diseño aplicado a partir de la
+      <a href="./style-guide.html">Guía de Estilo</a>
+    </p>
+    <p>
+      <small>© 2024 -
+        <a href="mailto:alce65@hotmail.es">Alejandro Cerezo</a></small>
+    </p>
+  </footer>
 </body>
 
 </html>
