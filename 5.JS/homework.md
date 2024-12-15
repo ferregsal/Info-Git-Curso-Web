@@ -63,3 +63,11 @@
 - Deshabilitar botones si no hay jugadores seleccionados
 - Añadir botón de cierre en el dialog de avisos
 - Añadir juego interactivo al hacer clic en el tablero (TODO)
+
+## Quiz (versión básica)
+
+- Añadir el HTML y CSS del challenge
+- Añadir el JS del challenge
+  - Definir variables
+  - Definir funciones de ayuda (disable, enable, isCorrect)
+  - Registrar y definir funciones de eventos
