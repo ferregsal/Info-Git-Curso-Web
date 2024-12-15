@@ -1,53 +1,5 @@
-body {
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-}
-
-header {
-    padding-block: var(--space);
-    color: var(--color-secondary-gray);
-    background-color: var(--color-secondary-background-gray);
-    display: flex;
-    gap: var(--space);
-    justify-content: center;
-}
-
-.header-brown {
-    color: var(--color-secondary);
-    background-color: var(--color-secondary-background);
-}
-
-main {
-    margin: var(--space) var(--space-double);
-}
-
-menu {
-    display: flex;
-    list-style: none;
-    button {
-        appearance: none;
-        border: none;
-        padding: var(--space-half) var(--space);
-    }
-}
-
 section {
-    margin-block: var(--space);
-    border: 1px solid var(--color-secondary-background);
-}
-
-section.players {
-    display: flex;
-    flex-direction: column;
-
-    label {
-        display: flex;
-        gap: 1rem;
-
-        span {
-            flex-basis: 10rem;
-        }
-    }
+    margin: 0;
 }
 
 section.ttt {
@@ -101,51 +53,7 @@ section.ttt {
     }
 
     .current-player {
-        color: var(--color-accent);
+        color: var(--color-accent-background);
         transform: scale(110%);
-    }
-}
-
-section.test {
-    button {
-        padding: var(--space-half) var(--space);
-    }
-}
-
-footer {
-    border-block-start: 1px solid var(--color-secondary-background-gray);
-    text-align: center;
-    padding: 1rem;
-    font-size: var(--small);
-    line-height: var(--line-height-x);
-    p {
-        font-size: var(--small);
-        padding: 0;
-        margin: 0;
-        margin-block: var(--space-half);
-    }
-    address {
-        margin-block: var(--space-half);
-        grid-row: span 2;
-        span {
-            display: block;
-        }
-    }
-
-    @media (min-width: 768px) {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto auto;
-
-        p {
-            max-width: 11rem;
-            text-align: right;
-            margin-inline-end: var(--space);
-            justify-self: end;
-            &:nth-of-type(1) {
-                margin-block: 0;
-                align-self: end;
-            }
-        }
     }
 }

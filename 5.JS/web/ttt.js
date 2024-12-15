@@ -1,4 +1,5 @@
 export function tttGame() {
+    console.log('Loaded tttGame');
     // Declaración de funciones internas (--> métodos)
 
     function renderPlayerNames() {
@@ -98,6 +99,9 @@ export function tttGame() {
         [...boardElement.children].forEach((item) => {
             item.textContent = '';
         });
+        ddElements.forEach((item) => {
+            item.classList.remove('current-player');
+        });
     }
 
     function handleButtonClick(event) {
@@ -108,11 +112,6 @@ export function tttGame() {
 
         if (id === 0) {
             simulateGame();
-            // playTurn(5, 1);
-            // playTurn(7, 1);
-            // playTurn(1, 0);
-            // playTurn(2, 0);
-            // playTurn(3, 0);
         } else {
             clearGame();
         }
@@ -185,13 +184,13 @@ export function tttGame() {
     const players = [
         {
             firstName: 'Pepe',
-            surName: '',
+            surname: '',
             alias: 'Pepin',
             icon: '😎',
         },
         {
             firstName: 'Ernestina',
-            surName: '',
+            surname: '',
             alias: '',
             icon: '👺',
         },
@@ -213,9 +212,6 @@ export function tttGame() {
     document.querySelectorAll('.ttt button').forEach((button) => {
         button.addEventListener('click', handleButtonClick);
     });
-
-    const saveFormElement = document.querySelector('.players form');
-    saveFormElement.addEventListener('submit', handleSetUsers);
 
     // Acciones
 
