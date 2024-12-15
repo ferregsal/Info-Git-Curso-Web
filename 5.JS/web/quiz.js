@@ -61,7 +61,7 @@ export function quizGame() {
 
     const statementElement = document.querySelector('.statement');
     const explanationElement = document.querySelector('.explanation');
-    const optionButtons = document.querySelectorAll('.options button');
+    const optionButtons = document.querySelectorAll('.answers button');
 
     // TODO 2: Declarar y asignar una variable llamada fact
     // Su valor debe ser un objeto con una declaración, respuesta verdadera/falsa y explicación

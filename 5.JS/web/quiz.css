@@ -15,6 +15,14 @@ section.quiz {
     display: flex;
     flex-direction: column;
 
+    menu {
+        gap: var(--space-half);
+    }
+
+    .score {
+        text-align: right;
+    }
+
     .statement {
         border: 1px solid var(--color-secondary-gray);
         border-radius: --var(radius);
@@ -25,6 +33,35 @@ section.quiz {
         margin: var(--space) 0px;
         min-height: var(--space-double);
     }
+
+    .answers {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        button {
+            padding: var(--space-half);
+            font-size: medium;
+            border-radius: 5px;
+            background-color: var(--bronze);
+        }
+
+        .correct {
+            color: var(--color-primary);
+            background-color: var(--color-success-background);
+            opacity: 0.8;
+            transform: scale(1.1);
+            cursor: none;
+        }
+        .incorrect {
+            color: var(--color-primary);
+            background-color: var(--color-error-background);
+            opacity: 0.8;
+            transform: scale(1.1);
+            cursor: none;
+        }
+    }
+
     .explanation {
         padding: var(--space);
         text-align: center;
@@ -32,29 +69,11 @@ section.quiz {
         margin-block-start: var(--space);
         border-radius: var(--radius);
     }
-    .options {
-        width: 100%;
+
+    menu.actions {
+        margin-block-start: var(--space);
         display: flex;
-        flex-direction: column;
-    }
-    button {
-        padding: var(--space-half);
-        font-size: medium;
-        border-radius: 5px;
-        background-color: var(--bronze);
-    }
-    .correct {
-        color: var(--color-primary);
-        background-color: var(--color-success-background);
-        opacity: 0.8;
-        transform: scale(1.1);
-        cursor: none;
-    }
-    .incorrect {
-        color: var(--color-primary);
-        background-color: var(--color-error-background);
-        opacity: 0.8;
-        transform: scale(1.1);
-        cursor: none;
+        justify-content: center;
+        gap: var(--space-half);
     }
 }

@@ -4,6 +4,7 @@ import { createHeader, startHeader } from './components/header.js';
 import { gamePlayers } from './players.js';
 import { tttGame } from './ttt.js';
 import { quizGame } from './quiz.js';
+import { quizGamePlus } from './quiz+.js';
 import { canisGame } from './pages/canis/canis.js';
 
 console.log('Index loaded');
@@ -83,6 +84,11 @@ switch (currentPage) {
         console.log('quiz');
         console.log({ currentPage });
         quizGame();
+        break;
+    case 'quiz+':
+        console.log('quiz');
+        console.log({ currentPage });
+        quizGamePlus();
         break;
     case 'canis':
         console.log('canis');

@@ -71,3 +71,16 @@
   - Definir variables
   - Definir funciones de ayuda (disable, enable, isCorrect)
   - Registrar y definir funciones de eventos
+
+## Quiz (versión avanzada)
+
+- Se carga un array de preguntas y respuestas desde json
+- Se muestra una pregunta aleatoria
+- Se recoge el resultado del usuario
+- Se refleja el resultado en la interfaz
+- El usuario puede pasar a la siguiente pregunta
+- El usuario reiniciar el quiz (preguntas y puntuaciones)
+- Añadir selección de jugador (TODO)
+- Añadir temporizador (TODO)
+- Añadir ranking de puntuaciones (TODO)
+- Añadir persistencia de datos (TODO)

@@ -24,17 +24,27 @@
   <body>
     <main>
       <section class="quiz">
-        <h2>ES/JS Quiz</h2>
+        <hgroup>
+          <h2>ES/JS Quiz ➕</h2>
+          <p class="score h4">
+            Score <span class="win-score">0</span> /
+            <span class="play-score">0</span>
+          </p>
+        </hgroup>
         <div class="statement">
           <p></p>
         </div>
 
-        <div class="answers">
+        <menu class="answers">
           <button name="true" value="true">true</button>
           <button name="false" value="false">false</button>
-        </div>
+        </menu>
 
         <div class="explanation"></div>
+        <menu class="actions">
+          <button class="next">Siguiente 🔄</button>
+          <button class="restart">Reiniciar 🏠</button>
+        </menu>
       </section>
     </main>
   </body>
