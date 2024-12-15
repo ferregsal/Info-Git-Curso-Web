@@ -26,9 +26,22 @@
     <main data-id="2">
       <section class="ttt">
         <h2>Tres en raya</h2>
+        <details class="select-players">
+          <summary>Seleccionar jugadores</summary>
+          <form>
+            <label class="select">
+              <span> Player 1</span>
+              <select data-id="0" name="player1"></select>
+            </label>
+            <label class="select">
+              <span> Player 2</span>
+              <select data-id="1" name="player2"></select>
+            </label>
+          </form>
+        </details>
         <menu>
-          <li><button data-id="0">Simular Juego</button></li>
-          <li><button data-id="1">Borrar tablero</button></li>
+          <li><button data-id="0" disabled>Simular Juego</button></li>
+          <li><button data-id="1" disabled>Borrar tablero</button></li>
         </menu>
         <dl>
           <div class="players">
@@ -56,7 +69,12 @@
           </div>
           <div class="info"></div>
         </div>
-        <dialog class="info"></dialog>
+        <dialog class="info">
+          <p class="close">
+            <button class="fa-solid fa-xmark"></button>
+          </p>
+          <output></output>
+        </dialog>
       </section>
     </main>
   </body>

@@ -3,6 +3,10 @@ section {
 }
 
 section.ttt {
+    .select-players {
+        margin-block-end: var(--space);
+    }
+
     dl {
         margin-block: var(--space);
         min-width: 300px;

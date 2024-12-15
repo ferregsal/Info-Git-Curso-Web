@@ -56,3 +56,10 @@
 - Importar jugadores (TODO)
 - Compartir jugadores (TODO)
 - Notificar jugadores (TODO)
+
+## Tres en raya (3nR/TTT)
+
+- Añadir selección de jugadores
+- Deshabilitar botones si no hay jugadores seleccionados
+- Añadir botón de cierre en el dialog de avisos
+- Añadir juego interactivo al hacer clic en el tablero (TODO)
