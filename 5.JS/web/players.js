@@ -8,20 +8,47 @@ export function gamePlayers() {
             icon: '🤓',
         },
     ];
+    let isAliasValidated = false;
 
     function validateAlias(event) {
         const aliasElement = event.target;
-        console.log('Blur validation atlas');
+        if (event.type === 'input') {
+            console.log('Input validation alias');
+            aliasElement.setCustomValidity('');
+            return;
+        }
+        console.log('Blur validation alias');
+        if (!aliasElement.value) {
+            console.log(aliasElement.validity);
+            return;
+        }
+        if (isAliasValidated) {
+            console.log('Alias ya validado, permitir blur');
+            isAliasValidated = false;
+            return;
+        }
         if (players.find((player) => player.alias === aliasElement.value)) {
             aliasElement.setCustomValidity('Este alias ya está en uso');
+            console.log('Creando custom error', aliasElement.validationMessage);
+            isAliasValidated = true;
+            aliasElement.reportValidity();
         } else {
             aliasElement.setCustomValidity('');
         }
     }
 
     function handleSetUsers(event) {
-        event.preventDefault();
         const form = event.target;
+        // validateAlias({
+        //     target: form.elements.namedItem('nickname'),
+        //     type: event.type,
+        // });
+        event.preventDefault();
+
+        // Diversas formas de obtener el elemento details
+        // const detailsElement = document.querySelector('details');
+        // const detailsElement = form.closest('details');
+        const detailsElement = form.parentElement;
 
         /* Datos a partir de form.elements */
 
@@ -57,13 +84,19 @@ export function gamePlayers() {
         renderPlayers();
     }
 
-    const detailsElement = document.querySelector('details');
-    const registerFormElement = document.querySelector('.players form');
-    registerFormElement.addEventListener('submit', handleSetUsers);
-
-    document
-        .querySelector('input[name="nickname"]')
-        .addEventListener('blur', validateAlias);
+    function handleDeletePlayer(event) {
+        // Des-estructuración de objetos
+        // const alias = event.target.dataset.alias;
+        // const index = event.target.dataset.index;
+        const { alias, index } = event.target.dataset;
+        console.dir(event);
+        console.log(alias, index);
+        if (players[index].alias !== alias) {
+            return;
+        }
+        players.splice(index, 1);
+        renderPlayers();
+    }
 
     function renderPlayers() {
         const dlElement = document.querySelector('.players dl');
@@ -74,8 +107,8 @@ export function gamePlayers() {
                     <dt>${player.firstName} ${player.surname}</dt>
                     <dd>${player.alias}</dd>
                     <dd>${player.icon}</dd>
-                    <button title="borrar" data-alias="${player.alias}" data-index="${i}">
-                        <i class="fa-solid fa-trash"></i>
+                    <button title="borrar">
+                        <i class="fa-solid fa-trash" data-alias="${player.alias}" data-index="${i}"></i>
                     </button>
                 </div>
             `;
@@ -83,5 +116,22 @@ export function gamePlayers() {
         dlElement.innerHTML = template;
     }
 
+    document
+        .querySelector('.players form')
+        .addEventListener('submit', handleSetUsers);
+
+    document
+        .querySelector('input[name="nickname"]')
+        .addEventListener('blur', validateAlias);
+    document
+        .querySelector('input[name="nickname"]')
+        .addEventListener('input', validateAlias);
+
     renderPlayers();
+
+    // Después del render se registran los eventos de los botones de borrar
+
+    document.querySelectorAll('.players dl button').forEach((button) => {
+        button.addEventListener('click', handleDeletePlayer);
+    });
 }
