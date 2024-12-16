@@ -316,16 +316,36 @@ Ejercicios de introducción a JS: bloque 2
   - Objetos
   - Asignación vía variables
   - Mutabilidad v. inmutabilidad
-- JS en la Web
+- JS en la Web. Ejemplo HTML "Saludos"
   - DOM
   - Acceso secuencial
   - Acceso directo: get v. query
 
 ## Día 3 (11/12/2024) - M1.02 03
 
+- Revisión: Modelo Mental
+- Proyecto: Tres en raya
+- Modificación de elementos del DOM
+
 ## Día 4 (12/12/2024) - M1.02 04
 
+- Revisión de conceptos: funciones
+  - Parámetros, atributos, callbacks
+- Proyecto: Tres en raya
+  - Cambios en el HTML
+  - Atributos
+  - Clases del HTML
+  - Eventos -> callbacks
+
 ## Día 5 (13/12/2024) - M1.02 05
+
+- Revisión de conceptos: métodos de array
+  - Mutables: push, sort
+  - Inmutables: toSorted, forEach, map, filter, find
+  - Ejercicio: implementar los métodos de arrays / strings
+    (ejemplos: myLength, myPush)
+- Proyecto: Tres en raya
+  - Comprobar el ganador: uso de arrays
 
 ## Semana 7
 

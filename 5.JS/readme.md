@@ -43,6 +43,20 @@ Cuando llega el HTML
 
 ## JS en la Web
 
+- DOM
+
+  - Acceso secuencial a los nodos de elementos HTML
+  - Acceso directo:
+    - query v. get
+    - NodeList v. HTMLCollection
+  - Desplazamiento por el árbol del DOM
+
+- Modificación de elemento
+  - Contenido: textContent
+  - Nodos HTML: innerHTML, outerHTML
+  - Atributos
+  - Clases
+
 ## Profundizando en JS
 
 - Challenge (2): Función strictEquals

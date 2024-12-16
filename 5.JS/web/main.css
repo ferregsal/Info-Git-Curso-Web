@@ -116,6 +116,20 @@ section {
     border-radius: var(--radius);
 }
 
+section.players {
+    display: flex;
+    flex-direction: column;
+
+    label {
+        display: flex;
+        gap: 1rem;
+
+        span {
+            flex-basis: 10rem;
+        }
+    }
+}
+
 section.ttt {
     dl {
         margin-block: var(--space);
@@ -164,5 +178,16 @@ section.ttt {
             justify-content: center;
             align-items: center;
         }
+    }
+
+    .current-player {
+        color: var(--color-accent);
+        transform: scale(110%);
+    }
+}
+
+section.test {
+    button {
+        padding: var(--space-half) var(--space);
     }
 }
