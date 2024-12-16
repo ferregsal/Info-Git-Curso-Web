@@ -1,13 +1,8 @@
+import { getLocalStorage, setLocalStorage } from './services.js';
+
 export function gamePlayers() {
     console.log('Loaded gamePlayers');
-    const players = [
-        {
-            firstName: 'Jorge',
-            surname: 'García',
-            alias: 'JorgeG',
-            icon: '🤓',
-        },
-    ];
+    const players = getLocalStorage('players') || [];
     let isAliasValidated = false;
 
     function validateAlias(event) {
@@ -101,6 +96,7 @@ export function gamePlayers() {
     function renderPlayers() {
         const dlElement = document.querySelector('.players dl');
         let template = '';
+        setLocalStorage('players', players);
         players.forEach((player, i) => {
             template += `
                 <div>
@@ -122,9 +118,47 @@ export function gamePlayers() {
         });
     }
 
+    function handleLoadMock(event) {
+        const button = event.target;
+        players.length = 0;
+        players.push(
+            {
+                firstName: 'Pepe',
+                surname: 'Pérez',
+                alias: 'Pepe',
+                icon: '😎',
+            },
+            {
+                firstName: 'Ernestina',
+                surname: 'Gómez',
+                alias: 'Erni',
+                icon: '👺',
+            },
+            {
+                firstName: 'Luisa',
+                surname: 'López',
+                alias: 'Luisa',
+                icon: '🤖',
+            },
+            {
+                firstName: 'Jorge',
+                surname: 'García',
+                alias: 'Jorge',
+                icon: '🤓',
+            }
+        );
+        const detailsElement = button.closest('details');
+        detailsElement.open = false;
+        renderPlayers();
+    }
+
     document
         .querySelector('.players form')
         .addEventListener('submit', handleSetUsers);
+
+    document
+        .querySelector('button[type="button"]')
+        .addEventListener('click', handleLoadMock);
 
     document
         .querySelector('input[name="nickname"]')

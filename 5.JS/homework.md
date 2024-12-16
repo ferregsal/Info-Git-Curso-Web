@@ -44,7 +44,7 @@
   - Lectura inicial
   - Añadir jugadores
   - Eliminar jugadores
-  - Persistencia de datos: localStorage (TODO)
+  - Persistencia de datos: localStorage
 - Ranking de jugadores (TODO)
 - Ordenar jugadores (TODO)
 - Filtrar jugadores (TODO)
@@ -59,15 +59,15 @@
 
 ## Tres en raya (3nR/TTT)
 
-- Añadir selección de jugadores
-- Deshabilitar botones si no hay jugadores seleccionados
-- Añadir botón de cierre en el dialog de avisos
+- Seleccionar de jugadores (desde localStorage)
+- Botones deshabilitados si no hay jugadores seleccionados
+- Añadido botón de cierre en el dialog de avisos
 - Añadir juego interactivo al hacer clic en el tablero (TODO)
 
 ## Quiz (versión básica)
 
-- Añadir el HTML y CSS del challenge
-- Añadir el JS del challenge
+- Añadido el HTML y CSS del challenge
+- Añadido el JS del challenge
   - Definir variables
   - Definir funciones de ayuda (disable, enable, isCorrect)
   - Registrar y definir funciones de eventos

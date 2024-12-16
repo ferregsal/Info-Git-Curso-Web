@@ -1,3 +1,5 @@
+import { getLocalStorage } from './services.js';
+
 export function tttGame() {
     console.log('Loaded tttGame');
     // Declaración de funciones internas (--> métodos)
@@ -202,20 +204,7 @@ export function tttGame() {
 
     // Declaración e inicialización de variables
 
-    const playersList = [
-        {
-            firstName: 'Pepe',
-            surname: '',
-            alias: 'Pepin',
-            icon: '😎',
-        },
-        {
-            firstName: 'Ernestina',
-            surname: '',
-            alias: 'Erni',
-            icon: '👺',
-        },
-    ];
+    const playersList = getLocalStorage('players') || [];
 
     const players = [];
 
