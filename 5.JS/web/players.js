@@ -114,6 +114,12 @@ export function gamePlayers() {
             `;
         });
         dlElement.innerHTML = template;
+
+        // Después del render se registran los eventos de los botones de borrar
+
+        document.querySelectorAll('.players dl button').forEach((button) => {
+            button.addEventListener('click', handleDeletePlayer);
+        });
     }
 
     document
@@ -128,10 +134,4 @@ export function gamePlayers() {
         .addEventListener('input', validateAlias);
 
     renderPlayers();
-
-    // Después del render se registran los eventos de los botones de borrar
-
-    document.querySelectorAll('.players dl button').forEach((button) => {
-        button.addEventListener('click', handleDeletePlayer);
-    });
 }
