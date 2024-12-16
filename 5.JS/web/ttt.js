@@ -1,7 +1,17 @@
 export function tttGame() {
     const players = [
-        { firstName: 'Pepe', surName: '', alias: 'Pepin', icon: '😎' },
-        { firstName: 'Ernestina', surName: '', alias: '', icon: '👺' },
+        {
+            firstName: 'Pepe',
+            surName: '',
+            alias: 'Pepin',
+            icon: '😎',
+        },
+        {
+            firstName: 'Ernestina',
+            surName: '',
+            alias: '',
+            icon: '👺',
+        },
     ];
 
     const ddElements = document.querySelectorAll('.players dd');
@@ -18,7 +28,20 @@ export function tttGame() {
         item.innerHTML = text;
     }
 
-    function playTurn(position, player) {
+    const board = [
+        'Posiciones en el tablero',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+    ];
+
+    function playTurn(position, playerIndex) {
         const boardElement = document.querySelector('.board');
         // Alternativa: acceder a cada casilla
         // const boardElements = document.querySelectorAll('.board div');
@@ -36,7 +59,10 @@ export function tttGame() {
             return;
         }
 
-        boardElement.children[position - 1].innerHTML = player.icon;
+        boardElement.children[position - 1].innerHTML =
+            players[playerIndex].icon;
+
+        board[position] = playerIndex;
     }
 
     // Jugar simulado
@@ -70,6 +96,7 @@ export function tttGame() {
                                     setTimeout(() => {
                                         // Juega Pepe
                                         playTurn(9, players[0]);
+                                        console.log(board);
                                     }, delay);
                                 }, delay);
                             }, delay);
@@ -105,3 +132,29 @@ export function tttGame() {
 
 // IA
 // Crear una IA que juegue automáticamente
+//
+// positions: ['472']
+
+function checkWinner() {
+    let counter = 0;
+    const winConditions = [
+        '123',
+        '456',
+        '789',
+        '147',
+        '258',
+        '369',
+        '159',
+        '357',
+    ];
+    winConditions.split.forEach((item) => {
+        if (players[0].positions.split.includes(item)) {
+            counter++;
+            if (counter === 3) {
+                console.log(`${player[0].alias} has won!!`);
+                return;
+            }
+            return;
+        }
+    });
+}
