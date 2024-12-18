@@ -346,12 +346,32 @@ Ejercicios de introducción a JS: bloque 2
     (ejemplos: myLength, myPush)
 - Proyecto: Tres en raya
   - Comprobar el ganador: uso de arrays
+  - Formularios: input básico
+  - Challenge: Quiz
 
 ## Semana 7
 
 ## Día 1 (16/12/2024) - M1.02 06
 
+- JSON: stringify / parse
+- Code review del challenge
+
+- Guía estilo
+- Formularios
+  - Obtención de datos
+  - Validaciones nativas de HTML
+  - Validaciones custom
+
 ## Día 2 (17/12/2024) - M1.02 07
+
+- Enrutamiento (routing)
+  - Rutas relativas a origen / a documento
+  - root en el servidor web
+  - carga de JS basada en location.path
+- Componentes
+  - template strings de HTML
+  - element.insertAdjacentHTML
+  - componentes funcionales
 
 ## Día 3 (18/12/2024) - M1.02 08
 
