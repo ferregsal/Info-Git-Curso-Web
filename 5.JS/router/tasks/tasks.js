@@ -9,6 +9,6 @@ export function loadTasks() {
     createHeader(pageTitle);
     const tasks = getTasksFromBackend();
     console.log(tasks);
-    createAddTask('details', 'beforeend');
-    createTaskCards(tasks, '.cards-container', 'beforeend');
+    createAddTask('details');
+    createTaskCards(tasks, '.cards-container');
 }

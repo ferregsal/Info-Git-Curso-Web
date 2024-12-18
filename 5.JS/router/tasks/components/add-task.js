@@ -1,6 +1,6 @@
 import { render } from '../../components/base.js';
 
-export function createAddTask(selector = 'body', position = 'afterbegin') {
+export function createAddTask(selector = 'body', position = 'beforeend') {
     const template = /*html*/ `
      <form>
         <label>

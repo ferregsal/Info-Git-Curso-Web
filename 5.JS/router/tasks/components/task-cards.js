@@ -9,17 +9,17 @@ import { createCard } from './card.js';
 export function createTaskCards(
     tasks,
     selector = 'body',
-    position = 'afterbegin'
+    position = 'beforeend'
 ) {
     function deleteCard({ id }) {
         console.log(id);
-        const index = tasks.findIndex((item) => item.id === id);
-        tasks.splice(index, 1);
-        // tasks.slice(
-        //     tasks.findIndex((item) => item.id === id),
-        //     1
-        // );
-        extendedRender();
+        // const index = tasks.findIndex((item) => item.id === id);
+        //tasks.splice(index, 1);
+        tasks.splice(
+            tasks.findIndex((item) => item.id === id),
+            1
+        );
+        console.log(tasks);
     }
 
     function updateCard(updatedTask) {
@@ -40,9 +40,7 @@ export function createTaskCards(
         document.querySelector(selector).innerHTML = '';
 
         const element = render(selector, position, template);
-        tasks.forEach((task) =>
-            createCard(task, deleteCard, 'ul.cards', 'beforeend')
-        );
+        tasks.forEach((task) => createCard(task, deleteCard, 'ul.cards'));
         return element;
     }
 

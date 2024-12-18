@@ -44,8 +44,8 @@ function loadIndex() {
 
     router[page]();
 
-    createMenu(menuOptions, 'header', 'beforeend');
-    createFooter('body', 'beforeend');
+    createMenu(menuOptions, 'header');
+    createFooter('body');
 }
 
 loadIndex();

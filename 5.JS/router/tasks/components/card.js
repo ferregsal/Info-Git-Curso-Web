@@ -4,7 +4,7 @@ export function createCard(
     task,
     deleteCard,
     selector = 'body',
-    position = 'afterbegin'
+    position = 'beforeend'
 ) {
     const template = /*html*/ `
         <li>
@@ -30,6 +30,7 @@ export function createCard(
     button.addEventListener('click', () => {
         console.log(task);
         deleteCard(task);
+        element.remove();
     });
     return element;
 }
