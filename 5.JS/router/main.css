@@ -9,3 +9,7 @@ body {
 body.about {
     background-color: goldenrod;
 }
+
+footer {
+    margin-block: 1rem;
+}
