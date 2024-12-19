@@ -375,6 +375,17 @@ Ejercicios de introducción a JS: bloque 2
 
 ## Día 3 (18/12/2024) - M1.02 08
 
+- CRUD basado en componentes: ToDo List
+  - Concepto de Entidad (Modelo)
+  - Mock de datos: servicio para la importación desde JSON
+  - Página tasks y su ruta
+  - Componente task-cards: array de datos
+  - Componente card: parámetros
+  - Delete: función como parámetro
+
 ## Día 4 (19/12/2024) - M1.02 09
+
+- Final del CRUD: add y update, funciones como parámetros
+- Asincronía en JS
 
 ## Día 5 (20/12/2024) - M1.02 10
