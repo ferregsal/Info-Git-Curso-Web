@@ -1,5 +1,6 @@
 import { render } from '../../components/base.js';
 import { createCard } from './card.js';
+import { createAddTask } from './add-task.js';
 
 //  id: string,
 //  title: string,
@@ -29,18 +30,24 @@ export function createTaskCards(
             ...tasks[index],
             ...updatedTask,
         };
+        console.log(tasks);
     }
 
     function addCard(task) {
-        task.id = task.id || crypto.randomUUID.split('-')[0];
+        // task.id = task.id || crypto.randomUUID().split('-')[0];
         tasks.push(task);
+        console.log(tasks);
+        createCard(task, deleteCard, updateCard, 'ul.cards');
     }
 
     function extendedRender() {
         document.querySelector(selector).innerHTML = '';
 
         const element = render(selector, position, template);
-        tasks.forEach((task) => createCard(task, deleteCard, 'ul.cards'));
+        createAddTask(addCard, 'details');
+        tasks.forEach((task) =>
+            createCard(task, deleteCard, updateCard, 'ul.cards')
+        );
         return element;
     }
 

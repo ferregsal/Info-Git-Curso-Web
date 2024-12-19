@@ -3,9 +3,11 @@ import { render } from '../../components/base.js';
 export function createCard(
     task,
     deleteCard,
+    updateCard,
     selector = 'body',
     position = 'beforeend'
 ) {
+    const task = { ...task };
     const template = /*html*/ `
         <li>
             <div class="card">
@@ -27,10 +29,17 @@ export function createCard(
     const element = render(selector, position, template);
 
     const button = element.querySelector('button');
+    const check = element.querySelector('input');
     button.addEventListener('click', () => {
         console.log(task);
         deleteCard(task);
         element.remove();
+    });
+
+    check.addEventListener('change', () => {
+        task.isDone = !task.isDone;
+        console.log('Check', { task });
+        updateCard(task);
     });
     return element;
 }
