@@ -8,7 +8,7 @@
   - isAdopted
   - padre/madre adoptivo = dueño
 
-- Existe una lista inicial (TS)
+- Existe una lista inicial
 
 - Se listan las mascotas
 
