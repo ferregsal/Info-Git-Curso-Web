@@ -387,5 +387,15 @@ Ejercicios de introducción a JS: bloque 2
 
 - Final del CRUD: add y update, funciones como parámetros
 - Asincronía en JS
+  - Conceptos
+  - Callbacks. Timeouts
+  - Promesas
+  - Async / await
+- Gestión de errores
+- APIs REST -> json
 
 ## Día 5 (20/12/2024) - M1.02 10
+
+- AJAX. xmlHttpRequest (XHR)
+  - Desde el código <https://pokeapi.co/api/v2/pokemon/ditto>
+  - fetch (Browser, Node)
