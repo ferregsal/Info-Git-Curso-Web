@@ -1,13 +1,13 @@
 import { render } from '../../components/base.js';
 
 export function createCard(
-    task,
+    _task,
     deleteCard,
     updateCard,
     selector = 'body',
     position = 'beforeend'
 ) {
-    const task = { ...task };
+    const task = { ..._task };
     const template = /*html*/ `
         <li>
             <div class="card">

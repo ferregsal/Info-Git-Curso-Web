@@ -27,7 +27,7 @@ export function createAddTask(
         const data = Object.fromEntries(formData);
         const newTask = {
             ...data,
-            id: crypto.randomUUID().split('-')[0],
+            // id: crypto.randomUUID().split('-')[0],
             isDone: false,
         };
         console.log(newTask);
