@@ -10,6 +10,10 @@ Denominación: PROGRAMACIÓN WEB EN EL ENTORNO CLIENTE
 Código: MF0491_3
 180 horas (36 días)
 
+1. Elaboración de documentos web mediante lenguajes de marcas
+2. Desarrollo y reutilización de componentes software y multimedia mediante lenguajes de guión
+3. Aplicación de técnicas de usabilidad y accesibilidad en el entorno cliente
+
 ### HTML/CSS
 
 UNIDAD FORMATIVA 1
