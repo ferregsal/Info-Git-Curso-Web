@@ -346,15 +346,56 @@ Ejercicios de introducción a JS: bloque 2
     (ejemplos: myLength, myPush)
 - Proyecto: Tres en raya
   - Comprobar el ganador: uso de arrays
+  - Formularios: input básico
+  - Challenge: Quiz
 
 ## Semana 7
 
 ## Día 1 (16/12/2024) - M1.02 06
 
+- JSON: stringify / parse
+- Code review del challenge
+
+- Guía estilo
+- Formularios
+  - Obtención de datos
+  - Validaciones nativas de HTML
+  - Validaciones custom
+
 ## Día 2 (17/12/2024) - M1.02 07
+
+- Enrutamiento (routing)
+  - Rutas relativas a origen / a documento
+  - root en el servidor web
+  - carga de JS basada en location.path
+- Componentes
+  - template strings de HTML
+  - element.insertAdjacentHTML
+  - componentes funcionales
 
 ## Día 3 (18/12/2024) - M1.02 08
 
+- CRUD basado en componentes: ToDo List
+  - Concepto de Entidad (Modelo)
+  - Mock de datos: servicio para la importación desde JSON
+  - Página tasks y su ruta
+  - Componente task-cards: array de datos
+  - Componente card: parámetros
+  - Delete: función como parámetro
+
 ## Día 4 (19/12/2024) - M1.02 09
 
+- Final del CRUD: add y update, funciones como parámetros
+- Asincronía en JS
+  - Conceptos
+  - Callbacks. Timeouts
+  - Promesas
+  - Async / await
+- Gestión de errores
+- APIs REST -> json
+
 ## Día 5 (20/12/2024) - M1.02 10
+
+- AJAX. xmlHttpRequest (XHR)
+  - Desde el código <https://pokeapi.co/api/v2/pokemon/ditto>
+  - fetch (Browser, Node)

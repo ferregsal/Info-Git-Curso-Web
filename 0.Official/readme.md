@@ -1,9 +1,18 @@
 # IFCD0210
 
+Módulo 1 - Programación web en el entorno cliente (front: 180 horas)
+Módulo 2 - Programación web en el entorno servidor (back: 240 horas)
+Módulo 3 - Implantación de aplicaciones web en entornos Internet, Intranet y Extranet. (CI/CD: 90 horas)
+
 ## MÓDULO FORMATIVO 1 - Front
 
 Denominación: PROGRAMACIÓN WEB EN EL ENTORNO CLIENTE
 Código: MF0491_3
+180 horas (36 días)
+
+1. Elaboración de documentos web mediante lenguajes de marcas
+2. Desarrollo y reutilización de componentes software y multimedia mediante lenguajes de guión
+3. Aplicación de técnicas de usabilidad y accesibilidad en el entorno cliente
 
 ### HTML/CSS
 
@@ -49,6 +58,7 @@ Consumidos en la intro (para Git): 15 horas (2 días)
 
 Denominación: PROGRAMACIÓN WEB EN EL ENTORNO SERVIDOR
 Código: MF0492_3
+240 horas (48 días)
 
 ### Aplicaciones en el servidor
 
