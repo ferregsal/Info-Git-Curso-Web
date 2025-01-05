@@ -1,5 +1,11 @@
-import { createHeader } from './components/header.js';
+import { createDialogNav } from './components/dialog-nav.js';
+import { createFooter } from './components/footer.js';
+import { createHeader, startHeader } from './components/header.js';
+import { gamePlayers } from './players.js';
 import { tttGame } from './ttt.js';
+import { quizGame } from './quiz.js';
+import { quizGamePlus } from './quiz+.js';
+import { canisGame } from './pages/canis/canis.js';
 
 console.log('Index loaded');
 
@@ -44,33 +50,79 @@ function checkDOM() {
     document.getElementsByName('valor de name');
 }
 
+// Pseudo-componentes que construyen el layout de todas las páginas
+
 const title = 'Juegos';
-// document.querySelector('header').outerHTML = createHeader_brown(title);
+document.body.insertAdjacentHTML('afterBegin', createHeader(title));
+document.body.insertAdjacentHTML('afterBegin', createDialogNav());
+document.body.insertAdjacentHTML('beforeEnd', createFooter());
 
-document
-    .querySelector('body')
-    .insertAdjacentHTML('afterBegin', createHeader(title));
+startHeader();
 
-tttGame();
+// detección de la página actual
 
-const elementButton = document.querySelector('.test button');
-elementButton.setAttribute('class', 'some-class');
-//html: <button disabled></button>
-// DOM: disabled=true
-// DOM attributes:
-//      0: disabled
-//      disabled: disabled
-// elementButton.disabled = true;
-// html: <button disabled></button>
-// DOM: disabled=true
-// DOM attributes:
-//      0: disabled
-//      disabled: disabled
-console.dir(elementButton);
-console.log('disable', elementButton.disabled);
-console.log('attributes', elementButton.attributes);
+// const currentPage = document.querySelector('main').dataset.page;
+// const currentPage = location.pathname.split('/').pop().split('.')[0];
 
-elementButton.removeAttribute('disabled');
-// // elementButton.disabled = false;
-// console.log('disable', elementButton.disabled);
-// console.log('attributes', elementButton.attributes);
+const currentPathNameEnd = location.pathname.split('/').at(-1);
+const currentPage = currentPathNameEnd
+    ? currentPathNameEnd.split('.')[0]
+    : 'index';
+
+switch (currentPage) {
+    case 'players':
+        console.log('players');
+        console.log({ currentPage });
+        gamePlayers();
+        break;
+    case 'ttt':
+        console.log('ttt');
+        console.log({ currentPage });
+        tttGame();
+        break;
+    case 'quiz':
+        console.log('quiz');
+        console.log({ currentPage });
+        quizGame();
+        break;
+    case 'quiz+':
+        console.log('quiz');
+        console.log({ currentPage });
+        quizGamePlus();
+        break;
+    case 'canis':
+        console.log('canis');
+        console.log({ currentPage });
+        canisGame();
+        break;
+    case 'index':
+    case 'home':
+    default:
+        console.log('index');
+        console.log({ currentPage });
+        break;
+}
+
+function checkDOMAttributes() {
+    const elementButton = document.querySelector('.test button');
+    elementButton.setAttribute('class', 'some-class');
+    //html: <button disabled></button>
+    // DOM: disabled=true
+    // DOM attributes:
+    //      0: disabled
+    //      disabled: disabled
+    // elementButton.disabled = true;
+    // html: <button disabled></button>
+    // DOM: disabled=true
+    // DOM attributes:
+    //      0: disabled
+    //      disabled: disabled
+    console.dir(elementButton);
+    console.log('disable', elementButton.disabled);
+    console.log('attributes', elementButton.attributes);
+
+    elementButton.removeAttribute('disabled');
+    // // elementButton.disabled = false;
+    // console.log('disable', elementButton.disabled);
+    // console.log('attributes', elementButton.attributes);
+}

@@ -1,0 +1,42 @@
+section {
+    figure {
+        figcaption {
+            text-align: center;
+            font-weight: var(--weight-medium);
+            text-wrap: balance;
+        }
+        img {
+            margin: 0 auto;
+            border-radius: var(--radius);
+        }
+    }
+    .popover:popover-open {
+        inset: unset;
+        position: fixed;
+        top: 50%;
+        left: 30%;
+        width: 40%;
+        padding: var(--space);
+        background-color: var(--color-secondary);
+        border: 1px solid var(--color-primary);
+        opacity: 0.8;
+        border-radius: var(--radius);
+        /* box-shadow: var(--shadow); */
+        text-align: center;
+
+        p {
+            margin: 0 auto;
+        }
+        &::backdrop {
+            background-color: var(--color-primary);
+            opacity: 0.6;
+        }
+    }
+
+    menu {
+        margin-block-start: var(--space-half);
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-quarter);
+    }
+}
