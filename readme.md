@@ -42,7 +42,19 @@ Formador / Desarrollador Web FullStack
 17. Oscar Javier
 18. Raúl
 
-## Semana 1
+## Previsión de días
+
+- Modulo 1: 36 días
+  - Previo Git: 2 días
+  - Previo JS: 6 días
+  - Unidad 1: 12 días
+  - Unidad 2: 12 días (6 días de cedidos a previo JS) = 18 días programados
+  - Unidad 3: 4 días (2 días de cedidos a previo git) = 6 días programados
+  - Total: 36 días
+- Modulo 2: 48 días
+- Modulo 3: 18 días
+
+## Semana 1 (Noviembre)
 
 ### Día 1 (M - 05/11/2024) - Git 01
 
@@ -101,7 +113,7 @@ Formador / Desarrollador Web FullStack
 
 Ejercicios de introducción a JS
 
-## Semana 2
+## Semana 2 (Noviembre)
 
 ### Dia 1 (L 11/11/2024) - ES 02
 
@@ -134,7 +146,7 @@ J 16/11/2024 sin clase
 
 Ejercicios de introducción a JS: bloque 2
 
-## Semana 3
+## Semana 3 (Noviembre)
 
 ### Dia 1 (L 18/11/2024) - M1.U1 01
 
@@ -208,9 +220,9 @@ Ejercicios de introducción a JS: bloque 2
   - Opción: Uso de una tabla para indicar los ingredientes
   - Formulario de contacto
 
-## Semana 4
+## Semana 4 (Noviembre)
 
-## Día 1 (27/11/2024) - M1.01 06
+### Día 1 (27/11/2024) - M1.01 06
 
 - CSS
   - Referencias
@@ -219,7 +231,7 @@ Ejercicios de introducción a JS: bloque 2
     - Selectores
 - Ejemplo practica: añadir CSS a las recetas
 
-## Día 2 (28/11/2024) - M1.01 07
+### Día 2 (28/11/2024) - M1.01 07
 
 - CSS
   - Selectores: ejercicios
@@ -230,15 +242,15 @@ Ejercicios de introducción a JS: bloque 2
     - e.g. ::mark() -> details (summary) / dialog
   - Propiedades lógicas
 
-## Día 3 (29/11/2024) - M1.01 08
+### Día 3 (29/11/2024) - M1.01 08
 
 - Repaso: CSS Vars & PseudoClases
 - Box Model
 - Layouts: Displays tradicionales / Float
 
-## Semana 5
+## Semana 5 (Diciembre)
 
-## Día 1 (02/12/2024) - M1.01 09
+### Día 1 (02/12/2024) - M1.01 09
 
 - CSS: Lenguaje y funcionalidades
   - Colores
@@ -254,7 +266,7 @@ Ejercicios de introducción a JS: bloque 2
   - Flex: Ejercicios
   - Grid
 
-## Día 2 (03/12/2024) - M1.01 10
+### Día 2 (03/12/2024) - M1.01 10
 
 - Grid: Ejercicios
 - Position
@@ -270,7 +282,7 @@ Ejercicios de introducción a JS: bloque 2
   - Ejemplo
     - Head & Nav
 
-## Día 3 (04/12/2024) - M1.01 11
+### Día 3 (04/12/2024) - M1.01 11
 
 - Position
   - Anchor
@@ -280,7 +292,7 @@ Ejercicios de introducción a JS: bloque 2
   - Contenido
   - Imágenes
 
-## Día 4 (05/12/2024) - M1.01 12
+### Día 4 (05/12/2024) - M1.01 12
 
 - RWD Ejemplo (final)
   - Subgrid
@@ -300,15 +312,15 @@ Ejercicios de introducción a JS: bloque 2
   - Transformaciones
   - Transiciones y animaciones
 
-## Semana 6
+## Semana 6 (Diciembre)
 
-## Día 1 (09/12/2024) - M1.02 01
+### Día 1 (09/12/2024) - M1.02 01
 
 - Revisión del Challenge planteado
 - Conceptos de Arquitectura Web y Navegadores
 - Regreso a JS: ejercicios
 
-## Día 2 (10/12/2024) - M1.02 02
+### Día 2 (10/12/2024) - M1.02 02
 
 - Share excalidrow: <https://excalidraw.com/#room=682f4b93591314b4482f,uWtj0erMVYlY-3ll0_LoSQ>
 - JS: Modelo mental
@@ -321,13 +333,13 @@ Ejercicios de introducción a JS: bloque 2
   - Acceso secuencial
   - Acceso directo: get v. query
 
-## Día 3 (11/12/2024) - M1.02 03
+### Día 3 (11/12/2024) - M1.02 03
 
 - Revisión: Modelo Mental
 - Proyecto: Tres en raya
 - Modificación de elementos del DOM
 
-## Día 4 (12/12/2024) - M1.02 04
+### Día 4 (12/12/2024) - M1.02 04
 
 - Revisión de conceptos: funciones
   - Parámetros, atributos, callbacks
@@ -337,7 +349,7 @@ Ejercicios de introducción a JS: bloque 2
   - Clases del HTML
   - Eventos -> callbacks
 
-## Día 5 (13/12/2024) - M1.02 05
+### Día 5 (13/12/2024) - M1.02 05
 
 - Revisión de conceptos: métodos de array
   - Mutables: push, sort
@@ -351,7 +363,7 @@ Ejercicios de introducción a JS: bloque 2
 
 ## Semana 7
 
-## Día 1 (16/12/2024) - M1.02 06
+### Día 1 (16/12/2024) - M1.02 06
 
 - JSON: stringify / parse
 - Code review del challenge
@@ -362,7 +374,7 @@ Ejercicios de introducción a JS: bloque 2
   - Validaciones nativas de HTML
   - Validaciones custom
 
-## Día 2 (17/12/2024) - M1.02 07
+### Día 2 (17/12/2024) - M1.02 07
 
 - Enrutamiento (routing)
   - Rutas relativas a origen / a documento
@@ -373,7 +385,7 @@ Ejercicios de introducción a JS: bloque 2
   - element.insertAdjacentHTML
   - componentes funcionales
 
-## Día 3 (18/12/2024) - M1.02 08
+### Día 3 (18/12/2024) - M1.02 08
 
 - CRUD basado en componentes: ToDo List
   - Concepto de Entidad (Modelo)
@@ -383,7 +395,7 @@ Ejercicios de introducción a JS: bloque 2
   - Componente card: parámetros
   - Delete: función como parámetro
 
-## Día 4 (19/12/2024) - M1.02 09
+### Día 4 (19/12/2024) - M1.02 09
 
 - Final del CRUD: add y update, funciones como parámetros
 - Asincronía en JS
@@ -394,8 +406,39 @@ Ejercicios de introducción a JS: bloque 2
 - Gestión de errores
 - APIs REST -> json
 
-## Día 5 (20/12/2024) - M1.02 10
+### Día 5 (20/12/2024) - M1.02 10
 
 - AJAX. xmlHttpRequest (XHR)
   - Desde el código <https://pokeapi.co/api/v2/pokemon/ditto>
   - fetch (Browser, Node)
+
+## Semana 8 (Enero)
+
+### Día 1 (07/01/2025) - M1.02 11
+
+- Code review de los Challenges de Navidad
+- Astro.js
+
+### Día 2 (08/01/2025) - M1.02 12
+
+### Día 3 (09/01/2025) - M1.03 01
+
+### Día 4 (10/01/2025) - M1.03 02
+
+## Semana 9 (Enero)
+
+### Día 1 (13/01/2025) - M1.03
+
+- Accesibilidad / UX
+
+### Día 2 (14/01/2025) - M1.03 04
+
+- Accesibilidad / UX
+
+### Día 3 (15/01/2025) - M2.01 01
+
+- ¿Examen?
+
+### Día 4 (16/01/2025) - M2.01 02
+
+### Día 5 (17/01/2025) - M2.01 03
