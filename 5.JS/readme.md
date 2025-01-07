@@ -169,3 +169,14 @@ Uso de arrays en el entorno Web
   - fetch (Browser, Node)
 
 (Día 5. 20/12/2024)
+
+#### Render Models
+
+- Creación manual en el servidor
+- SSG (Static Site Generation) - se genera el HTML en el servidor en tiempo de compilación (ahead of time)
+- SSR (Server Side Rendering) - se genera el HTML en el servidor en tiempo de ejecución (just in time)
+- CSR (Client Side Rendering) - se genera el HTML en el cliente en tiempo de ejecución (just in time)
+
+#### Astro JS
+
+Resolución del Challenge

@@ -425,19 +425,19 @@ Ejercicios de introducción a JS: bloque 2
 
 ### Día 4 (10/01/2025) - M1.03 02
 
+- Accesibilidad / UX
+
 ## Semana 9 (Enero)
 
 ### Día 1 (13/01/2025) - M1.03
 
-- Accesibilidad / UX
+- Examen
 
 ### Día 2 (14/01/2025) - M1.03 04
 
-- Accesibilidad / UX
+- Examen 2
 
 ### Día 3 (15/01/2025) - M2.01 01
-
-- ¿Examen?
 
 ### Día 4 (16/01/2025) - M2.01 02
 
