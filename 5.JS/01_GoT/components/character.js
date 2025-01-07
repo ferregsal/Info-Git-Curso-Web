@@ -6,13 +6,13 @@ export function createCharacter(
     character
 ) {
     const template = /*html*/ `
-      <li class="character col">
+      <li class="character">
         <div class="card character__card">
-          <img src="assets/no-one.jpg" alt="Nombre y familia del personaje" class="character__picture card-img-top" />
+          <img src="assets/${character.name}.jpg" alt="Nombre y familia del personaje" class="character__picture card-img-top" />
           <div class="card-body">
-            <h2 class="character__name card-title h4">${character.name} ${character.family}</h2>
+            <h2 class="character__name card-title">${character.name} ${character.family}</h2>
             <div class="character__info">
-              <ul class="list-unstyled">
+              <ul>
                 <li>Edad: X años</li>
                 <li>
                   Estado:
@@ -22,7 +22,7 @@ export function createCharacter(
               </ul>
             </div>
             <div class="character__overlay">
-              <ul class="list-unstyled">
+              <ul>
                 <li>Años de reinado: X</li>
                 <li>Arma: XXX</li>
                 <li>Destreza: X</li>
@@ -31,8 +31,8 @@ export function createCharacter(
                 <li>Sirve a: X</li>
               </ul>
               <div class="character__actions">
-                <button class="character__action btn">habla</button>
-                <button class="character__action btn">muere</button>
+                <button class="character__action">habla</button>
+                <button class="character__action">muere</button>
               </div>
             </div>
           </div>
