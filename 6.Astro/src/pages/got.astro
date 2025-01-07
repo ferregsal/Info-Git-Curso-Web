@@ -1,0 +1,28 @@
+---
+// FrontMater
+// Aquí JS/TS
+
+import Layout from '../layouts/layout2.astro';
+import Comunicaciones from '../components/comunicaciones.astro';
+import type { Char } from '../types/types'
+import Character from '../components/character.astro';
+import DATA from '../data/data.json'
+
+console.log(DATA);
+
+---
+
+<Layout>
+    <div class="app container">
+        <ul class="characters-list row list-unstyled">
+
+            {
+                DATA.map((item) => <Character character={item as Char}/>)
+            }
+            
+        </ul>
+    </div>
+    <Comunicaciones />
+</Layout>
+
+<style></style>
