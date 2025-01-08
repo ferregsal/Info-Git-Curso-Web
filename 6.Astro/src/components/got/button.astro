@@ -1,4 +1,14 @@
-<button>
+---
+import type { Char } from '../../types/types';
+
+type Props = {
+    character: Char;
+};
+
+const { character } = Astro.props;
+---
+
+<button class="action" data-character={JSON.stringify(character)}>
     <slot />
 </button>
 
