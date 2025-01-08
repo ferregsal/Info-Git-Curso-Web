@@ -31,11 +31,12 @@ const { character } = Astro.props;
         const cardElement = document.querySelector(
             `[data-id=${character.name}]`
         ) as HTMLDivElement;
-        console.dir(cardElement);
         cardElement.querySelector('.alive')?.setAttribute('hidden', 'false');
         cardElement.querySelector('.die')?.removeAttribute('hidden');
         const imgElement = cardElement.querySelector('img') as HTMLImageElement;
+        const talkElement = cardElement.querySelectorAll('button')[0];
         imgElement.classList.add('dead');
+        talkElement.setAttribute('disabled', '');
     };
 
     const talk = (character: Char) => {
@@ -55,7 +56,7 @@ const { character } = Astro.props;
         const target = event.target as HTMLButtonElement;
         const data = target.dataset.character as string;
         const character: Char = JSON.parse(data);
-        console.log(target.textContent);
+        console.log(target.textContent, character.name);
         if (target.textContent?.trim() === 'habla') {
             talk(character);
         } else {
@@ -67,3 +68,19 @@ const { character } = Astro.props;
     console.dir(buttons);
     buttons.forEach((button) => button.addEventListener('click', handleClick));
 </script>
+
+<!-- <script define:vars={{ character }}>
+    // as-is in the final output HTML.
+    // The contents will not be processed, optimized, or bundled
+    // No es TS sino JS
+
+    const buttons = document.querySelectorAll('.action');
+    console.dir(buttons);
+    buttons.forEach((button) =>
+        button.addEventListener('click', (ev) => {
+            target = ev.target;
+            console.log(target);
+            console.log('define-var: character', character);
+        })
+    );
+</script> -->

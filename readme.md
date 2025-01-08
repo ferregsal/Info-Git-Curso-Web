@@ -442,6 +442,12 @@ Ejercicios de introducción a JS: bloque 2
 
 ### Día 3 (09/01/2025) - M1.03 01
 
+- Despliegue de una aplicación web
+  - GitHub Pages
+  - Netlify: https://app.netlify.com/drop
+  - Vercel
+- Actualizar versión de NOdeJS v23.6.01 -> Ejecuta TS
+
 ### Día 4 (10/01/2025) - M1.03 02
 
 - Accesibilidad / UX
