@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Ejercicios de CSS" />
+    <title>Style guide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./guide.css" />
+  </head>
+  <body>
+    <section class="colors">
+      <div class="" title="bronze"></div>
+      <div class="" title="golden"></div>
+      <div class="" title="brown light"></div>
+      <div class="" title="white like"></div>
+      <div class="" title="bisque like"></div>
+      <div class="" title="brown / marron"></div>
+      <div class="n" title="brown dark"></div>
+      <div class="" title="black like"></div>
+    </section>
+    <section class="headings">
+      <h1>This is Heading 1</h1>
+      <h2>This is Heading 2</h2>
+      <h3>This is Heading 3</h3>
+      <h4>This is Heading 4</h4>
+      <h5>This is Heading 5</h5>
+      <h6>This is Heading 6</h6>
+      <p>Parrafo aclaratorio del header</p>
+      <nav>
+        <ul>
+          <li><a href="#">A text link as nav element</a></li>
+        </ul>
+      </nav>
+      <button>Call to action</button>
+      <button disabled>Call ... disabled</button>
+    </section>
+    <section class="texts">
+      <p>
+        This is a paragraph. Lorem ipsum dolor sit, amet consectetur adipisicing
+        elit. Quisquam, pariatur.
+      </p>
+      <button class="btn-primary">Call to action</button>
+      <button disabled>Call ... disabled</button>
+      <p>
+        <a href="#">A text link by itself</a>
+      </p>
+      <p>
+        <strong>Strongly emphasized text</strong>
+      </p>
+      <p>
+        <em>Emphasized text</em>
+      </p>
+      <blockquote>
+        <p>A paragraph inside of a blockquote, said by a famous person.</p>
+      </blockquote>
+    </section>
+    <section class="lists">
+      <ul>
+        <li>This is an unordered list.</li>
+        <li>Second thing.</li>
+        <li>Third thing.</li>
+      </ul>
+      <ol>
+        <li>This is an ordered list.</li>
+        <li>Second thing.</li>
+        <li>Third thing.</li>
+      </ol>
+    </section>
+    <section class="forms">
+      <form>
+        <fieldset>
+          <label class="input">
+            <input type="text" id="name" name="name" placeholder=" " />
+            <span>Name:</span>
+          </label>
+          <label class="input">
+            <input type="email" id="email" name="email" placeholder=" " />
+            <span>Email:</span>
+          </label>
+          <label class="input">
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder=" "
+            />
+            <span>Password: </span>
+            <i onclick="(() => console.log('Ver passwd'))()">👁</i>
+          </label>
+          <label class="input">
+            <textarea rows="4" placeholder=" "></textarea>
+            <span>Más información</span>
+          </label>
+        </fieldset>
+        <fieldset class="radio inline">
+          <legend>Horizontal options</legend>
+          <label>
+            <input type="radio" name="options-h" value="1" />
+            Option 1
+          </label>
+          <label>
+            <input type="radio" name="options-h" value="2" />
+            Option 2
+          </label>
+        </fieldset>
+        <fieldset class="radio block">
+          <legend>Vertical Options</legend>
+          <label>
+            <input type="radio" name="options-v" value="1" />
+            Option 1
+          </label>
+          <label>
+            <input type="radio" name="options-v" value="2" />
+            Option 2
+          </label>
+        </fieldset>
+        <fieldset>
+          <label class="checkbox">
+            <input type="checkbox" value="1" />
+            I agree to the terms and conditions
+          </label>
+        </fieldset>
+        <fieldset>
+          <label class="select">
+            <span>Selecciona una opción</span>
+            <select>
+              <option value="1">Option 1</option>
+              <option value="2">Option 2</option>
+              <option value="3">Option 3</option>
+            </select>
+          </label>
+        </fieldset>
+        <fieldset>
+          <label class="file">
+            <span>Upload a file</span>
+            <input type="file" />
+          </label>
+        </fieldset>
+        <div class="buttons">
+          <button type="submit">Submit</button>
+          <button type="reset">Reset</button>
+        </div>
+      </form>
+    </section>
+    <section class="images">
+      <figure>
+        <img
+          src="https://assets.codepen.io/296057/fem-blindfold-475.jpg"
+          alt="The three men of Magenta Lime, blindfolded."
+        />
+        <figcaption>Magenta Lime will rock your world.</figcaption>
+      </figure>
+    </section>
+  </body>
+</html>

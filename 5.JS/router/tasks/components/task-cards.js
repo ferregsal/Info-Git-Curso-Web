@@ -1,6 +1,7 @@
 import { render } from '../../components/base.js';
 import { createCard } from './card.js';
 import { createAddTask } from './add-task.js';
+import { setTask, updateTask, deleteTask } from '../../services.js';
 
 //  id: string,
 //  title: string,
@@ -12,8 +13,8 @@ export function createTaskCards(
     selector = 'body',
     position = 'beforeend'
 ) {
-    function deleteCard({ id }) {
-        console.log(id);
+    async function deleteCard({ id }) {
+        await deleteTask(id);
         // const index = tasks.findIndex((item) => item.id === id);
         //tasks.splice(index, 1);
         tasks.splice(
@@ -23,21 +24,28 @@ export function createTaskCards(
         console.log(tasks);
     }
 
-    function updateCard(updatedTask) {
+    async function updateCard(updatedTask) {
         const id = updatedTask.id;
-        const index = tasks.findIndex((item) => item.id === id);
-        tasks[index] = {
-            ...tasks[index],
-            ...updatedTask,
-        };
-        console.log(tasks);
+        try {
+            const finalTask = await updateTask(id, updatedTask);
+            const index = tasks.findIndex((item) => item.id === id);
+            tasks[index] = finalTask;
+            console.log(tasks);
+        } catch (error) {
+            console.log(error.message);
+        }
     }
 
     function addCard(task) {
         // task.id = task.id || crypto.randomUUID().split('-')[0];
-        tasks.push(task);
-        console.log(tasks);
-        createCard(task, deleteCard, updateCard, 'ul.cards');
+
+        setTask(task)
+            .then((fullTask) => {
+                tasks.push(fullTask);
+                console.log(tasks);
+                createCard(fullTask, deleteCard, updateCard, 'ul.cards');
+            })
+            .catch((error) => console.log(error.message));
     }
 
     function extendedRender() {

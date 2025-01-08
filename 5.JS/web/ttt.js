@@ -1,6 +1,36 @@
+import { getLocalStorage } from './services.js';
+
 export function tttGame() {
+    console.log('Loaded tttGame');
     // Declaración de funciones internas (--> métodos)
 
+    function renderSelectPlayers() {
+        let template = `<option></option>`;
+
+        playersList.forEach((item, index) => {
+            template += `<option value="${index}">${item.alias}</option>`;
+        });
+
+        const playersSelectElements = document.querySelectorAll(
+            '.select-players select'
+        );
+        playersSelectElements.forEach((item) => {
+            item.innerHTML = template;
+        });
+    }
+
+    function handleSelectPlayers(event) {
+        const target = event.target;
+        players[target.dataset.id] = playersList[target.value];
+        renderPlayerNames();
+        if (players[0] && players[1] && players[0] !== players[1]) {
+            document.querySelectorAll('menu button').forEach((button) => {
+                button.removeAttribute('disabled');
+            });
+
+            target.closest('details').open = false;
+        }
+    }
     function renderPlayerNames() {
         for (let i = 0; i < ddElements.length; i++) {
             const item = ddElements[i];
@@ -8,7 +38,7 @@ export function tttGame() {
             //     ? players[i].alias
             //     : players[i].firstName;
 
-            const text = `<b>${players[i].alias || players[i].firstName}</b>`;
+            const text = players[i] ? `<b>${players[i].alias}</b>` : '';
 
             // item.textContent = text;
             item.innerHTML = text;
@@ -26,10 +56,10 @@ export function tttGame() {
         // console.dir(boardElements[0]);
 
         if (boardElement.children[position - 1].textContent) {
-            infoElement.textContent = 'Movimiento inválido';
+            infoElement.lastElementChild.textContent = 'Movimiento inválido';
             infoElement.showModal();
             setTimeout(function () {
-                infoElement.textContent = '';
+                infoElement.lastElementChild.textContent = '';
                 infoElement.close();
             }, 500);
             return;
@@ -45,19 +75,22 @@ export function tttGame() {
         console.log({ possibleWinner });
 
         if (possibleWinner === null) return;
-
-        infoElement.textContent =
+        infoElement.lastElementChild.textContent =
             possibleWinner === 'empate'
                 ? possibleWinner
                 : `Ha ganado ${players[possibleWinner].firstName}`;
         infoElement.showModal();
+
+        infoElement.firstElementChild.addEventListener('click', () => {
+            infoElement.close();
+        });
     }
 
     // Jugar simulado
 
     function simulateGame() {
         // Posiciones de 1 a 9
-        const delay = 10;
+        const delay = 1000;
         setTimeout(() => {
             // Empieza Pepe
             playTurn(5, 0);
@@ -98,6 +131,9 @@ export function tttGame() {
         [...boardElement.children].forEach((item) => {
             item.textContent = '';
         });
+        ddElements.forEach((item) => {
+            item.classList.remove('current-player');
+        });
     }
 
     function handleButtonClick(event) {
@@ -108,11 +144,6 @@ export function tttGame() {
 
         if (id === 0) {
             simulateGame();
-            // playTurn(5, 1);
-            // playTurn(7, 1);
-            // playTurn(1, 0);
-            // playTurn(2, 0);
-            // playTurn(3, 0);
         } else {
             clearGame();
         }
@@ -171,31 +202,11 @@ export function tttGame() {
         return null;
     }
 
-    function handleSetUsers(event) {
-        event.preventDefault();
-        const inputElements = document.querySelectorAll('.players input');
-        players[0].alias = inputElements[0].value;
-        players[1].alias = inputElements[1].value;
-        console.log(players);
-        renderPlayerNames();
-    }
-
     // Declaración e inicialización de variables
 
-    const players = [
-        {
-            firstName: 'Pepe',
-            surName: '',
-            alias: 'Pepin',
-            icon: '😎',
-        },
-        {
-            firstName: 'Ernestina',
-            surName: '',
-            alias: '',
-            icon: '👺',
-        },
-    ];
+    const playersList = getLocalStorage('players') || [];
+
+    const players = [];
 
     const ddElements = document.querySelectorAll('.players dd');
     const boardElement = document.querySelector('.board');
@@ -210,16 +221,18 @@ export function tttGame() {
 
     // Registro de handlers
 
-    document.querySelectorAll('.ttt button').forEach((button) => {
+    document.querySelectorAll('menu button').forEach((button) => {
         button.addEventListener('click', handleButtonClick);
     });
 
-    const saveFormElement = document.querySelector('.players form');
-    saveFormElement.addEventListener('submit', handleSetUsers);
-
     // Acciones
+    renderSelectPlayers();
 
-    renderPlayerNames();
+    // register después de renderSelectPlayers
+
+    document.querySelectorAll('.select-players select').forEach((item) => {
+        item.addEventListener('change', handleSelectPlayers);
+    });
 }
 
 // TODO

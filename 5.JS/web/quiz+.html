@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Ejercicios de JS en la Web" />
+    <title>TTT - Juegos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="shortcut icon" href="favicon.svg" type="image/x-icon" />
+    <link rel="stylesheet" href="./guide.css" />
+    <link rel="stylesheet" href="./main.css" />
+    <link rel="stylesheet" href="./quiz.css" />
+    <script src="./index.js" type="module" defer></script>
+  </head>
+  <body>
+    <main>
+      <section class="quiz">
+        <hgroup>
+          <h2>ES/JS Quiz ➕</h2>
+          <p class="score h4">
+            Score <span class="win-score">0</span> /
+            <span class="play-score">0</span>
+          </p>
+        </hgroup>
+        <div class="statement">
+          <p></p>
+        </div>
+
+        <menu class="answers">
+          <button name="true" value="true">true</button>
+          <button name="false" value="false">false</button>
+        </menu>
+
+        <div class="explanation"></div>
+        <menu class="actions">
+          <button class="next">Siguiente 🔄</button>
+          <button class="restart">Reiniciar 🏠</button>
+        </menu>
+      </section>
+    </main>
+  </body>
+</html>
