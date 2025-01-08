@@ -417,9 +417,28 @@ Ejercicios de introducción a JS: bloque 2
 ### Día 1 (07/01/2025) - M1.02 11
 
 - Code review de los Challenges de Navidad
+
 - Astro.js
 
+  - Frameworks y entorno de trabajo: dev v. build
+  - Componentes, layouts y pages: ficheros astro
+  - CSS con scope
+  - Enrutamiento basado en ficheros y carpetas
+  - Templates: interpolación, iteración y condicionales
+
 ### Día 2 (08/01/2025) - M1.02 12
+
+- Astro.js
+  - Review de lo anterior
+  - Distribución del CSS original - CSS scope
+  - Micro componentización
+    - props v. slot
+    - componentes de guía de estilos
+  - Mejora de los tipos
+  - Uso de svg
+  - Interacciones: JS en el cliente
+    - eventListeners
+    - información en el dataset de los elementos
 
 ### Día 3 (09/01/2025) - M1.03 01
 
