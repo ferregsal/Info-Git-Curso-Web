@@ -11,3 +11,5 @@
 - [Accesibilidad web: qué es y cómo aplicarla correctamente](https://www.youtube.com/watch?v=OkBIttAqCuo) Video en YouTube de una charla de Garaje de Ideas
 
 - [Herramientas automáticas para evaluar y mejorar la accesibilidad web](https://www.youtube.com/watch?v=Xxleh0L55_o) Video en YouTube
+
+- [Introducción a la accesibilidad](https://www.youtube.com/watch?v=XUIVLAnwHyQ) Video en YouTube de CódigoFacilito
