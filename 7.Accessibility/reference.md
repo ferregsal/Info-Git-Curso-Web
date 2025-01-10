@@ -6,6 +6,8 @@
 
 - [Learn Accessibility](https://web.dev/learn/accessibility). Curso en línea de web.dev (Google) sobre accesibilidad web.
 
+- [Accesibilidad web. WCAG 2.2 de forma sencilla Olga Revilla y Olga Carreras, 2024](https://www.usableyaccesible.com/recurso_libros.php?v=4)
+
 - [WebAIM](https://webaim.org/) WebAIM es un centro de recursos para la accesibilidad web.
 
 - [Accesibilidad web: qué es y cómo aplicarla correctamente](https://www.youtube.com/watch?v=OkBIttAqCuo) Video en YouTube de una charla de Garaje de Ideas
