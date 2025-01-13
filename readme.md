@@ -18,29 +18,29 @@ Formador / Desarrollador Web FullStack
 
 ## Alumnos
 
-1. María Jesús
-2. Jesús
-3. Ricardo
+1. María Jesús <https://github.com/mjm-me>
+2. Jesús <https://github.com/JesusEsteban2>
+3. Ricardo <https://github.com/Quantharian>
 
-4. Juan Antonio
-5. Emad
-6. Jerónimo
+4. Juan Antonio <https://github.com/jaehdesign>
+5. Emad <https://github.com/Ematius>
+6. Jerónimo <https://github.com/Jerotsv>
 
-7. Sergio
-8. Jose Luis
-9. Fernando
+7. Sergio <https://github.com/serguezl>
+8. Jose Luis <https://github.com/JoseCode93>
+9. Fernando <https://github.com/ferregsal>
 
-10. Lucas
-11. Daniel Alexis
-12. David Ubero
+10. Lucas <https://github.com/Lukas44-lab>
+11. Daniel Alexis <https://github.com/DaAlexis24>
+12. David Ubero <https://github.com/DuiDos>
 
-13. María del Mar
-14. Eva
-15. Almudena
+13. María del Mar <https://github.com/mgarciaben37>
+14. Eva <https://github.com/EvaV183>
+15. Almudena <https://github.com/almucc7>
 
-16. David Fuertes
-17. Oscar Javier
-18. Raúl
+16. David Fuertes <https://github.com/devfuertes>
+17. Oscar Javier <https://github.com/OscarJavierDosSantos>
+18. Raúl <https://github.com/chef2324>
 
 ## Previsión de días
 
