@@ -442,15 +442,21 @@ Ejercicios de introducción a JS: bloque 2
 
 ### Día 3 (09/01/2025) - M1.03 01
 
-- Despliegue de una aplicación web
-  - GitHub Pages
-  - Netlify: https://app.netlify.com/drop
-  - Vercel
-- Actualizar versión de NOdeJS v23.6.01 -> Ejecuta TS
+- Accesibilidad / UX
+  - Concepto general
+  - Accesibilidad en la web. Tecnologías asistivas
+  - Estándares: WAI del W3C
+    - Niveles de accesibilidad
+    - Pautas WCAG 2
+  - Elementos de accesibilidad
+    - HTML
+    - CSS
 
 ### Día 4 (10/01/2025) - M1.03 02
 
 - Accesibilidad / UX
+  - WAI - ARIA. Roles y propiedades
+  - Tools
 
 ## Semana 9 (Enero)
 
@@ -461,6 +467,11 @@ Ejercicios de introducción a JS: bloque 2
 ### Día 2 (14/01/2025) - M1.03 04
 
 - Examen 2
+- Despliegue de una aplicación web
+  - GitHub Pages
+  - Netlify: https://app.netlify.com/drop
+  - Vercel
+- Actualizar versión de NOdeJS v23.6.01 -> Ejecuta TS
 
 ### Día 3 (15/01/2025) - M2.01 01
 
