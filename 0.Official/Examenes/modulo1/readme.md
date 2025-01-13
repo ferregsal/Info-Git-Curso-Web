@@ -8,19 +8,19 @@
 
 Vista inicial del componente
 
-![Vista inicial del componente](./view-1.png)
+![Vista inicial del componente](./challenge/view-1.png)
 
 Vista cuando el usuario hace hover en una puntuación
 
-![Vista cuando el usuario hace hover](./view-1-hover.png)
+![Vista cuando el usuario hace hover](./challeng/view-1-hover.png)
 
 Vista cuando el usuario hace click en una puntuación, y retira el ratón
 
-![Vista cuando el usuario hace click](./view-1-selected.png)
+![Vista cuando el usuario hace click](./challenge/view-1-selected.png)
 
 Segunda vista del componente, cuando el usuario hace click en el botón de "Enviar"
 
-![Vista cuando el usuario hace click en el botón de "Enviar"](./view-2.png)
+![Vista cuando el usuario hace click en el botón de "Enviar"](./challenge/view-2.png)
 
 ## El desafío
 
