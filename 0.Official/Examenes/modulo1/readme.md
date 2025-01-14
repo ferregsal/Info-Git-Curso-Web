@@ -4,6 +4,10 @@
 
 <https://forms.gle/oBjMKRszDNrDN4f67>
 
+## Accesibilidad - Segunda convocatoria
+
+<https://forms.gle/bFbcGceMMNdWfdb5A>
+
 ## Práctico
 
 Vista inicial del componente
@@ -72,3 +76,19 @@ Como se mencionó anteriormente, hay muchas formas de alojar tu proyecto de form
 - [Netlify](https://www.netlify.com/)
 
 Puedes alojar tu sitio utilizando una de estas soluciones o cualquiera de nuestros otros proveedores de confianza.
+
+PUNTOS:
+
+- Repo [] (1)
+- Vista 1 HTML [] (1)
+- Vista 2 HTML [] (1)
+<!-- -------------------------------Repo + HTML [3] -->
+- Vista 1 CSS [] (1)
+- Vista 2 CSS [] (1)
+- Hover en botones de selección [] (1)
+<!-- ------------------------------ CSS + Hover [3]-->
+- JS - Botones score - Cambio de vista [] (2)
+- Ajuste al original [] (0.5)
+- Despliegue [] (0.5)
+- buen código (si funciona) [] (1)
+<!-- ------------------------------ JS + Extras [4]-->
