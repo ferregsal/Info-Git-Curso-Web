@@ -1,4 +1,4 @@
-import { add } from './services';
+import { add } from '@/services/services';
 
 test('Add function with 0 and 1 should return 1', () => {
     expect(add(0, 1)).toBe(1);
