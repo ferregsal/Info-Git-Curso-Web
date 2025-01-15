@@ -36,9 +36,13 @@ Incluido y configurado en la instalación
 
 ## Linter
 
+<https://eslint.org/>
+
 - ESLint
 
 ## Testing
+
+<https://vitest.dev/>
 
 - Vitest
 
