@@ -1,4 +1,4 @@
-import { add } from './services';
+import { add } from '@/services/services';
 
 console.log('Loaded main');
 
