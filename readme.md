@@ -473,28 +473,40 @@ Ejercicios de introducción a JS: bloque 2
 - Examen 2
 - Revisión del Examen teórico
 - Code Review del práctico
-- Colecciones en Astro
 
 ### Día 3 (15/01/2025) - M2.01 01
 
 - Módulo 2
-- El proceso del desarrollo de software
-
-  - ciclo de vida del software
-  - agile: scrum
 
 - JS/TS profesional. Entorno
+
   - Versiones de NodeJS: actualizar v23.6.0x -> Ejecuta TS
-  - Construcción del proyecto: Vite
+  - Construcción de un proyecto FRONT: Vite
   - TypeScript
+  - editorconfig / prettier
   - Linter
   - Build
+
+- Testing: vitest
+  - Instalación
+  - Ejemplos
+
+### Día 4 (16/01/2025) - M2.01 02
+
 - Despliegue de una aplicación web
+
   - GitHub Pages
   - Netlify: https://app.netlify.com/drop
   - Vercel
 
-### Día 4 (16/01/2025) - M2.01 02
+- Proyectos backend / NodeJS
+
+### Día 5 (17/01/2025) - M2.01 03
+
+- El proceso del desarrollo de software
+
+  - ciclo de vida del software
+  - agile: scrum
 
 - JS como lenguaje: profundización
   - Valores. Variables y tipos
@@ -507,10 +519,6 @@ Ejercicios de introducción a JS: bloque 2
   - Tipos primitivos y objetos. Métodos de string
   - Constructores y métodos estáticos
   - Arrays
-
-### Día 5 (17/01/2025) - M2.01 03
-
-JS como lenguaje: profundización
 
 ## Semana 10 (Enero)
 
@@ -538,6 +546,8 @@ JS como lenguaje: profundización
 - JS en la Web: Node
 
 ### Día 1 (20/01/2025) - M2.01 04
+
+JS como lenguaje: profundización
 
 ### Día 2 (21/01/2025) - M2.01 05
 

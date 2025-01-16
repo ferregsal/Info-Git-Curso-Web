@@ -96,7 +96,7 @@ Hay que configurar vite para que reconozca las funciones de los tests como varia
 - `vite.config.ts`
 
 ```ts
-import { defineConfig } from 'vite';
+import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
   test: {
