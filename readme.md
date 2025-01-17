@@ -496,14 +496,19 @@ Ejercicios de introducción a JS: bloque 2
 - Despliegue de una aplicación web
 
   - GitHub Pages
-  - Netlify: https://app.netlify.com/drop
+  - Netlify atajo: <https://app.netlify.com/drop>
+  - Netlify
   - Vercel
 
 - Proyectos backend / NodeJS
 
+  - TS
+  - ESLint
+  - Testing (Vitest)
+
 ### Día 5 (17/01/2025) - M2.01 03
 
-- El proceso del desarrollo de software
+- El proceso del desarrollo de software (módulo 3)
 
   - ciclo de vida del software
   - agile: scrum
@@ -522,18 +527,8 @@ Ejercicios de introducción a JS: bloque 2
 
 ## Semana 10 (Enero)
 
-- OOP v FP
-
-  - Elementos de FP en JS
-  - Creación de Objetos
-    - Literales
-    - Factory
-    - Constructor: "clases".
-    - Clases y herencia en ES6+
-
 - TS
 
-  - Entorno y configuración
   - Tipos e interfaces
   - Clases y OOP en TS
     - Conceptos generales de OOP
@@ -542,6 +537,15 @@ Ejercicios de introducción a JS: bloque 2
     - Polimorfismo
     - Asociación
   - Decoradores
+
+- OOP v FP
+
+  - Elementos de FP en JS
+  - Creación de Objetos
+    - Literales
+    - Factory
+    - Constructor: "clases".
+    - Clases y herencia en ES6+
 
 - JS en la Web: Node
 
