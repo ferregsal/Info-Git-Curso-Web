@@ -515,17 +515,35 @@ Ejercicios de introducción a JS: bloque 2
 
 - JS como lenguaje: profundización
   - Valores. Variables y tipos
-  - Expresiones y sentencias. Funciones
-  - Desestructuración
-  - Módulos ES
-  - Sentencias: Flujo del código
-  - Errores
-  - Objetos en JS
-  - Tipos primitivos y objetos. Métodos de string
-  - Constructores y métodos estáticos
-  - Arrays
+  - Modelo mental
 
 ## Semana 10 (Enero)
+
+### Día 1 (20/01/2025) - M2.01 04
+
+JS como lenguaje: profundización
+
+- Expresiones y sentencias. Funciones
+- Sentencias: Flujo del código
+- Errores
+- Objetos en JS
+- Constructores y métodos estáticos
+- Tipos primitivos y objetos. Métodos de string
+- Arrays
+
+### Día 2 (21/01/2025) - M2.01 05
+
+- Funciones
+- Objetos en JS
+- Desestructuración
+- Módulos ES
+
+### Día 3 (22/01/2025) - M2.01 06
+
+- OOP
+- Constructores y métodos estáticos
+
+### Día 4 (23/01/2025) - M2.01 07
 
 - TS
 
@@ -538,6 +556,8 @@ Ejercicios de introducción a JS: bloque 2
     - Asociación
   - Decoradores
 
+### Día 5 (24/01/2025) - M2.01 08
+
 - OOP v FP
 
   - Elementos de FP en JS
@@ -547,21 +567,9 @@ Ejercicios de introducción a JS: bloque 2
     - Constructor: "clases".
     - Clases y herencia en ES6+
 
-- JS en la Web: Node
-
-### Día 1 (20/01/2025) - M2.01 04
-
-JS como lenguaje: profundización
-
-### Día 2 (21/01/2025) - M2.01 05
-
-### Día 3 (22/01/2025) - M2.01 06
-
-### Día 4 (23/01/2025) - M2.01 07
-
-### Día 1 (24/01/2025) - M2.01 08
-
 ## Semana 11 (Enero)
+
+- JS en la Web: Node
 
 - Servidores Web: Express
 - Rutas y controladores
