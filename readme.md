@@ -18,29 +18,29 @@ Formador / Desarrollador Web FullStack
 
 ## Alumnos
 
-1. María Jesús
-2. Jesús
-3. Ricardo
+1. María Jesús <https://github.com/mjm-me>
+2. Jesús <https://github.com/JesusEsteban2>
+3. Ricardo <https://github.com/Quantharian>
 
-4. Juan Antonio
-5. Emad
-6. Jerónimo
+4. Juan Antonio <https://github.com/jaehdesign>
+5. Emad <https://github.com/Ematius>
+6. Jerónimo <https://github.com/Jerotsv>
 
-7. Sergio
-8. Jose Luis
-9. Fernando
+7. Sergio <https://github.com/serguezl>
+8. Jose Luis <https://github.com/JoseCode93>
+9. Fernando <https://github.com/ferregsal>
 
-10. Lucas
-11. Daniel Alexis
-12. David Ubero
+10. Lucas <https://github.com/Lukas44-lab>
+11. Daniel Alexis <https://github.com/DaAlexis24>
+12. David Ubero <https://github.com/DuiDos>
 
-13. María del Mar
-14. Eva
-15. Almudena
+13. María del Mar <https://github.com/mgarciaben37>
+14. Eva <https://github.com/EvaV183>
+15. Almudena <https://github.com/almucc7>
 
-16. David Fuertes
-17. Oscar Javier
-18. Raúl
+16. David Fuertes <https://github.com/devfuertes>
+17. Oscar Javier <https://github.com/OscarJavierDosSantos>
+18. Raúl <https://github.com/chef2324>
 
 ## Previsión de días
 
@@ -52,6 +52,9 @@ Formador / Desarrollador Web FullStack
   - Unidad 3: 4 días (2 días de cedidos a previo git) = 6 días programados
   - Total: 36 días
 - Modulo 2: 48 días
+  - JS server. OOP. NodeJS: 18 días
+  - DB. Modelos. SQL. Mongo: 18 días
+  - Aplicaciones Web. 12 días
 - Modulo 3: 18 días
 
 ## Semana 1 (Noviembre)
@@ -462,19 +465,134 @@ Ejercicios de introducción a JS: bloque 2
 
 ### Día 1 (13/01/2025) - M1.03
 
-- Examen
+- Examen teórico
+- Examen práctico
 
 ### Día 2 (14/01/2025) - M1.03 04
 
 - Examen 2
-- Despliegue de una aplicación web
-  - GitHub Pages
-  - Netlify: https://app.netlify.com/drop
-  - Vercel
-- Actualizar versión de NOdeJS v23.6.01 -> Ejecuta TS
+- Revisión del Examen teórico
+- Code Review del práctico
 
 ### Día 3 (15/01/2025) - M2.01 01
 
+- Módulo 2
+
+- JS/TS profesional. Entorno
+
+  - Versiones de NodeJS: actualizar v23.6.0x -> Ejecuta TS
+  - Construcción de un proyecto FRONT: Vite
+  - TypeScript
+  - editorconfig / prettier
+  - Linter
+  - Build
+
+- Testing: vitest
+  - Instalación
+  - Ejemplos
+
 ### Día 4 (16/01/2025) - M2.01 02
 
+- Despliegue de una aplicación web
+
+  - GitHub Pages
+  - Netlify atajo: <https://app.netlify.com/drop>
+  - Netlify
+  - Vercel
+
+- Proyectos backend / NodeJS
+
+  - TS
+  - ESLint
+  - Testing (Vitest)
+
 ### Día 5 (17/01/2025) - M2.01 03
+
+- El proceso del desarrollo de software (módulo 3)
+
+  - ciclo de vida del software
+  - agile: scrum
+
+- JS como lenguaje: profundización
+  - Valores. Variables y tipos
+  - Expresiones y sentencias. Funciones
+  - Desestructuración
+  - Módulos ES
+  - Sentencias: Flujo del código
+  - Errores
+  - Objetos en JS
+  - Tipos primitivos y objetos. Métodos de string
+  - Constructores y métodos estáticos
+  - Arrays
+
+## Semana 10 (Enero)
+
+- TS
+
+  - Tipos e interfaces
+  - Clases y OOP en TS
+    - Conceptos generales de OOP
+    - Encapsulación y abstracción
+    - Herencia
+    - Polimorfismo
+    - Asociación
+  - Decoradores
+
+- OOP v FP
+
+  - Elementos de FP en JS
+  - Creación de Objetos
+    - Literales
+    - Factory
+    - Constructor: "clases".
+    - Clases y herencia en ES6+
+
+- JS en la Web: Node
+
+### Día 1 (20/01/2025) - M2.01 04
+
+JS como lenguaje: profundización
+
+### Día 2 (21/01/2025) - M2.01 05
+
+### Día 3 (22/01/2025) - M2.01 06
+
+### Día 4 (23/01/2025) - M2.01 07
+
+### Día 1 (24/01/2025) - M2.01 08
+
+## Semana 11 (Enero)
+
+- Servidores Web: Express
+- Rutas y controladores
+- Repositorios
+- NestJS
+- ¿Introducción a DB?
+- ORM / ODM
+
+### Día 1 (27/01/2025) - M2.01 09
+
+### Día 2 (28/01/2025) - M2.01 10
+
+### Día 3 (29/01/2025) - M2.01 11
+
+### Día 4 (30/01/2025) - M2.01 12
+
+### Día 1 (31/01/2025) - M2.01 13
+
+## Semana 12 (Febrero)
+
+- Autenticación: JWT
+- Uso de la autenticación desde el cliente
+- Gestión de imágenes: Multer
+- Almacenamiento de las imágenes: Cloudinary
+
+### Día 1 (03/02/2025) - M2.01 14
+
+### Día 2 (04/02/2025) - M2.01 15
+
+### Día 3 (05/02/2025) - M2.01 16
+
+### Día 4 (06/02/2025) - M2.01 17
+
+### Día 1 (07/02/2025) - M2.01 18
