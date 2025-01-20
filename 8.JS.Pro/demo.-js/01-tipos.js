@@ -272,6 +272,7 @@
     }
 }
 {
+    // Arrays
     const data = [1, 2, 3];
     const data2 = new Array(1, 2, 3);
 
@@ -279,4 +280,80 @@
 
     data.name = 'Array de números';
     console.log(data, data2);
+}
+{
+    // Mutabilidad
+
+    // Reasignación de valores INMUTABLES
+    let z = 22;
+    let x = 22;
+    x = 24;
+
+    // const + valor primitivo (INMUTABLE) = CONSTANTE
+    const c = 23;
+    // c = 33; // Error TypeError: Assignment
+
+    // const + objeto -> NO ES CONSTANTE: es MUTABLE
+
+    const obj = {};
+    obj.name = 'Pepe';
+    // obj = {}; // Error TypeError: Assignment
+
+    // const + objeto + Object.freeze = CONSTANTE
+
+    const EMPRESA = { brand: 'CAS', address: '' };
+    Object.freeze(EMPRESA);
+
+    // EMPRESA.brand = 'New Empresa'; // TypeError: Cannot assign to read only
+}
+{
+    //  Métodos (de instancia)
+    const greet = () => 'Hola Mundo';
+    const obj = {
+        greet: function () {
+            return 'Hola Mundo';
+        },
+    };
+
+    console.log(obj.greet());
+    [].at(-1);
+    ''.toLowerCase();
+}
+{
+    // Métodos estáticos (de clase)
+    const obj = {
+        greet: function () {
+            return 'Hola Mundo';
+        },
+    };
+
+    Object.freeze(obj);
+
+    const data = [];
+    console.log(typeof data);
+
+    Array.isArray(data); // true
+
+    Math.random();
+    // new JSON();
+}
+{
+    // Wrapper objects de los primitivos
+
+    const d = '2';
+    console.log(22 / d);
+
+    let foo = 'Hola';
+
+    // const z = new String()
+
+    // Ejemplo de coercion a String
+    console.log(foo.toLowerCase());
+    console.log(foo);
+
+    let n = 22;
+    console.log(n.toFixed(2));
+
+    let big = 2n;
+    big.toString();
 }
