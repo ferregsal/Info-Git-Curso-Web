@@ -536,17 +536,22 @@ JS como lenguaje: profundización
 - Funciones
 - Objetos en JS
 - Desestructuración
-- Módulos ES
+- Objetos en JS
 
 ### Día 3 (22/01/2025) - M2.01 06
 
-- OOP
-- Constructores y métodos estáticos
+- Módulos ES6 (review)
+- Elementos de FP (Functional Programming) en JS
+- OOP: Creación de Objetos
+  - Literales
+  - Factory
+  - Constructor: "clases".
+  - Clases y herencia en ES6+
+  - Constructores y métodos estáticos
 
 ### Día 4 (23/01/2025) - M2.01 07
 
 - TS
-
   - Tipos e interfaces
   - Clases y OOP en TS
     - Conceptos generales de OOP
@@ -558,14 +563,7 @@ JS como lenguaje: profundización
 
 ### Día 5 (24/01/2025) - M2.01 08
 
-- OOP v FP
-
-  - Elementos de FP en JS
-  - Creación de Objetos
-    - Literales
-    - Factory
-    - Constructor: "clases".
-    - Clases y herencia en ES6+
+- Paradigma de la OOP en JS/TS
 
 ## Semana 11 (Enero)
 
