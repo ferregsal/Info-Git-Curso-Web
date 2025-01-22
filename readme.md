@@ -534,36 +534,46 @@ JS como lenguaje: profundización
 ### Día 2 (21/01/2025) - M2.01 05
 
 - Funciones
-- Objetos en JS
+  - Parámetros primitivos v. objeto
 - Desestructuración
-- Objetos en JS
+  - En declaración de variables y parámetros
+  - Operador spreed
+  - Operador rest (parámetros)
+- Objetos en JS. Literales
+  - Prototype (\_\_proto\_\_)
 
 ### Día 3 (22/01/2025) - M2.01 06
 
 - Módulos ES6 (review)
 - Elementos de FP (Functional Programming) en JS
+  - HOF
+  - IIFE
+  - Closures
 - OOP: Creación de Objetos
-  - Literales
-  - Factory
+  - Patrones de ejecución. This
   - Constructor: "clases".
-  - Clases y herencia en ES6+
-  - Constructores y métodos estáticos
+  - Constructores y miembros estáticos
 
 ### Día 4 (23/01/2025) - M2.01 07
+
+- Review clases
+- Clases y herencia en ES6+
+- Factory
 
 - TS
   - Tipos e interfaces
   - Clases y OOP en TS
-    - Conceptos generales de OOP
-    - Encapsulación y abstracción
-    - Herencia
-    - Polimorfismo
-    - Asociación
   - Decoradores
 
 ### Día 5 (24/01/2025) - M2.01 08
 
 - Paradigma de la OOP en JS/TS
+- Conceptos generales de OOP
+  - Encapsulación y abstracción
+  - Herencia
+  - Polimorfismo
+  - Asociación
+- Ejercicios OOP
 
 ## Semana 11 (Enero)
 
