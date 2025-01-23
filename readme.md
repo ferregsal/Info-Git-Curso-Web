@@ -560,12 +560,18 @@ JS como lenguaje: profundización
 - Clases y herencia en ES6+
 - Factory
 
+- Ejercicios OOP: Facturas
+- Relaciones entre clases: asociación v. herencia
+
+### Día 5 (24/01/2025) - M2.01 08
+
+- Code Review ejercicios OOP: Facturas
+
 - TS
+
   - Tipos e interfaces
   - Clases y OOP en TS
   - Decoradores
-
-### Día 5 (24/01/2025) - M2.01 08
 
 - Paradigma de la OOP en JS/TS
 - Conceptos generales de OOP
@@ -573,24 +579,32 @@ JS como lenguaje: profundización
   - Herencia
   - Polimorfismo
   - Asociación
-- Ejercicios OOP
 
 ## Semana 11 (Enero)
 
-- JS en la Web: Node
-
-- Servidores Web: Express
-- Rutas y controladores
-- Repositorios
-- NestJS
-- ¿Introducción a DB?
-- ORM / ODM
-
 ### Día 1 (27/01/2025) - M2.01 09
+
+<!-- JS en la Web: Node
+
+- Importancia de la asincronía
+- CLI
+- FILE System
+-->
 
 ### Día 2 (28/01/2025) - M2.01 10
 
+<!--  Servidores Web: Node + Express
+- Rutas y controladores
+- Repositorios
+- ¿Introducción a DB?
+- ORM / ODM
+-->
+
 ### Día 3 (29/01/2025) - M2.01 11
+
+<!--
+- Servidores Web: Node + NestJS
+ -->
 
 ### Día 4 (30/01/2025) - M2.01 12
 
@@ -598,10 +612,10 @@ JS como lenguaje: profundización
 
 ## Semana 12 (Febrero)
 
-- Autenticación: JWT
+<!-- - Autenticación: JWT
 - Uso de la autenticación desde el cliente
 - Gestión de imágenes: Multer
-- Almacenamiento de las imágenes: Cloudinary
+- Almacenamiento de las imágenes: Cloudinary -->
 
 ### Día 1 (03/02/2025) - M2.01 14
 
