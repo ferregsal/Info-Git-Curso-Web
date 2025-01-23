@@ -515,53 +515,69 @@ Ejercicios de introducción a JS: bloque 2
 
 - JS como lenguaje: profundización
   - Valores. Variables y tipos
-  - Expresiones y sentencias. Funciones
-  - Desestructuración
-  - Módulos ES
-  - Sentencias: Flujo del código
-  - Errores
-  - Objetos en JS
-  - Tipos primitivos y objetos. Métodos de string
-  - Constructores y métodos estáticos
-  - Arrays
+  - Modelo mental
 
 ## Semana 10 (Enero)
-
-- TS
-
-  - Tipos e interfaces
-  - Clases y OOP en TS
-    - Conceptos generales de OOP
-    - Encapsulación y abstracción
-    - Herencia
-    - Polimorfismo
-    - Asociación
-  - Decoradores
-
-- OOP v FP
-
-  - Elementos de FP en JS
-  - Creación de Objetos
-    - Literales
-    - Factory
-    - Constructor: "clases".
-    - Clases y herencia en ES6+
-
-- JS en la Web: Node
 
 ### Día 1 (20/01/2025) - M2.01 04
 
 JS como lenguaje: profundización
 
+- Expresiones y sentencias. Funciones
+- Sentencias: Flujo del código
+- Errores
+- Objetos en JS
+- Constructores y métodos estáticos
+- Tipos primitivos y objetos. Métodos de string
+- Arrays
+
 ### Día 2 (21/01/2025) - M2.01 05
+
+- Funciones
+  - Parámetros primitivos v. objeto
+- Desestructuración
+  - En declaración de variables y parámetros
+  - Operador spreed
+  - Operador rest (parámetros)
+- Objetos en JS. Literales
+  - Prototype (\_\_proto\_\_)
 
 ### Día 3 (22/01/2025) - M2.01 06
 
+- Módulos ES6 (review)
+- Elementos de FP (Functional Programming) en JS
+  - HOF
+  - IIFE
+  - Closures
+- OOP: Creación de Objetos
+  - Patrones de ejecución. This
+  - Constructor: "clases".
+  - Constructores y miembros estáticos
+
 ### Día 4 (23/01/2025) - M2.01 07
 
-### Día 1 (24/01/2025) - M2.01 08
+- Review clases
+- Clases y herencia en ES6+
+- Factory
+
+- TS
+  - Tipos e interfaces
+  - Clases y OOP en TS
+  - Decoradores
+
+### Día 5 (24/01/2025) - M2.01 08
+
+- Paradigma de la OOP en JS/TS
+- Conceptos generales de OOP
+  - Encapsulación y abstracción
+  - Herencia
+  - Polimorfismo
+  - Asociación
+- Ejercicios OOP
 
 ## Semana 11 (Enero)
+
+- JS en la Web: Node
 
 - Servidores Web: Express
 - Rutas y controladores
