@@ -1,4 +1,4 @@
-# Proyecto con Node
+# Proyecto con Node y TS
 
 Podría ser un backend o solo TS
 No hay front
