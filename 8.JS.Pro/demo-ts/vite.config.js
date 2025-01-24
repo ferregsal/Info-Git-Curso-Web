@@ -1,5 +1,5 @@
 /// <reference types="vitest" />
-import { defineConfig } from 'vitest/config';
+import { defineConfig } from 'vitest/config.js';
 // import path, { resolve } from 'path';
 // import tsconfigPaths from 'vite-tsconfig-paths';
 
