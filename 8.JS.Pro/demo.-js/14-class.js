@@ -77,6 +77,16 @@ class Company {
     }
 }
 
+export class Product {
+    skud;
+    name;
+    unityPrice;
+    constructor(skud, name, unitaryPrice) {
+        this.skud = skud;
+        (this.name = name), (this.unityPrice = unitaryPrice);
+    }
+}
+
 export class Invoice {
     // propiedades y métodos static
     static #brand = new Company('68323392y', 'Boracay');
@@ -92,14 +102,12 @@ export class Invoice {
     #client;
     #product;
     #amount;
-    #unityPrice;
     #iva;
 
     // constructor
-    constructor(client, product, amount, unityPrice, iva = 1.21) {
+    constructor(client, product, amount, iva = 1.21) {
         this.#product = product;
         this.#amount = amount;
-        this.#unityPrice = unityPrice;
         this.#iva = iva;
         this.#client = client;
     }
@@ -108,7 +116,7 @@ export class Invoice {
     }
 
     #calculatePrice() {
-        return this.#amount * this.#unityPrice;
+        return this.#amount * this.#product.unityPrice;
     }
 
     printInvoice() {
@@ -124,7 +132,9 @@ export class Invoice {
         Nif: ${this.#client.nif}
 
         Factura ${this.#id}
-        ${this.#product} + ${this.#amount} unidades a ${this.#unityPrice}€ 
+        ${this.#product.name} + ${this.#amount} unidades a ${
+            this.#product.unityPrice
+        }€ 
         Total.................. ${price}€
         ----------------------------------------------
         Total + IVA ........... ${total}
@@ -134,7 +144,9 @@ export class Invoice {
 }
 
 const client1 = new Company('5656565843D', 'Acme');
-const invoice1 = new Invoice(client1, 'apples', 20, 4, 1.04);
+const apples = new Product('123', 'apples', 4);
+const invoice1 = new Invoice(client1, apples, 20, 1.04);
+
 const invoice2 = new Invoice(
     new Company('6567565843D', 'CAS'),
     'mobile',
