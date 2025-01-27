@@ -567,22 +567,39 @@ JS como lenguaje: profundización
 
 - Code Review ejercicios OOP: Facturas
 
+- TS. Tipos
+
+  - Type checking
+  - Inferencia de tipos
+  - Tipos literales
+  - Aserción de tipos (as)
+  - Objetos. Propiedades
+  - Guardias de tipos
+  - Arrays y tuplas
+  - Uniones e intersecciones
+
+## Semana 11 (Enero)
+
+- Code review: factura
 - TS
 
-  - Tipos e interfaces
+  - Tipos propios: alias e interfaces
+  - Tipado estructural
   - Clases y OOP en TS
   - Decoradores
 
-- Paradigma de la OOP en JS/TS
+### Día 1 (27/01/2025) - M2.01 09
+
+### Día 2 (28/01/2025) - M2.01 10
+
+<!-- - Paradigma de la OOP en JS/TS
 - Conceptos generales de OOP
   - Encapsulación y abstracción
   - Herencia
   - Polimorfismo
-  - Asociación
+  - Asociación -->
 
-## Semana 11 (Enero)
-
-### Día 1 (27/01/2025) - M2.01 09
+### Día 3 (29/01/2025) - M2.01 11
 
 <!-- JS en la Web: Node
 
@@ -591,7 +608,7 @@ JS como lenguaje: profundización
 - FILE System
 -->
 
-### Día 2 (28/01/2025) - M2.01 10
+### Día 4 (30/01/2025) - M2.01 12
 
 <!--  Servidores Web: Node + Express
 - Rutas y controladores
@@ -600,15 +617,11 @@ JS como lenguaje: profundización
 - ORM / ODM
 -->
 
-### Día 3 (29/01/2025) - M2.01 11
+### Día 1 (31/01/2025) - M2.01 13
 
 <!--
 - Servidores Web: Node + NestJS
  -->
-
-### Día 4 (30/01/2025) - M2.01 12
-
-### Día 1 (31/01/2025) - M2.01 13
 
 ## Semana 12 (Febrero)
 
