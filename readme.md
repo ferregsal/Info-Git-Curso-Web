@@ -580,15 +580,16 @@ JS como lenguaje: profundización
 
 ## Semana 11 (Enero)
 
+- [TS. Decoradores (Omitido)]
+
+### Día 1 (27/01/2025) - M2.01 09
+
 - Code review: factura
 - TS
 
   - Tipos propios: alias e interfaces
   - Tipado estructural
   - Clases y OOP en TS
-  - Decoradores
-
-### Día 1 (27/01/2025) - M2.01 09
 
 ### Día 2 (28/01/2025) - M2.01 10
 
@@ -597,7 +598,10 @@ JS como lenguaje: profundización
   - Encapsulación y abstracción
   - Herencia
   - Polimorfismo
-  - Asociación -->
+  - Asociación
+
+  - Tipado avanzado. Generics
+  -->
 
 ### Día 3 (29/01/2025) - M2.01 11
 
@@ -605,10 +609,15 @@ JS como lenguaje: profundización
 
 - Importancia de la asincronía
 - CLI
-- FILE System
 -->
 
 ### Día 4 (30/01/2025) - M2.01 12
+
+<!-- - FILE System
+- Repositorios
+- Completando el CLI -->
+
+### Día 5 (31/01/2025) - M2.01 13
 
 <!--  Servidores Web: Node + Express
 - Rutas y controladores
@@ -617,18 +626,11 @@ JS como lenguaje: profundización
 - ORM / ODM
 -->
 
-### Día 1 (31/01/2025) - M2.01 13
+## Semana 12 (Febrero)
 
 <!--
 - Servidores Web: Node + NestJS
  -->
-
-## Semana 12 (Febrero)
-
-<!-- - Autenticación: JWT
-- Uso de la autenticación desde el cliente
-- Gestión de imágenes: Multer
-- Almacenamiento de las imágenes: Cloudinary -->
 
 ### Día 1 (03/02/2025) - M2.01 14
 
@@ -638,4 +640,9 @@ JS como lenguaje: profundización
 
 ### Día 4 (06/02/2025) - M2.01 17
 
-### Día 1 (07/02/2025) - M2.01 18
+### Día 5 (07/02/2025) - M2.01 18
+
+<!-- - Autenticación: JWT
+- Uso de la autenticación desde el cliente
+- Gestión de imágenes: Multer
+- Almacenamiento de las imágenes: Cloudinary -->
