@@ -1717,6 +1717,7 @@ class Person {
 }
 
 class Employee extends Person {
+  ...
   constructor(name, age, salary) {
     super(name, age);
     this.salary = salary;
@@ -1747,6 +1748,10 @@ class Employee extends Person {
 
   override greet() {
     return `${super.greet()} y cobro ${this.salary}€`;
+  }
+
+  override greet() {
+    return `cobro ${this.salary}€`;
   }
 }
 ```
