@@ -584,12 +584,22 @@ JS como lenguaje: profundización
 
 ### Día 1 (27/01/2025) - M2.01 09
 
-- Code review: factura
+- Code review: factura - items como array
 - TS
 
   - Tipos propios: alias e interfaces
+    - Tipos para primitivos
+    - Interfaces abiertos
+    - Uniones e intersecciones con tipos propios
   - Tipado estructural
+  - Guardias de tipos
   - Clases y OOP en TS
+    - Elementos de ES6
+    - Ámbitos: privado, protected, public
+    - Propiedades de parámetros
+    - Clases abstractas
+    - Implementación de interfaces
+    - Abstracción: patrón Repository
 
 ### Día 2 (28/01/2025) - M2.01 10
 
