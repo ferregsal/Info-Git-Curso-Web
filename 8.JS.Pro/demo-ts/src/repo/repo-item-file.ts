@@ -1,19 +1,23 @@
-import { ORMLite } from './orm-lite';
+import { ODMLite } from './odm-lite';
 
 export class RepoItemFile implements Repository<Item> {
-    orm: TypeORM<Item> = new ORMLite<Item>('items.json');
-    collection = 'items';
+    orm: TypeODM<Item>;
+    collection: string;
+    constructor(file = 'db.json', collection = 'items') {
+        this.orm = new ODMLite<Item>(file);
+        this.collection = collection;
+    }
+
     read() {
         return this.orm.read(this.collection);
     }
     readById(id: string) {
         return this.orm.readById(this.collection, id);
     }
-    create(data: Partial<Item>) {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        return this.orm.create(this.collection, data as any);
+    create(data: Omit<Item, 'id'>) {
+        return this.orm.create(this.collection, data);
     }
-    update(id: string, data: Partial<Item>) {
+    update(id: string, data: Partial<Omit<Item, 'id'>>) {
         return this.orm.updateById(this.collection, id, data);
     }
     delete(id: string) {

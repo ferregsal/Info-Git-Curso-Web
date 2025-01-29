@@ -1,7 +1,6 @@
 import { readFromDisk, writeToDisk } from './helpers';
-import { WithId, TypeODM } from './types';
 
-export class ODMLite<T extends WithId> implements TypeODM<T> {
+export class ODMLite<T extends { id: string }> implements TypeODM<T> {
     file: string;
     constructor(file: string) {
         this.file = file;
@@ -9,8 +8,7 @@ export class ODMLite<T extends WithId> implements TypeODM<T> {
 
     private readDB(): Record<string, T[]> {
         const txtData = readFromDisk(this.file);
-        const allData = JSON.parse(txtData);
-        return allData;
+        return JSON.parse(txtData);
     }
 
     private writeDB(data: Record<string, T[]>): void {
@@ -19,29 +17,25 @@ export class ODMLite<T extends WithId> implements TypeODM<T> {
 
     read(collection: string): T[] {
         const allData = this.readDB();
-        const collectionData = allData[collection];
-        return collectionData;
+        return allData[collection];
     }
 
     readById(collection: string, id: string): T {
         const allData = this.readDB();
-        const collectionData = allData[collection];
-        const item = collectionData.find((item: T) => item.id === id);
+        const item = allData[collection].find((item: T) => item.id === id);
         if (item === undefined) {
             throw new Error(`Item with id ${id} not found`);
         }
         return item;
     }
 
-    create(collection: string, data: Omit<T, 'id'>): T {
+    create(collection: string, initialData: Omit<T, 'id'>): T {
         const allData = this.readDB();
-        const collectionData = allData[collection];
-
         const itemData = {
-            ...data,
+            ...initialData,
             id: crypto.randomUUID().substring(0, 8),
         } as T;
-        collectionData.push(itemData);
+        allData[collection].push(itemData);
         this.writeDB(allData);
         return itemData;
     }
@@ -51,26 +45,25 @@ export class ODMLite<T extends WithId> implements TypeODM<T> {
         id: string,
         data: Omit<Partial<T>, 'id'>,
     ): T {
+        // const txtData = readFromDisk();
+        // const allData = JSON.parse(txtData);
         const allData = this.readDB();
-        const collectionData = allData[collection];
-        let item = collectionData.find((item: T) => item.id === id);
+        let item = allData[collection].find((item: T) => item.id === id);
         if (item === undefined) {
             throw new Error(`Item with id ${id} not found`);
         }
         item = Object.assign(item, data);
-        // item = { ...item, ...data }; // Otra forma de hacerlo
+        // item = { ...item ...data }; // Otra forma de hacerlo
         this.writeDB(allData);
         return item;
     }
 
-    deleteById(collection: string, id: string): T {
+    deleteById(collection: string, id: string) {
         const allData = this.readDB();
-        const collectionData = allData[collection];
-        const item = collectionData.find((item: T) => item.id === id);
+        const item = allData[collection].find((item: T) => item.id === id);
         if (item === undefined) {
             throw new Error(`Item with id ${id} not found`);
         }
-        // const item = collectionData.splice(itemIndex, 1)[0];
         allData[collection] = allData[collection].filter(
             (item: T) => item.id !== id,
         );
