@@ -10,7 +10,8 @@ export class RepoItemFile implements Repository<Item> {
         return this.orm.readById(this.collection, id);
     }
     create(data: Partial<Item>) {
-        return this.orm.create(this.collection, data);
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        return this.orm.create(this.collection, data as any);
     }
     update(id: string, data: Partial<Item>) {
         return this.orm.updateById(this.collection, id, data);
