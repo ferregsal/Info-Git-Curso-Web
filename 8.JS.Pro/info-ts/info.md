@@ -76,6 +76,7 @@ title: TypeScript
     - [Sobre-escritura (overriding) de métodos](#sobre-escritura-overriding-de-métodos)
     - [Clases abstractas](#clases-abstractas)
 - [Genéricos](#genéricos)
+  - [Utilidades de tipos](#utilidades-de-tipos)
 - [Módulos y Namespaces](#módulos-y-namespaces)
 - [Mixins](#mixins)
 - [Decoradores](#decoradores)
@@ -1220,7 +1221,7 @@ Existen diferentes **consultas de tipos**, que permiten extraer tipos de valores
   fooKey = 'baz';
   ```
 
-- **tipos de acceso indexado**. A partir de untipo /interfaz se puede acceder a una de sus propiedades mediante el uso de la **notación de corchetes**, para usarla como tipo
+- **tipos de acceso indexado**. A partir de un tipo /interfaz se puede acceder a una de sus propiedades mediante el uso de la **notación de corchetes**, para usarla como tipo
 
   ```typescript
   type User = {
@@ -1929,6 +1930,43 @@ const dict = listToDict<string>(['a', 'b', 'c'], (x) => x);
 // const dict: { [k: string]: string }
 ```
 
+### Utilidades de tipos
+
+En TypeScript se pueden usar **utilidades de tipos** para manipular tipos, que permiten realizar operaciones comunes en la definición de tipos, como la creación de tipos a partir de otros tipos, la combinación de tipos, la extracción de propiedades de un tipo, la transformación de un tipo en otro tipo, etc.
+
+Las principales utilidades de tipos son:
+
+- `Partial<T>`: convierte todas las propiedades de un tipo en opcionales.
+- `Required<T>`: convierte todas las propiedades de un tipo en obligatorias.
+- `Readonly<T>`: convierte todas las propiedades de un tipo en de solo lectura.
+- `Record<K, T>`: crea un tipo con propiedades de tipo T, cuyas claves son de tipo K.
+- `Pick<T, K>`: crea un tipo con propiedades seleccionadas de un tipo T.
+- `Omit<T, K>`: crea un tipo con propiedades omitidas de un tipo T.
+- `Exclude<T, U>`: crea un tipo con propiedades de un tipo T que no están en un tipo U.
+- `Extract<T, U>`: crea un tipo con propiedades de un tipo T que están en un tipo U.
+- `NonNullable<T>`: crea un tipo con propiedades de un tipo T que no son nulas ni indefinidas.
+- `ReturnType<T>`: crea un tipo con el tipo de retorno de una función.
+- `InstanceType<T>`: crea un tipo con el tipo de instancia de una clase.
+
+```typescript
+type Person = {
+  name: string;
+  age: number;
+};
+
+type PartialPerson = Partial<Person>;
+type RequiredPerson = Required<Person>;
+type ReadonlyPerson = Readonly<Person>;
+type RecordPerson = Record<'id' | 'name', Person>;
+type PickPerson = Pick<Person, 'name'>;
+type OmitPerson = Omit<Person, 'age'>;
+type ExcludePerson = Exclude<string | number, number>;
+type ExtractPerson = Extract<string | number, number>;
+type NonNullablePerson = NonNullable<string | null>;
+type ReturnTypePerson = ReturnType<() => Person>;
+type InstanceTypePerson = InstanceType<typeof Person>;
+```
+
 ## Módulos y Namespaces
 
 ## Mixins
@@ -1937,38 +1975,41 @@ Los mixines son una forma de **reutilizar** el código en TypeScript, que permit
 
 ```typescript
 function applyMixins(derivedCtor: any, baseCtors: any[]) {
-    baseCtors.forEach(baseCtor => {
-        Object.getOwnPropertyNames(baseCtor.prototype).forEach(name => {
-            Object.defineProperty(derivedCtor.prototype, name, Object.getOwnPropertyDescriptor(baseCtor.prototype, name));
-        });
+  baseCtors.forEach((baseCtor) => {
+    Object.getOwnPropertyNames(baseCtor.prototype).forEach((name) => {
+      Object.defineProperty(
+        derivedCtor.prototype,
+        name,
+        Object.getOwnPropertyDescriptor(baseCtor.prototype, name)
+      );
     });
+  });
 }
 
-
-
 abstract class Persona {
-    public name: string;
-    saludar() {
-        console.log(`Hola soy ${this.name}`);
-    }
+  public name: string;
+  saludar() {
+    console.log(`Hola soy ${this.name}`);
+  }
 }
 
 // tslint:disable-next-line: max-classes-per-file
 abstract class Animal2 {
-    public comida: string;
-    comer() {
-        console.log(`Estoy comiendo ${this.comida}`);
-    }
+  public comida: string;
+  comer() {
+    console.log(`Estoy comiendo ${this.comida}`);
+  }
 }
 
 // tslint:disable-next-line: max-classes-per-file
 class Alumno implements Persona, Animal2 {
-
-    saludar: () => void;
-    comer: () => void;
-    constructor(public name: string,
-                public curso: string,
-                public comida: string) {}
+  saludar: () => void;
+  comer: () => void;
+  constructor(
+    public name: string,
+    public curso: string,
+    public comida: string
+  ) {}
 }
 
 applyMixins(Alumno, [Persona, Animal2]);
@@ -1977,7 +2018,6 @@ let al = new Alumno('Pepe', 'TS', 'pizza');
 
 al.saludar();
 al.comer();
-
 ```
 
 ## Decoradores
