@@ -46,7 +46,7 @@ Node.js es un entorno de ejecución para JavaScript construido con el motor de J
 
 - Plataforma de desarrollo de software creada en 2009
 - JavaScript en el lado del servidor
-- Basado en la máquina virtual de Chrome V8: escrito en C = muy rápido
+- Basado en la máquina virtual de Chrome V8: escrito en C++ = muy rápido
 - Multiplataforma (Windows, Macintosh, Linux, etc.)
 - Aunque es una marca registrada de Joyent, es open source
 - Asíncrono y orientado a eventos (no bloqueante)
@@ -58,7 +58,7 @@ Node.js es un entorno de ejecución para JavaScript construido con el motor de J
 - Origen del lenguaje JS
 - 1995 - Netscape incorpora un JS desarrollado por Brendan Eich
   - Objetivo: validación de formularios en cliente (Respuesta a la lentitud de las conexiones)
-- 1996 – Microsoft desarrolla lenguajes de Script similarares
+- 1996 – Microsoft desarrolla lenguajes de Script similares
   - VBScript
   - JScript, que incorpora a Internet Explorer
 - 1997 – Aparece ECMAScript como estándar respaldado por la European Computer Manufacturers Association
@@ -128,7 +128,7 @@ La necesidad de un **event loop** para organizar estos nodos llevo a sustituir R
 - Administrador de versiones de Node.js: NVM <https://github.com/coreybutler/nvm-windows>
 - Node.js y el gestor de paquetes npm <https://nodejs.org/es/>
 
-Instalación de Node.js y npm, despues de instalar NVM:
+Instalación de Node.js y npm, después de instalar NVM:
 
 ```bash
 nvm install 23.6.0
