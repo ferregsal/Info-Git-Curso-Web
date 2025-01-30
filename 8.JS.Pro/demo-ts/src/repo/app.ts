@@ -1,8 +1,15 @@
 // DESARROLLO DEL CÓDIGO
 
 // Creamos la interfaz ODM genérica
+// ODM (Object Document Mapper) es un patrón de diseño que
+// mapea objetos de datos en documentos de base de datos
+
 // Modelando los métodos CRUD de un repositorio de datos
 // Simplificando la forma en que los llevaría a cabo un ORM
+
+// Debemos considerar si la collection será:
+// parámetro de los métodos CRUD
+// propiedad de la clase ORM y por tanto del constructor
 
 // En types.d.ts
 

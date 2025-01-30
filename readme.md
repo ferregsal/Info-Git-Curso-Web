@@ -603,17 +603,45 @@ JS como lenguaje: profundización
 
 ### Día 2 (28/01/2025) - M2.01 10
 
-<!-- - Paradigma de la OOP en JS/TS
+- Paradigma de la OOP en JS/TS
 - Conceptos generales de OOP
-  - Encapsulación y abstracción
+  - Clases y objetos
+- Pilares de la OOP
+  - Abstracción (clases)
+  - Encapsulación (objetos)
   - Herencia
   - Polimorfismo
-  - Asociación
+- Elementos de la OOP
+
+  - Clases
+  - Objetos
+  - Herencia y polimorfismo
+  - Relaciones entre objetos y clases
+    - Asociación, agregación, composición
+  - Modularidad, genericidad y sobrecarga
+  - UML
 
   - Tipado avanzado. Generics
-  -->
+    - En funciones
+    - En clases
+  - Ejemplo: Repositorio genérico
 
 ### Día 3 (29/01/2025) - M2.01 11
+
+- Detalles OOP - Tipos
+  - Extensiones de VSCode para TS
+  - Type queries
+  - Utility types
+  - Mixins
+- Practica: Repositorio genérico
+  - interfaz TypeODM ... app.d.ts
+  - file system mock
+  - implementación de la interfaz: clase FileODM
+  - test de la implementación
+  - interfaz Repositorio genérico
+  - implementación de la interfaz: clase Repositorio
+
+### Día 4 (30/01/2025) - M2.01 12
 
 <!-- JS en la Web: Node
 
@@ -621,13 +649,13 @@ JS como lenguaje: profundización
 - CLI
 -->
 
-### Día 4 (30/01/2025) - M2.01 12
+### Día 5 (31/01/2025) - M2.01 13
 
 <!-- - FILE System
 - Repositorios
 - Completando el CLI -->
 
-### Día 5 (31/01/2025) - M2.01 13
+## Semana 12 (Febrero)
 
 <!--  Servidores Web: Node + Express
 - Rutas y controladores
@@ -636,12 +664,6 @@ JS como lenguaje: profundización
 - ORM / ODM
 -->
 
-## Semana 12 (Febrero)
-
-<!--
-- Servidores Web: Node + NestJS
- -->
-
 ### Día 1 (03/02/2025) - M2.01 14
 
 ### Día 2 (04/02/2025) - M2.01 15
@@ -649,6 +671,10 @@ JS como lenguaje: profundización
 ### Día 3 (05/02/2025) - M2.01 16
 
 ### Día 4 (06/02/2025) - M2.01 17
+
+<!--
+- Servidores Web: Node + NestJS
+ -->
 
 ### Día 5 (07/02/2025) - M2.01 18
 

@@ -1,31 +1,28 @@
 import { readFromDisk, writeToDisk } from './helpers';
+import { TypeODM } from './types';
 
-export class ORMLite<T extends { id: string }> implements TypeORM<T> {
+export class ODMLite<T extends { id: string }> implements TypeODM<T> {
     file: string;
     constructor(file: string) {
         this.file = file;
     }
 
-    private readDB(): Record<string, T[]> {
-        const txtData = readFromDisk();
+    private async readDB(): Promise<Record<string, T[]>> {
+        const txtData = await readFromDisk(this.file);
         return JSON.parse(txtData);
     }
 
-    private writeDB(data: Record<string, T[]>): void {
-        writeToDisk(JSON.stringify(data));
+    private writeDB(data: Record<string, T[]>): Promise<void> {
+        return writeToDisk(this.file, JSON.stringify(data));
     }
 
-    read(collection: string): T[] {
-        // const txtData = readFromDisk();
-        // const allData = JSON.parse(txtData);
-        const allData = this.readDB();
+    async read(collection: string): Promise<T[]> {
+        const allData = await this.readDB();
         return allData[collection];
     }
 
-    readById(collection: string, id: string): T {
-        // const txtData = readFromDisk();
-        // const allData = JSON.parse(txtData);
-        const allData = this.readDB();
+    async readById(collection: string, id: string): Promise<T> {
+        const allData = await this.readDB();
         const item = allData[collection].find((item: T) => item.id === id);
         if (item === undefined) {
             throw new Error(`Item with id ${id} not found`);
@@ -33,39 +30,37 @@ export class ORMLite<T extends { id: string }> implements TypeORM<T> {
         return item;
     }
 
-    create(collection: string, initialData: Omit<T, 'id'>): T {
-        // const txtData = readFromDisk();
-        // const allData = JSON.parse(txtData);
-        const allData = this.readDB();
+    async create(collection: string, initialData: Omit<T, 'id'>): Promise<T> {
+        const allData = await this.readDB();
         const itemData = {
             ...initialData,
             id: crypto.randomUUID().substring(0, 8),
         } as T;
         allData[collection].push(itemData);
-        // writeToDisk(JSON.stringify(allData));
-        this.writeDB(allData);
+        await this.writeDB(allData);
         return itemData;
     }
 
-    updateById(collection: string, id: string, data: Partial<T>) {
+    async updateById(
+        collection: string,
+        id: string,
+        data: Omit<Partial<T>, 'id'>,
+    ): Promise<T> {
         // const txtData = readFromDisk();
         // const allData = JSON.parse(txtData);
-        const allData = this.readDB();
+        const allData = await this.readDB();
         let item = allData[collection].find((item: T) => item.id === id);
         if (item === undefined) {
             throw new Error(`Item with id ${id} not found`);
         }
         item = Object.assign(item, data);
         // item = { ...item ...data }; // Otra forma de hacerlo
-        // writeToDisk(JSON.stringify(allData));
-        this.writeDB(allData);
+        await this.writeDB(allData);
         return item;
     }
 
-    deleteById(collection: string, id: string) {
-        // const txtData = readFromDisk();
-        // const allData = JSON.parse(txtData);
-        const allData = this.readDB();
+    async deleteById(collection: string, id: string) {
+        const allData = await this.readDB();
         const item = allData[collection].find((item: T) => item.id === id);
         if (item === undefined) {
             throw new Error(`Item with id ${id} not found`);
@@ -73,8 +68,7 @@ export class ORMLite<T extends { id: string }> implements TypeORM<T> {
         allData[collection] = allData[collection].filter(
             (item: T) => item.id !== id,
         );
-        // writeToDisk(JSON.stringify(allData));
-        this.writeDB(allData);
+        await this.writeDB(allData);
         return item;
     }
 }
