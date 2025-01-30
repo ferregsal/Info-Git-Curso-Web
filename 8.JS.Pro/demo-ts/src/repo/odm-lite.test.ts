@@ -23,11 +23,7 @@ describe('Given a instance of class ORMLite', () => {
     beforeEach(() => {
         odmLite = new ODMLite('file.json');
 
-        vi.mocked(readFromDisk).mockReturnValue(
-            JSON.stringify({
-                items: ITEMS,
-            }),
-        );
+        vi.mocked(readFromDisk).mockReturnValue(JSON.stringify(DB));
 
         vi.mocked(writeToDisk).mockImplementation(() => {});
     });

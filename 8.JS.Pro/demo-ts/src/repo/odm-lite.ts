@@ -7,8 +7,9 @@ export class ODMLite<T extends { id: string }> implements TypeODM<T> {
     }
 
     private readDB(): Record<string, T[]> {
-        const txtData = readFromDisk(this.file);
-        return JSON.parse(txtData);
+        //const txtData = readFromDisk(this.file);
+        //return JSON.parse(txtData);
+        return JSON.parse(readFromDisk(this.file));
     }
 
     private writeDB(data: Record<string, T[]>): void {
