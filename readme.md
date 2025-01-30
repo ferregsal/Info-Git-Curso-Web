@@ -636,26 +636,54 @@ JS como lenguaje: profundización
 - Practica: Repositorio genérico
   - interfaz TypeODM ... app.d.ts
   - file system mock
-  - implementación de la interfaz: clase FileODM
+  - implementación de la interfaz: clase ODMLite
   - test de la implementación
-  - interfaz Repositorio genérico
-  - implementación de la interfaz: clase Repositorio
 
 ### Día 4 (30/01/2025) - M2.01 12
 
-<!-- JS en la Web: Node
+- Practica: Repositorio genérico
 
-- Importancia de la asincronía
-- CLI
--->
+  - code review
+  - incorporación de asincronía
+    - file system mock asíncrono
+    - interfaz typeODM asíncrona
+    - implementación de la interfaz: clase ODMLite
+  - interfaz Repositorio genérico
+  - implementación de la interfaz: clase RepoItemFile
+
+- NodeJS
+  - Nuevo proyecto desde cero
+  - Introducción. Elementos de NodeJS. NPM
+  - Asincronía en NodeJS
+    - Callbacks
+    - Event Loop
+    - Promesas
 
 ### Día 5 (31/01/2025) - M2.01 13
 
-<!-- - FILE System
-- Repositorios
-- Completando el CLI -->
+<!--
+
+- NodeJS (continuación)
+  - Módulos. ESM. Módulos del core de Node
+  - Entorno de ejecución
+    - global
+    - process
+    - variables de entorno. dotenv
+  - Lina de comandos
+    - stdin / stdout
+    - CLI
+  - FILE System
+  - Repositorios
+  - Completando el CLI
+  -->
 
 ## Semana 12 (Febrero)
+
+### Día 1 (03/02/2025) - M2.01 14
+
+<!-- Servidores Web: Node Http server -->
+
+### Día 2 (04/02/2025) - M2.01 15
 
 <!--  Servidores Web: Node + Express
 - Rutas y controladores
@@ -663,10 +691,6 @@ JS como lenguaje: profundización
 - ¿Introducción a DB?
 - ORM / ODM
 -->
-
-### Día 1 (03/02/2025) - M2.01 14
-
-### Día 2 (04/02/2025) - M2.01 15
 
 ### Día 3 (05/02/2025) - M2.01 16
 

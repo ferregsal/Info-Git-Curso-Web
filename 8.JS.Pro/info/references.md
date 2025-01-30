@@ -138,6 +138,10 @@
   17. 7 Benefits of First-Class Functions - JavaScript Tutorial
   18. 👀 JavaScript Event Loop -- Visualized! (v.i.)
 
+- [📖 🌍JavaScript Execution Context and Hoisting Explained with Code Examples](https://www.freecodecamp.org/news/javascript-execution-context-and-hoisting/)
+
+- [📖 🌍Execution Context and Event Loop](https://medium.com/@nimaab1992/execution-context-and-event-loop-1143d7805981)
+
 ## Asynchronous programming
 
 - [👀 ☀️Por qué JS "necesita" async-await y otros lenguajes no?](https://www.youtube.com/watch?v=C_eFawNnmC4)
@@ -167,6 +171,12 @@
 
 - [🌍Estructuras de datos inmutables para JS funcional | JSConf EU](https://www.youtube.com/watch?v=Wo0qiGPSV-s)
   Anjana Vakil - JSConf EU. 2018 - Video en YouTube
+
+- [📋 ☀️Talleres - Javier Vélez Reyes](https://javiervelezreyes.com/talleres/)
+  Javier Vélez Reyes - Talleres en línea
+
+  - Programación Funcional en JavaScript
+  - Programación concurrente en JavaScript
 
 ## MAs allá de JS
 
