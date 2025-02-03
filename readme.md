@@ -667,7 +667,7 @@ JS como lenguaje: profundización
     - global
     - process
     - variables de entorno. dotenv
-  - Lina de comandos
+  - Linea de comandos
     - stdin / stdout
     - CLI: librerías (minimist, yargs, commander)
   - FILE System
@@ -678,15 +678,23 @@ JS como lenguaje: profundización
 
 ### Día 1 (03/02/2025) - M2.01 14
 
-<!-- - File System: fs/promises
+- File System: fs/promises
 - NodeJS: CLI + FS
   - Creación de un CLI - CRUD
   - Patrón repository
-  - Persistencia en ficheros json -->
+  - Persistencia en ficheros json
+- CLI Wizard: Inquirer
 
 ### Día 2 (04/02/2025) - M2.01 15
 
-<!-- Servidores Web: Node Http server -->
+<!--
+  - Streams
+  - Servidores Web: Node Http server
+    - Conceptos
+    - Creación de un servidor
+    - Ajustes del entorno
+    - Mejoras en el servidor
+-->
 
 ### Día 3 (05/02/2025) - M2.01 16
 
