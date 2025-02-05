@@ -117,6 +117,7 @@ const appRouter = (request: IncomingMessage, response: ServerResponse) => {
 
     debug(method, url);
 
+    let error: HtmlError;
     switch (method) {
         case 'GET':
             getController(request, response);
@@ -129,9 +130,12 @@ const appRouter = (request: IncomingMessage, response: ServerResponse) => {
         case 'PATCH':
         case 'DELETE':
         default:
-            response.statusCode = 405;
-            response.setHeader('Content-Type', 'text/plain; charset=utf-8');
-            response.end('Método no permitido');
+            error = new HtmlError(
+                'Method not allowed',
+                405,
+                'Method not allowed',
+            );
+            server.emit('error', error, response);
     }
 };
 
@@ -151,8 +155,8 @@ const listenManager = () => {
     debug(`Servidor escuchando en ${bind}`);
 };
 
-const errorManager = (error: HtmlError, response: ServerResponse) => {
-    if ('status'! in error) {
+const errorManager = (error: Error | HtmlError, response: ServerResponse) => {
+    if (!('status' in error)) {
         error = {
             ...error,
             statusCode: 500,
@@ -160,9 +164,14 @@ const errorManager = (error: HtmlError, response: ServerResponse) => {
         };
     }
 
-    debug(error.message, error.statusCode, error.status);
+    const publicMessage = `Error: ${error.statusCode} ${error.status}`;
+    debug(publicMessage, error.message);
 
-    const html = createHtmlString('Error', 'Error', error.message);
+    const html = createHtmlString(
+        'Error | Node Server',
+        'Error',
+        publicMessage,
+    );
     response.statusCode = error.statusCode;
     response.statusMessage = error.status;
     response.setHeader('Content-Type', 'text/html; charset=utf-8');
