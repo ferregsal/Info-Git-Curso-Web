@@ -687,14 +687,13 @@ JS como lenguaje: profundización
 
 ### Día 2 (04/02/2025) - M2.01 15
 
-<!--
-  - Streams
-  - Servidores Web: Node Http server
-    - Conceptos
-    - Creación de un servidor
-    - Ajustes del entorno
-    - Mejoras en el servidor
--->
+- Eventos
+- Streams
+- Servidores Web: Node Http server
+  - Conceptos
+  - Creación de un servidor
+  - Ajustes del entorno
+  - Mejoras en el servidor
 
 ### Día 3 (05/02/2025) - M2.01 16
 
