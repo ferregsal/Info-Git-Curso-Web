@@ -697,16 +697,21 @@ JS como lenguaje: profundización
 
 ### Día 3 (05/02/2025) - M2.01 16
 
-<!--  Servidores Web: Node + Express
-- Clean Architecture
-- Rutas y controladores
-- Repositorios
--->
+Servidores Web: Node + Express
+
+- Separación de responsabilidades: server v. app
+- Rutas (method / url) y controladores
+- Middleware: custom (logger) y de terceros (morgan)
+- Cors
 
 ### Día 4 (06/02/2025) - M2.01 17
 
-<!--
-- Servidores Web: Node + NestJS
+<!--  Servidores Web: Node + Express
+- Cors (continuación)
+- Error Handler
+- Clean Architecture
+- Rutas y controladores
+- Repositorios
 -->
 
 ### Día 5 (07/02/2025) - M2.01 18
