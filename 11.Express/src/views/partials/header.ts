@@ -1,4 +1,4 @@
-// import { html } from 'lit-html';
+const html = String.raw;
 
 const items = [
     { label: 'Index', path: './' },
@@ -17,10 +17,10 @@ export const menuItems = items
     )
     .join('');
 
-export function createHeader(title: string) {
+export function renderHeader(title: string) {
     const img = './assets/logo-golden-bisque.svg';
     const cssClass = 'main-header';
-    const headerTemplate = `
+    const headerTemplate = html`
         <header class="${cssClass}">
             <nav>
                 <ul>

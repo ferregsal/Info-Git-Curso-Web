@@ -1,6 +1,6 @@
-// import { html } from 'lit-html';
+const html = String.raw;
 
-export function createFooter() {
+export function renderFooter() {
     const linksCollection = {
         cas: {
             url: 'https://cursoscastraining.es/cursos-subvencionados/centro-de-formacion-digital-de-san-blas/',
@@ -23,7 +23,7 @@ export function createFooter() {
         },
     };
 
-    const template = `
+    const template = html`
         <footer>
             <address>
                 <span>
@@ -61,9 +61,8 @@ export function createFooter() {
                             target="_blank"
                         >
                             <i
-                                class="fa-brands ${
-                                    linksCollection.linkedin.icon
-                                }"
+                                class="fa-brands ${linksCollection.linkedin
+                                    .icon}"
                                 aria-hidden="true"
                             ></i>
                         </a>
