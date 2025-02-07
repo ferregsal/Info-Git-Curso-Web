@@ -636,49 +636,231 @@ JS como lenguaje: profundización
 - Practica: Repositorio genérico
   - interfaz TypeODM ... app.d.ts
   - file system mock
-  - implementación de la interfaz: clase FileODM
+  - implementación de la interfaz: clase ODMLite
   - test de la implementación
-  - interfaz Repositorio genérico
-  - implementación de la interfaz: clase Repositorio
 
 ### Día 4 (30/01/2025) - M2.01 12
 
-<!-- JS en la Web: Node
+- Practica: Repositorio genérico
 
-- Importancia de la asincronía
-- CLI
--->
+  - code review
+  - incorporación de asincronía
+    - file system mock asíncrono
+    - interfaz typeODM asíncrona
+    - implementación de la interfaz: clase ODMLite
+  - interfaz Repositorio genérico
+  - implementación de la interfaz: clase RepoItemFile
+
+- NodeJS
+  - Nuevo proyecto desde cero
+  - Introducción. Elementos de NodeJS. NPM
+  - Asincronía en NodeJS
+    - Callbacks
+    - Event Loop
+    - Promesas
 
 ### Día 5 (31/01/2025) - M2.01 13
 
-<!-- - FILE System
-- Repositorios
-- Completando el CLI -->
+- NodeJS (continuación)
+  - Módulos. ESM. Módulos del core de Node
+  - Entorno de ejecución
+    - global
+    - process
+    - variables de entorno. dotenv
+  - Linea de comandos
+    - stdin / stdout
+    - CLI: librerías (minimist, yargs, commander)
+  - FILE System
+    - readFileSync / writeFileSync
+    - readFile / writeFile
 
 ## Semana 12 (Febrero)
 
-<!--  Servidores Web: Node + Express
-- Rutas y controladores
-- Repositorios
-- ¿Introducción a DB?
-- ORM / ODM
--->
-
 ### Día 1 (03/02/2025) - M2.01 14
+
+- File System: fs/promises
+- NodeJS: CLI + FS
+  - Creación de un CLI - CRUD
+  - Patrón repository
+  - Persistencia en ficheros json
+- CLI Wizard: Inquirer
 
 ### Día 2 (04/02/2025) - M2.01 15
 
+- Eventos
+- Streams
+- Servidores Web: Node Http server
+  - Conceptos
+  - Creación de un servidor
+  - Ajustes del entorno
+  - Mejoras en el servidor
+
 ### Día 3 (05/02/2025) - M2.01 16
+
+Servidores Web: Node + Express
+
+- Separación de responsabilidades: server v. app
+- Rutas (method / url) y controladores
+- Middleware: custom (logger) y de terceros (morgan)
+- Cors
 
 ### Día 4 (06/02/2025) - M2.01 17
 
-<!--
-- Servidores Web: Node + NestJS
- -->
+<!--  Servidores Web: Node + Express
+- Cors (continuación)
+- Error Handler
+- Clean Architecture
+- Rutas y controladores
+- Repositorios
+-->
 
 ### Día 5 (07/02/2025) - M2.01 18
+
+<!--
+- Servidores Web: Node + NestJS
+-->
+
+## Semana 13 (Febrero)
+
+### Día 1 (10/02/2025) - M2.02 01
+
+<!-- - Bases de datos
+  - Conceptos generales
+  - Modelos de datos
+  - Bases de datos relacionales (SQL)
+  - Bases de datos no relacionales (NoSQL)
+  - ORM / ODM -->
+
+### Día 2 (11/02/2025) - M2.02 02
+
+<!--  Servidores Web: Node + Express
+- ORM / ODM
+- Patrón Repositorio con ORM/ODM
+-->
+
+### Día 3 (12/02/2025) - M2.02 03
+
+<!--   Bases de datos relacionales (SQL) -->
+
+### Día 4 (13/02/2025) - M2.02 04
+
+### Día 5 (14/02/2025) - M2.02 05
+
+## Semana 14 (Febrero)
+
+### Día 1 (17/02/2025) - M2.02 06
+
+### Día 2 (18/02/2025) - M2.02 07
+
+### Día 3 (19/02/2025) - M2.02 08
+
+### Día 4 (20/02/2025) - M2.02 09
+
+### Día 5 (21/02/2025) - M2.02 10
+
+## Semana 15 (Febrero)
+
+### Día 1 (24/02/2025) - M2.02 11
+
+### Día 2 (25/02/2025) - M2.02 12
+
+### Día 3 (26/02/2025) - M2.02 13
+
+### Día 4 (27/02/2025) - M2.02 14
+
+### Día 5 (28/02/2025) - M2.02 15
+
+## Semana 16 (Marzo)
+
+### Día 1 (02/03/2025) - M2.02 16
+
+### Día 2 (03/03/2025) - M2.02 17
+
+### Día 3 (04/03/2025) - M2.02 18
+
+### Día 4 (05/03/2025) - M2.01 01
+
+### Día 5 (06/03/2025) - M2.01 02
+
+## Semana 17 (Marzo)
 
 <!-- - Autenticación: JWT
 - Uso de la autenticación desde el cliente
 - Gestión de imágenes: Multer
 - Almacenamiento de las imágenes: Cloudinary -->
+
+### Día 1 (09/03/2025) - M2.01 03
+
+### Día 2 (10/03/2025) - M2.01 04
+
+### Día 3 (11/03/2025) - M2.01 05
+
+### Día 4 (12/03/2025) - M2.01 06
+
+### Día 5 (13/03/2025) - M2.01 07
+
+## Semana 18 (Marzo)
+
+### Día 1 (16/03/2025) - M2.01 08
+
+### Día 2 (17/03/2025) - M2.01 09
+
+### Día 3 (18/03/2025) - M2.01 10
+
+### Día 4 (19/03/2025) - M2.01 11
+
+Examen Módulo 2 (Primera convocatoria)
+
+### Día 5 (20/03/2025) - M2.01 12
+
+Examen Módulo 2 (Segunda convocatoria)
+
+## Semana 19 (Marzo)
+
+### Día 1 (23/03/2025) - M3.00 01
+
+### Día 2 (24/03/2025) - M3.00 02
+
+### Día 3 (25/03/2025) - M3.00 03
+
+### Día 4 (26/03/2025) - M3.00 04
+
+### Día 5 (27/03/2025) - M3.00 05
+
+## Semana 20 (Marzo)
+
+### Día 1 (30/03/2025) - M3.00 06
+
+### Día 2 (31/03/2025) - M3.00 07
+
+### Día 3 (01/04/2025) - M3.00 08
+
+### Día 4 (02/04/2025) - M3.00 09
+
+### Día 5 (03/04/2025) - M3.00 10
+
+## Semana 21 (Abril)
+
+### Día 1 (06/04/2025) - M3.00 11
+
+### Día 2 (07/04/2025) - M3.00 12
+
+### Día 3 (08/04/2025) - M3.00 13
+
+### Día 4 (09/04/2025) - M3.00 14
+
+### Día 5 (10/04/2025) - M3.00 15
+
+## Semana Santa 13/04/2025 - 19/04/2025
+
+## Semana 22 (Abril)
+
+### Día 1 (20/04/2025) - M3.00 16
+
+### Día 2 (21/04/2025) - M3.00 17
+
+Examen Módulo 3 (Primera convocatoria)
+
+### Día 3 (22/04/2025) - M3.00 18
+
+Examen Módulo 3 (Segunda convocatoria)
