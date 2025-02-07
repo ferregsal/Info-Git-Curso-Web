@@ -6,11 +6,9 @@ import { BasePage } from './base-page.js';
 
 const html = String.raw;
 
-export class ErrorPage extends BasePage {
-    static override render = (errorMessage?: string) => {
-        errorMessage = errorMessage || 'Error desconocido';
-
-        const title = 'Error | Demo Products';
+export class HomePage extends BasePage {
+    static override render = () => {
+        const title = 'Inicio | Demo Products';
         const pageTitle = 'Products';
 
         return html`
@@ -20,7 +18,10 @@ export class ErrorPage extends BasePage {
                 <body>
                     ${renderHeader(pageTitle)} ${renderDialogNav()}
                     <main>
-                        ${this.renderMain('Página de error', errorMessage)}
+                        ${this.renderMain(
+                            'Página de inicio',
+                            'Bienvenido a la página de inicio',
+                        )}
                     </main>
                     ${renderFooter()}
                 </body>

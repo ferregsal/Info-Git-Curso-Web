@@ -16,6 +16,7 @@ import {
     notMethodController,
 } from './controllers/base.controller.js';
 import { errorManager } from './errors/error-manager.js';
+import { HomeController } from './controllers/home.controller.js';
 
 const __dirname = resolve();
 const publicPath = resolve(__dirname, 'public');
@@ -26,6 +27,8 @@ app.use(morgan('common'));
 app.use(express.json());
 app.use(debugLogger('debug-logger'));
 app.use(express.static(publicPath));
+
+app.get('/', HomeController.getPage);
 
 app.get('*', notFoundController);
 app.use('*', notMethodController);
