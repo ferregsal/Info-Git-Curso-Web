@@ -1,0 +1,13 @@
+import { createServer } from 'node:http';
+import createDebug from 'debug';
+import { listenManager } from './server/listen-manager.js';
+import { errorManager } from './server/error-manager.js';
+import { app } from './app.js';
+
+const debug = createDebug('demo:server');
+debug('Iniciando servidor...');
+const PORT = process.env.PORT || 3000;
+const server = createServer(app);
+server.listen(PORT);
+server.on('listening', () => listenManager(server));
+server.on('error', errorManager);
