@@ -709,20 +709,27 @@ Servidores Web: Node + Express
 <!--  Servidores Web: Node + Express
 - Cors (continuación)
 - Error Handler
-- Clean Architecture
+- Elementos estáticos
+- Templating (Vistas ES6)
 - Rutas y controladores
-- Repositorios
 -->
 
 ### Día 5 (07/02/2025) - M2.01 18
 
 <!--
-- Servidores Web: Node + NestJS
+- Servidores Web: Node + Express
+  - Clean Architecture
+  - Patrón Repositorio
+  - Clases. Inyección de dependencias
 -->
 
 ## Semana 13 (Febrero)
 
 ### Día 1 (10/02/2025) - M2.02 01
+
+<!-- Code review de la práctica de NodeJS -->
+
+### Día 2 (11/02/2025) - M2.02 02
 
 <!-- - Bases de datos
   - Conceptos generales
@@ -731,28 +738,37 @@ Servidores Web: Node + Express
   - Bases de datos no relacionales (NoSQL)
   - ORM / ODM -->
 
-### Día 2 (11/02/2025) - M2.02 02
-
-<!--  Servidores Web: Node + Express
-- ORM / ODM
-- Patrón Repositorio con ORM/ODM
--->
-
 ### Día 3 (12/02/2025) - M2.02 03
 
 <!--   Bases de datos relacionales (SQL) -->
 
 ### Día 4 (13/02/2025) - M2.02 04
 
+<!--   Bases de datos relacionales (SQL) -->
+
 ### Día 5 (14/02/2025) - M2.02 05
+
+<!--  Servidores Web: Node + Express
+- ORM (Prisma)
+- Patrón Repositorio con ORM
+-->
 
 ## Semana 14 (Febrero)
 
 ### Día 1 (17/02/2025) - M2.02 06
 
+<!--   Bases de datos NO relacionales (Mongo) -->
+
 ### Día 2 (18/02/2025) - M2.02 07
 
+<!--   Bases de datos NO relacionales (Mongo) -->
+
 ### Día 3 (19/02/2025) - M2.02 08
+
+<!--  Servidores Web: Node + Express
+- ODM (Mongoose)
+- Patrón Repositorio con ODM
+-->
 
 ### Día 4 (20/02/2025) - M2.02 09
 
@@ -780,6 +796,10 @@ Servidores Web: Node + Express
 
 ### Día 4 (05/03/2025) - M2.01 01
 
+<!--
+- Servidores Web: Node + NestJS
+-->
+
 ### Día 5 (06/03/2025) - M2.01 02
 
 ## Semana 17 (Marzo)
@@ -803,6 +823,8 @@ Servidores Web: Node + Express
 
 ### Día 1 (16/03/2025) - M2.01 08
 
+<!-- Sockets - Chat -->
+
 ### Día 2 (17/03/2025) - M2.01 09
 
 ### Día 3 (18/03/2025) - M2.01 10
@@ -818,6 +840,8 @@ Examen Módulo 2 (Segunda convocatoria)
 ## Semana 19 (Marzo)
 
 ### Día 1 (23/03/2025) - M3.00 01
+
+<!-- Testing -->
 
 ### Día 2 (24/03/2025) - M3.00 02
 
