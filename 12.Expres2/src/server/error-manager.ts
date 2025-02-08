@@ -1,7 +1,7 @@
 import type { ServerResponse } from 'node:http';
 import { HttpError } from '../errors/http-error.js';
 import createDebug from 'debug';
-const debug = createDebug('demo:server-errors');
+const debug = createDebug('demo:server:errors');
 
 export const errorManager = (
     error: Error | HttpError,
