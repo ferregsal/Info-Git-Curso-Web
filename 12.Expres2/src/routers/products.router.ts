@@ -10,3 +10,4 @@ export const productsRouter = Router();
 const controller = new ProductsController();
 
 productsRouter.get('/', controller.getAllPage);
+productsRouter.get('/:name', controller.getDetailPage);
