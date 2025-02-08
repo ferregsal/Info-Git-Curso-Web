@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import createDebug from 'debug';
-import { HttpError } from './http-error.js';
+import { HttpError } from '../errors/http-error.js';
 import { ErrorPage } from '../views/pages/error-page.js';
 
 const debug = createDebug('demo:errorManager');
@@ -21,9 +21,10 @@ export const errorManager = (
     }
 
     const publicMessage = `Error: ${err.statusCode} ${err.status}`;
+    const view = new ErrorPage();
     debug(publicMessage, err.message);
 
     res.status(err.statusCode);
     res.setHeader('Content-Type', 'text/html; charset=utf-8');
-    res.send(ErrorPage.render(publicMessage));
+    res.send(view.render({ errorMessage: publicMessage }));
 };

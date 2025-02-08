@@ -8,9 +8,7 @@ import {
     notFoundController,
     notMethodController,
 } from './controllers/base.controller.js';
-import { errorManager } from './errors/error-manager.js';
-import { HomeController } from './controllers/home.controller.js';
-import { productsRouter } from './routers/products.router.js';
+import { errorManager } from './controllers/errors.controller.js';
 const debug = createDebug('demo:app');
 debug('Loaded module');
 
