@@ -9,6 +9,7 @@ import {
     notMethodController,
 } from './controllers/base.controller.js';
 import { errorManager } from './controllers/errors.controller.js';
+import { HomeController } from './controllers/home.controller.js';
 const debug = createDebug('demo:app');
 debug('Loaded module');
 
@@ -31,6 +32,9 @@ export const createApp = () => {
     app.use(express.static(publicPath));
 
     // Routes
+
+    const homeController = new HomeController();
+    app.get('/', homeController.getPage);
 
     app.get('*', notFoundController);
     app.use('*', notMethodController);

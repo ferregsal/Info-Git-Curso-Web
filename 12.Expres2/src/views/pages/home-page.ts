@@ -1,31 +1,21 @@
-import { renderHeader } from '../partials/header.js';
-import { renderHead } from '../partials/head.js';
-import { renderFooter } from '../partials/footer.js';
-import { renderDialogNav } from '../partials/dialog-nav.js';
 import { BasePage } from './base-page.js';
+import createDebug from 'debug';
 
-const html = String.raw;
+const debug = createDebug('demo:views:home-page');
+debug('Loaded module');
 
 export class HomePage extends BasePage {
-    static override render = () => {
-        const title = 'Inicio | Demo Products';
-        const pageTitle = 'Products';
+    constructor(protected title = 'Inicio | Demo Products') {
+        super(title);
+    }
 
-        return html`
-            <!DOCTYPE html>
-            <html lang="en">
-                ${renderHead(title)}
-                <body>
-                    ${renderHeader(pageTitle)} ${renderDialogNav()}
-                    <main>
-                        ${this.renderMain(
-                            'Página de inicio',
-                            'Bienvenido a la página de inicio',
-                        )}
-                    </main>
-                    ${renderFooter()}
-                </body>
-            </html>
-        `;
-    };
+    override render() {
+        debug('Iniciando render');
+        const info = {
+            mainTitle: 'Página de inicio',
+            mainContent: 'Bienvenido a la página de inicio',
+        };
+
+        return super.render(info);
+    }
 }
