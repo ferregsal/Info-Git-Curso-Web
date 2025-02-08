@@ -10,6 +10,7 @@ import {
 } from './controllers/base.controller.js';
 import { errorManager } from './controllers/errors.controller.js';
 import { HomeController } from './controllers/home.controller.js';
+import { productsRouter } from './routers/products.router.js';
 const debug = createDebug('demo:app');
 debug('Loaded module');
 
@@ -35,6 +36,8 @@ export const createApp = () => {
 
     const homeController = new HomeController();
     app.get('/', homeController.getPage);
+
+    app.use('/products', productsRouter);
 
     app.get('*', notFoundController);
     app.use('*', notMethodController);
