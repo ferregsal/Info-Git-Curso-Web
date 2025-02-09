@@ -46,6 +46,10 @@
       - [Controller: update class ProductsController (delete product)](#controller-update-class-productscontroller-delete-product)
       - [Update routes: delete product](#update-routes-delete-product)
   - [Arquitectura y persistencia: Modelo de datos](#arquitectura-y-persistencia-modelo-de-datos)
+    - [Previous: changes to use id instead of name](#previous-changes-to-use-id-instead-of-name)
+    - [ODMLite](#odmlite)
+    - [Modelo de datos / Repositorio](#modelo-de-datos--repositorio)
+    - [Inicialización de los datos](#inicialización-de-los-datos)
 
 ## Creación de la estructura del proyecto
 
@@ -1036,5 +1040,233 @@ productsRouter.post('/delete/:name', controller.deleteProduct);
 
 ## Arquitectura y persistencia: Modelo de datos
 
-- [] Los datos en un array (mock de datos)
-- [] Creación de un modelo de producto: carpeta **Models** (Product)
+### Previous: changes to use id instead of name
+
+- rutas
+
+```ts products.router.ts
+productsRouter.get('/update/:name', controller.getUpdatePge);
+productsRouter.get('/:name', controller.getDetailPage);
+
+// productsRouter.put('/update/:name', controller.updateProduct);
+productsRouter.post('/update/:name', controller.updateProduct);
+productsRouter.post('/delete/:name', controller.deleteProduct);
+```
+
+- urls a esas rutas
+
+Para GET /:name y /update:name
+Para POST /delete:name
+
+```ts (products-page.ts)
+<a href="/products/${item.name}">
+<a href="/products/update/${item.name}">
+<button data-name=${item.name}>Eliminar</button>
+```
+
+Para POST /update:name
+
+```ts (upsert-page.ts)
+const action = mainContent.name ? 'update/' + mainContent.name : 'create';
+```
+
+- controlador de productos: cambiar name por id
+- datos de prueba
+- delete confirm dialog
+
+### ODMLite
+
+- Interface para un ODM (Object Document Mapper) genérico
+
+```ts
+export interface TypeODM<T extends WithId> {
+  read: () => Promise<T[]>;
+  readById: (id: T['id']) => Promise<T>;
+  // Errores => throw Error
+  find(query: Partial<T>): Promise<T[]>;
+  create: (data: Omit<T, 'id'>) => Promise<T>;
+  updateById: (id: T['id'], data: Omit<Partial<T>, 'id'>) => Promise<T>;
+  // Errores => throw Error
+  deleteById: (id: T['id']) => Promise<T>;
+  // Errores => throw Error
+}
+
+export type WithId = { id: string };
+```
+
+Implementación de un ODM para un fichero JSON
+
+```ts
+export class ODMLite<T extends { id: string }> implements TypeODM<T> {
+  file: string;
+  collection: string;
+  constructor(file: string, collection: string) {
+    this.file = file;
+    this.collection = collection;
+  }
+
+  private async readDB(): Promise<Record<string, T[]>> {
+    const txtData = await readFile(this.file, 'utf-8');
+    return JSON.parse(txtData);
+  }
+
+  private writeDB(data: Record<string, T[]>): Promise<void> {
+    return writeFile(this.file, JSON.stringify(data));
+  }
+
+  async read(): Promise<T[]> {
+    const allData = await this.readDB();
+    return allData[this.collection];
+  }
+
+  async readById(id: string): Promise<T> {
+    const allData = await this.readDB();
+    const item = allData[this.collection].find((item: T) => item.id === id);
+    if (item === undefined) {
+      throw new Error(`Item with id ${id} not found`);
+    }
+    return item;
+  }
+
+  async find(query: Partial<T>): Promise<T[]> {
+    const allData = await this.readDB();
+    return allData[this.collection].filter((item: T) => {
+      for (const key in query) {
+        if (item[key] !== query[key]) {
+          return false;
+        }
+      }
+      return true;
+    });
+  }
+
+  async create(initialData: Omit<T, 'id'>): Promise<T> {
+    const allData = await this.readDB();
+    const itemData = {
+      ...initialData,
+      id: crypto.randomUUID().substring(0, 8),
+    } as T;
+    allData[this.collection].push(itemData);
+    await this.writeDB(allData);
+    return itemData;
+  }
+
+  async updateById(id: string, data: Omit<Partial<T>, 'id'>): Promise<T> {
+    // const txtData = readFromDisk();
+    // const allData = JSON.parse(txtData);
+    const allData = await this.readDB();
+    let item = allData[this.collection].find((item: T) => item.id === id);
+    if (item === undefined) {
+      throw new Error(`Item with id ${id} not found`);
+    }
+    item = Object.assign(item, data);
+    // item = { ...item ...data }; // Otra forma de hacerlo
+    await this.writeDB(allData);
+    return item;
+  }
+
+  async deleteById(id: string) {
+    const allData = await this.readDB();
+    const item = allData[this.collection].find((item: T) => item.id === id);
+    if (item === undefined) {
+      throw new Error(`Item with id ${id} not found`);
+    }
+    allData[this.collection] = allData[this.collection].filter(
+      (item: T) => item.id !== id,
+    );
+    await this.writeDB(allData);
+    return item;
+  }
+}
+```
+
+### Modelo de datos / Repositorio
+
+- Creación de un interface para los repositorios: carpeta **Models** (Product)
+
+```ts (repository.type.ts)
+export interface Repository<T> {
+  read: () => Promise<T[]>;
+  readById: (id: string) => Promise<T>;
+  create: (data: Omit<T, 'id'>) => Promise<T>;
+  update: (id: string, data: Partial<Omit<T, 'id'>>) => Promise<T>;
+  delete: (id: string) => Promise<T>;
+}
+```
+
+- Creación de un repositorio de producto: carpeta **Models** (Product)
+
+```ts (animals.json.repository.ts)
+export class RepoAnimalFile implements Repository<Animal> {
+  odm: TypeODM<Animal>;
+  collection: string;
+  constructor(file = 'db.json', collection = 'animals') {
+    this.odm = new ODMLite<Animal>(file, collection);
+    this.collection = collection;
+  }
+
+  async read(): Promise<Animal[]> {
+    const data = await this.odm.read();
+    return data;
+  }
+  async readById(id: string): Promise<Animal> {
+    return await this.odm.readById(id);
+  }
+  async create(data: Omit<Animal, 'id'>): Promise<Animal> {
+    return await this.odm.create(data);
+  }
+  async update(id: string, data: Partial<Omit<Animal, 'id'>>): Promise<Animal> {
+    return await this.odm.updateById(id, data);
+  }
+  async delete(id: string): Promise<Animal> {
+    return await this.odm.deleteById(id);
+  }
+}
+```
+
+- Creación de un tipo de datos para los animales: carpeta **Models** (Animal)
+
+```ts (animal.type.ts)
+export type Animal = {
+  id: string;
+  name: string;
+  sciName: string;
+  englishName: string;
+  group: string;
+  image: string;
+  diet: string;
+  lifestyle: string;
+  location: string;
+  slogan: string;
+};
+```
+
+### Inicialización de los datos
+
+- Creación de un fichero de datos json. **\Data\db.json**
+- Equivale a la conexión - inicialización de la DB
+
+```ts (connect.ts)
+import { ODMLite } from '../odm/odm-lite.js';
+import createDebug from 'debug';
+const debug = createDebug('demo:server:db:connect');
+
+export const connectDB = async () => {
+  const info = await ODMLite.initializeJSON('./data/db.json');
+  info.forEach((msg) => debug(msg));
+};
+```
+
+```ts (index.ts)
+connectDB()
+  .then(() => {
+    const server = createServer(createApp());
+    server.listen(PORT);
+    server.on('listening', () => listenManager(server));
+    server.on('error', errorManager);
+  })
+  .catch((err) => {
+    console.error('Error connecting to DB:', err);
+    process.exit(1);
+  });
+```
