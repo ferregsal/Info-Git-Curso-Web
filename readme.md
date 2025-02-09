@@ -706,28 +706,31 @@ Servidores Web: Node + Express
 
 ### Día 4 (06/02/2025) - M2.01 17
 
-<!--  Servidores Web: Node + Express
+Servidores Web: Node + Express
+
 - Cors (continuación)
 - Error Handler
 - Elementos estáticos
 - Templating (Vistas ES6)
 - Rutas y controladores
--->
 
 ### Día 5 (07/02/2025) - M2.01 18
 
-<!--
-- Servidores Web: Node + Express
-  - Clean Architecture
-  - Patrón Repositorio
-  - Clases. Inyección de dependencias
--->
+- Templating (Vistas ES6)
+  - Tagged templates
+- Práctica: Servidores Web: Node + Express
 
 ## Semana 13 (Febrero)
 
 ### Día 1 (10/02/2025) - M2.02 01
 
-<!-- Code review de la práctica de NodeJS -->
+<!-- Code review de la práctica de NodeJS
+
+- Servidores Web: Node + Express
+  - Clean Architecture
+  - Patrón Repositorio
+  - Clases. Inyección de dependencias
+-->
 
 ### Día 2 (11/02/2025) - M2.02 02
 

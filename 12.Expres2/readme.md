@@ -1,5 +1,52 @@
 # Challenge Express Products
 
+- [Challenge Express Products](#challenge-express-products)
+  - [Creación de la estructura del proyecto](#creación-de-la-estructura-del-proyecto)
+    - [Creación de los ficheros de configuración](#creación-de-los-ficheros-de-configuración)
+    - [Creación de la estructura de carpetas](#creación-de-la-estructura-de-carpetas)
+    - [Dependencias](#dependencias)
+    - [Scripts](#scripts)
+  - [Servidor HTTP y aplicación Express básica](#servidor-http-y-aplicación-express-básica)
+    - [Servidor HTTP](#servidor-http)
+    - [Aplicación Express inicial](#aplicación-express-inicial)
+    - [Server event handlers](#server-event-handlers)
+      - [Manejo de errores del servidor](#manejo-de-errores-del-servidor)
+      - [Manejo del eventos listening del servidor](#manejo-del-eventos-listening-del-servidor)
+  - [Aplicación Express](#aplicación-express)
+    - [Middlewares de aplicación](#middlewares-de-aplicación)
+    - [Controladores de rutas y errores](#controladores-de-rutas-y-errores)
+      - [Controladores base](#controladores-base)
+    - [Middleware de errores](#middleware-de-errores)
+  - [Páginas de la aplicación](#páginas-de-la-aplicación)
+    - [Página base](#página-base)
+      - [Partials](#partials)
+      - [class BasePage](#class-basepage)
+      - [Elementos `public` usados por las páginas](#elementos-public-usados-por-las-páginas)
+    - [Página de errores: class ErrorPage](#página-de-errores-class-errorpage)
+    - [Página de about](#página-de-about)
+    - [Página de inicio](#página-de-inicio)
+      - [Vista (view): class HomePage](#vista-view-class-homepage)
+      - [Controller: class HomeController](#controller-class-homecontroller)
+      - [Router/app](#routerapp)
+    - [Página de productos](#página-de-productos)
+      - [Vista (view): class ProductsPage](#vista-view-class-productspage)
+      - [Controllers: class ProductsController](#controllers-class-productscontroller)
+      - [Rutas: router / app](#rutas-router--app)
+    - [Páginas de detalles](#páginas-de-detalles)
+      - [Vista (view): class DetailPage](#vista-view-class-detailpage)
+      - [Controllers: update class ProductsController (detail product)](#controllers-update-class-productscontroller-detail-product)
+      - [Update routes: get dynamic detail page](#update-routes-get-dynamic-detail-page)
+  - [Crud de productos](#crud-de-productos)
+    - [Pagina de upsert (creación y edición)](#pagina-de-upsert-creación-y-edición)
+      - [Vista (view): class UpsertProductsPage](#vista-view-class-upsertproductspage)
+      - [Controller: update class ProductsController (upsert product)](#controller-update-class-productscontroller-upsert-product)
+      - [Update routes: upsert product](#update-routes-upsert-product)
+    - [Eliminación de productos](#eliminación-de-productos)
+      - [Dialog de confirmación](#dialog-de-confirmación)
+      - [Controller: update class ProductsController (delete product)](#controller-update-class-productscontroller-delete-product)
+      - [Update routes: delete product](#update-routes-delete-product)
+  - [Arquitectura y persistencia: Modelo de datos](#arquitectura-y-persistencia-modelo-de-datos)
+
 ## Creación de la estructura del proyecto
 
 ### Creación de los ficheros de configuración
@@ -50,12 +97,12 @@ import { createServer } from 'node:http';
 import createDebug from 'debug';
 import { listenManager } from './server/listen-manager.js';
 import { errorManager } from './server/error-manager.js';
-import { app } from './app.js';
+import { createApp } from './app.js';
 
 const debug = createDebug('demo:server');
 debug('Iniciando servidor...');
 const PORT = process.env.PORT || 3000;
-const server = createServer(app);
+const server = createServer(createApp());
 server.listen(PORT);
 server.on('listening', () => listenManager(server));
 server.on('error', errorManager);
@@ -67,11 +114,14 @@ server.on('error', errorManager);
 import express from 'express';
 import createDebug from 'debug';
 
-export const app = express();
-const debug = createDebug('demo:app');
+export const createApp = () => {
+  const app = express();
+  const debug = createDebug('demo:app');
 
-debug('Iniciando App...');
-app.disable('x-powered-by');
+  debug('Iniciando App...');
+  app.disable('x-powered-by');
+  return app;
+};
 ```
 
 ### Server event handlers
@@ -99,7 +149,7 @@ export class HttpError extends Error {
 import type { ServerResponse } from 'node:http';
 import { HttpError } from '../errors/http-error.js';
 import createDebug from 'debug';
-const debug = createDebug('demo:server');
+const debug = createDebug('demo:server:errors');
 
 export const errorManager = (
   error: Error | HttpError,
@@ -129,7 +179,7 @@ export const errorManager = (
 ```ts
 import createDebug from 'debug';
 import { Server } from 'node:http';
-const debug = createDebug('demo:server-listening');
+const debug = createDebug('demo:server:listening');
 
 export const listenManager = (server: Server) => {
   const addr = server.address();
@@ -161,12 +211,16 @@ import morgan from 'morgan';
 import cors from 'cors';
 import { debugLogger } from './middleware/debug-logger.js';
 
+// ...
+
 const __dirname = resolve();
 const publicPath = resolve(__dirname, 'public');
 
 // Middlewares
 app.use(cors());
-app.use(morgan('common'));
+if (!process.env.DEBUG) {
+  app.use(morgan('dev'));
+}
 app.use(express.json());
 app.use(debugLogger('debugger'));
 app.use(express.static(publicPath));
@@ -178,7 +232,8 @@ app.use(express.static(publicPath));
 - método no permitido (error 405)
 
 ```ts
-app.use('\*', notFoundController);
+app.get('*', notFoundController);
+app.use('*', notMethodController);
 app.use(errorManager);
 ```
 
@@ -218,10 +273,10 @@ export const notMethodController = (
 
 ### Middleware de errores
 
-```ts
+```ts (errors.controller.ts)
 import { Request, Response, NextFunction } from 'express';
 import createDebug from 'debug';
-import { HttpError } from './http-error.js';
+import { HttpError } from '../errors/http-error.js';
 
 const debug = createDebug('demo:errorManager');
 
@@ -249,18 +304,76 @@ export const errorManager = (
 };
 ```
 
-#### Página de errores
+El siguiente paso es construir la página de errores, para que pueda ser renderizada desde el middleware de errores.
 
-- Partials
-  - Head
-  - Header
-  - Menu
-  - Dialog-nav
-  - Footer
-- class BasePage
-- class ErrorPage
+```ts (errors.controller.ts)
+import { ErrorPage } from '../views/pages/error-page.js';
 
-Elementos `public` usados por las páginas
+const view = new ErrorPage();
+res.send(view.render({ errorMessage: publicMessage }));
+```
+
+## Páginas de la aplicación
+
+### Página base
+
+#### Partials
+
+- Head
+- Header
+- Menu
+- Dialog-nav
+- Footer
+
+#### class BasePage
+
+```ts
+type PageContent = {
+  mainTitle: string;
+  mainContent: string | unknown;
+};
+
+export abstract class BasePage {
+  constructor(
+    protected title: string = '?? | Demo Products',
+    protected pageTitle: string = 'Products',
+  ) {}
+
+  protected renderMain({ mainTitle, mainContent }: PageContent) {
+    debug('Iniciando renderMain');
+    return html`
+      <main>
+        <section>
+          <h2 class="h3">${mainTitle}</h2>
+          <p>${mainContent}</p>
+        </section>
+      </main>
+    `;
+  }
+
+  protected render(info?: Partial<PageContent>) {
+    debug('Iniciando render');
+    const pageContent: PageContent = {
+      mainTitle: info?.mainTitle || 'Section title',
+      mainContent: info?.mainContent || 'Section info',
+    };
+
+    return html`
+      <!DOCTYPE html>
+      <html lang="en">
+        ${renderHead(this.title)}
+        <body>
+          ${renderHeader(this.pageTitle)} ${renderDialogNav()}
+          <main>${this.renderMain(pageContent)}</main>
+          ${renderFooter()}
+        </body>
+      </html>
+    `;
+  }
+}
+```
+
+#### Elementos `public` usados por las páginas
 
 - `favicon.ico` / `favicon.svg`
 - `main.css`
@@ -268,7 +381,29 @@ Elementos `public` usados por las páginas
 - `index.js` (menu icon / menu dialog)
 - assets `logo.svg`
 
-## Páginas de la aplicación
+### Página de errores: class ErrorPage
+
+Primera página usada basada en la clase BasePage
+
+```ts
+import { BasePage } from './base-page.js';
+
+export class ErrorPage extends BasePage {
+  constructor(protected title = 'Error | Demo Products') {
+    super(title);
+  }
+
+  override render(info?: Record<string, unknown>) {
+    debug('Iniciando render');
+    info = {
+      mainTitle: 'Página de error',
+      mainContent: info?.errorMessage || 'Error desconocido',
+    };
+
+    return super.render(info);
+  }
+}
+```
 
 ### Página de about
 
@@ -278,11 +413,628 @@ Completamente estática
 
 Generada dinámicamente a partir de los partials de HTML
 
-- Vista (view)
-- Controller
+#### Vista (view): class HomePage
 
-#### Controlador de la página de inicio
+```ts (home-page.ts)
+import { BasePage } from './base-page.js';
+
+export class HomePage extends BasePage {
+  constructor(protected title = 'Inicio | Demo Products') {
+    super(title);
+  }
+
+  override render() {
+    debug('Iniciando render');
+    const info = {
+      mainTitle: 'Página de inicio',
+      mainContent: 'Bienvenido a la página de inicio',
+    };
+
+    return super.render(info);
+  }
+}
+```
+
+#### Controller: class HomeController
+
+- Carpeta **Controllers**
+
+```ts (home.controller.ts)
+import { HomePage } from '../views/pages/home-page.js';
+
+export class HomeController {
+  view = new HomePage();
+  getPage = (_req: Request, res: Response) => {
+    debug('Petición recibida en getPage');
+    res.header('Content-Type', 'text/html');
+    res.send(this.view.render());
+  };
+}
+```
+
+#### Router/app
+
+```ts (app.js)
+// Routes
+
+const homeController = new HomeController();
+app.get('/', homeController.getPage);
+```
 
 ### Página de productos
 
-Generada con datos de un fichero JSON
+Generada con datos de un fichero JSON / TS (mock de datos)
+
+Listado de productos / página de productos
+
+#### Vista (view): class ProductsPage
+
+```ts (products-page.ts)
+type PageContent = {
+  mainTitle: string;
+  mainContent: Animal[];
+};
+
+export class ProductsPage extends BasePage {
+  constructor(protected title = 'Animals | Demo Products') {
+    super(title);
+  }
+
+  override renderMain({ mainTitle, mainContent }: PageContent) {
+    debug('Iniciando renderMain');
+    const renderList = (data: Animal[]) => {
+      return data
+        .map(
+          (item) => html`
+            <a href="/products/${item.name}">
+              <article>
+                <h3>${item.name}</h3>
+                <p>
+                  <img src="${item.image}" alt="${item.name}" />
+                </p>
+                <div>
+                  <button>Editar</button>
+                  <button>Eliminar</button>
+                </div>
+              </article>
+            </a>
+          `,
+        )
+        .join(' ');
+    };
+    return html`
+      <main>
+        <section class="products">
+          <header>
+            <h2 class="h3">${mainTitle}</h2>
+            <button>Agregar</button>
+          </header>
+          <div class="products-wrapper">${renderList(mainContent)}</div>
+        </section>
+      </main>
+    `;
+  }
+
+  override render(info?: Partial<PageContent>) {
+    debug('Iniciando render');
+    if (!info) return super.render();
+    info.mainTitle = 'Animals';
+    info.mainContent = info.mainContent as Animal[];
+    return super.render(info);
+  }
+}
+```
+
+#### Controllers: class ProductsController
+
+- Carpeta **Controllers** (products)
+
+```ts (products.controller.ts)
+export class ProductsController {
+  debug = createDebug('Run getPAge');
+  data: Animal[] = ANIMALS;
+
+  getAllPage = (req: Request, res: Response) => {
+    debug('Petición recibida en getAllPage');
+    const view: ProductsPage = new ProductsPage();
+    res.send(view.render({ mainContent: this.data }));
+  };
+}
+```
+
+#### Rutas: router / app
+
+- Rutas (Router - carpeta **Routes**)
+
+```ts (products.router.ts)
+export const productsRouter = Router();
+
+const controller = new ProductsController();
+productsRouter.get('/', controller.getAllPage);
+```
+
+- Llamada al router desde app
+
+```ts app
+const homeController = new HomeController();
+app.get('/', homeController.getPage);
+
+app.use('/products', productsRouter);
+```
+
+### Páginas de detalles
+
+#### Vista (view): class DetailPage
+
+```ts (detail-page.ts)
+type PageContent = {
+  mainTitle: string;
+  mainContent: Animal;
+};
+
+export class DetailPage extends BasePage {
+  constructor(protected title = 'Animals | Demo Products') {
+    super(title);
+  }
+
+  override renderMain({ mainTitle, mainContent }: PageContent) {
+    debug('Iniciando renderMain');
+    const renderItem = (item: Animal) => {
+      return html`
+        <article>
+          <h3 class="h4">${item.name} <i>(${item.sciName})</i></h3>
+          <p>
+            <img src="${item.image}" alt="${item.name}" />
+          </p>
+          <p><strong>Inglés:</strong> ${item.englishName}</p>
+          <p><strong>Dieta:</strong> ${item.diet}</p>
+          <p><strong>Estilo de vida:</strong> ${item.lifestyle}</p>
+          <p><strong>Localización:</strong> ${item.location}</p>
+          <p><strong>Lema:</strong> ${item.slogan}</p>
+        </article>
+      `;
+    };
+    return html`
+      <main>
+        <section>
+          <a href="/products">
+            <h2 class="h3">${mainTitle}</h2>
+          </a>
+          <div>${renderItem(mainContent)}</div>
+        </section>
+      </main>
+    `;
+  }
+
+  override render(info?: Partial<PageContent>) {
+    debug('Iniciando render');
+    if (!info) return super.render();
+    info.mainTitle = 'Animals';
+    info.mainContent = info.mainContent as Animal;
+    return super.render(info);
+  }
+}
+```
+
+#### Controllers: update class ProductsController (detail product)
+
+- Carpeta **Controllers** (detail product)
+
+```ts (products.controller.ts)
+getDetailPage = (req: Request, res: Response) => {
+  debug('Petición recibida en getDetailPage');
+  const { name } = req.params;
+  const title = `${name} | Demo Products`;
+  const view: DetailPage = new DetailPage(title);
+  const data = this.data.find((item) => item.name === name);
+  if (!data) {
+    res.status(404).send('Not found');
+    return;
+  }
+  res.send(view.render({ mainContent: data }));
+};
+```
+
+#### Update routes: get dynamic detail page
+
+- Router - carpeta **Routes**
+
+```ts (products.router.ts)
+productsRouter.get('/:name', controller.getDetailPage);
+```
+
+## Crud de productos
+
+### Pagina de upsert (creación y edición)
+
+#### Vista (view): class UpsertProductsPage
+
+- Formulario de creación y edición de productos
+
+```ts (upsert-page.ts)
+export class UpsertProductsPage extends BasePage {
+  constructor(protected title = 'Animals | Demo Products') {
+    super(title);
+  }
+  private renderFormItems = (item: Animal) => {
+    return html`
+      <fieldset>
+        <label class="input">
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder=" "
+            ${item.name && `value="${item.name}"`}
+            ${item.name && 'readonly'}
+          />
+          <span>Nombre:</span>
+        </label>
+        <label class="input">
+          <input
+            type="text"
+            id="sciName"
+            name="sciName"
+            placeholder=" "
+            ${item.sciName && `value="${item.sciName}"`}
+          />
+          <span>Nombre científico:</span>
+        </label>
+        <label class="input">
+          <input
+            type="text"
+            id="englishName"
+            name="englishName"
+            placeholder=" "
+            ${item.englishName && `value="${item.englishName}"`}
+          />
+          <span>Nombre en inglés:</span>
+        </label>
+        <label class="input">
+          <input
+            type="text"
+            id="group"
+            name="group"
+            placeholder=" "
+            ${item.group && `value="${item.group}"`}
+          />
+          <span>Grupo (e.g. Mamíferos, Aves...):</span>
+        </label>
+      </fieldset>
+      <fieldset>
+        <label class="input">
+          <input
+            type="text"
+            id="image"
+            name="image"
+            placeholder=" "
+            ${item.image && `value="${item.image}"`}
+          />
+          <span>Url de la imagen:</span>
+        </label>
+      </fieldset>
+      <fieldset>
+        <label class="input">
+          <input
+            type="text"
+            id="diet"
+            name="diet"
+            placeholder=" "
+            ${item.diet && `value="${item.diet}"`}
+          />
+          <span>Dieta (Carnívoro, Hervívoro...):</span>
+        </label>
+        <label class="input">
+          <input
+            type="text"
+            id="lifestyle"
+            name="lifestyle"
+            placeholder=" "
+            ${item.lifestyle && `value="${item.lifestyle}"`}
+          />
+          <span>Estilo de vida (Diurno, Nocturno):</span>
+        </label>
+        <label class="input">
+          <input
+            type="text"
+            id="location"
+            name="location"
+            placeholder=" "
+            ${item.location && `value="${item.location}"`}
+          />
+          <span>Localización:</span>
+        </label>
+        <label class="input">
+          <input
+            type="text"
+            id="slogan"
+            name="slogan"
+            placeholder=" "
+            ${item.slogan && `value="${item.slogan}"`}
+          />
+          <span>Lema:</span>
+        </label>
+      </fieldset>
+    `;
+  };
+}
+```
+
+- Renderizado condicionado para creación o edición
+
+```ts (upsert-page.ts)
+export class UpsertProductsPage extends BasePage {
+  // ...
+
+  override renderMain({ mainTitle, mainContent }: PageContent) {
+    debug('Iniciando renderMain');
+
+    if (!mainContent) {
+      mainContent = {
+        name: '',
+        sciName: '',
+        englishName: '',
+        group: '',
+        image: '',
+        diet: '',
+        lifestyle: '',
+        location: '',
+        slogan: '',
+      };
+    }
+    const action = mainContent.name ? 'update/' + mainContent.name : 'create';
+    const method = 'POST';
+    const textButton = mainContent.name ? 'Actualizar' : 'Crear';
+    return html`
+            <main>
+                <section>
+                    <a href="/products">
+                        <h2 class="h3">${mainTitle}</h2>
+                    </a>
+                    <div>
+                    <form action="/products/${action}" method="${method}">
+                        ${this.renderFormItems(mainContent)}
+                        <fieldset>
+                            <button type="submit">${textButton}</button>
+                        </fieldset>
+                    </form>
+                </section>
+            </main>
+        `;
+  }
+
+  override render(info?: Partial<PageContent>) {
+    debug('Iniciando render');
+    if (!info) {
+      info = {
+        mainTitle: 'Crear un nuevo animal',
+        mainContent: null,
+      };
+    } else {
+      info.mainTitle = `Modificar datos del ${info.mainContent?.name}`;
+      info.mainContent = info.mainContent as Animal;
+      info.script = '/form.js';
+    }
+    return super.render(info);
+  }
+}
+```
+
+Ambos casos, creación y edición, se manejan como acciones de método POST.
+En los formularios HTML sólo se pueden utilizar methods GET y POST (y DIALOG).
+
+Para poder hacer un PUT/PATCH se necesita un handler del botón que haga una petición fetch con el método PUT/PATCH. Se incluye un script en la página que maneja la petición de esta forma pero no se utiliza.
+
+En el render de la BasePage se incluye la carga de un script si se pasa en el objeto de información.
+
+```ts (base-page.ts)
+protected render(info?: Partial<PageContent>) {
+    if (info?.script) {
+        const add = html`<script src="${info.script}" defer></script>`;
+        page = page.replace('</head>', `${add}</head>`);
+    }
+
+    return page;
+}
+```
+
+#### Controller: update class ProductsController (upsert product)
+
+Dos nuevos métodos en el controlador de productos para acceder a la página de creación y edición de productos.
+
+```ts (products.controller.ts)
+getCreatePage = (req: Request, res: Response) => {
+  debug('Petición recibida en createPage');
+  const title = `Create | Demo Products`;
+  const view: UpsertProductsPage = new UpsertProductsPage(title);
+  res.send(view.render());
+};
+```
+
+```ts (products.controller.ts)
+private getProduct = (name: string) => {
+    const data = this.data.find((item) => item.name === name);
+    if (!data) {
+        const error = new HttpError(
+            `Product ${name} not found`,
+            404,
+            'Not Found',
+        );
+        throw error;
+    }
+    return data;
+};
+
+getUpdatePge = (req: Request, res: Response, next: NextFunction) => {
+  debug('Petición recibida en updatePage');
+  const { name } = req.params;
+  try {
+    const data = this.getProduct(name);
+    const title = `${name} update | Demo Products`;
+    const view: UpsertProductsPage = new UpsertProductsPage(title);
+    const page = view.render({ mainContent: data });
+    res.send(page);
+  } catch (error) {
+    next(error as HttpError);
+  }
+};
+```
+
+- Métodos para la creación de productos.
+
+```ts (products.controller.ts)
+createProduct = (req: Request, res: Response) => {
+  debug('Petición POST recibida en createProduct');
+  const data = req.body;
+  this.data.push(data);
+  this.showDetailPage(data, res);
+};
+```
+
+En la respuesta al POST que crea un nuevo producto, los datos recogidos como FormData llegan en el body de la petición en el formato url.encoded.
+
+Se necesita un middleware para procesarlos, que se instala mediante eel comando `npm i body-parser / npm i -D @types/body-parser`. Se incorpora el middleware en el app.js.
+
+```ts (app.js)
+import bodyParser from 'body-parser';
+app.use(bodyParser.urlencoded({ extended: true }));
+```
+
+Al final se redirige a la página de detalles del producto creado.
+
+- Métodos para la edición de productos.
+
+```ts (products.controller.ts)
+private showDetailPage = (item: Animal, res: Response) => {
+    const title = `${item.name} | Demo Products`;
+    const view: DetailPage = new DetailPage(title);
+    res.send(view.render({ mainContent: item }));
+};
+
+updateProduct = (req: Request, res: Response, next: NextFunction) => {
+  debug('Petición PUT recibida en updateProduct');
+  const { name } = req.params;
+  const data = { ...req.body, name };
+  try {
+    const index = this.data.findIndex((item) => item.name === name);
+    if (index < 0) {
+      const error = new HttpError(
+        `Product ${name} not found`,
+        404,
+        'Not Found',
+      );
+      throw error;
+    }
+    console.log(data);
+    this.data[index] = data;
+    this.showDetailPage(data, res);
+  } catch (error) {
+    next(error as HttpError);
+  }
+};
+```
+
+#### Update routes: upsert product
+
+```ts (products.router.ts)
+productsRouter.get('/create', controller.getCreatePage);
+productsRouter.get('/update/:name', controller.getUpdatePge);
+
+productsRouter.post('/create', controller.createProduct);
+productsRouter.post('/update/:name', controller.updateProduct);
+```
+
+### Eliminación de productos
+
+En lugar de una página de eliminación, se añade un dialog de confirmación para el botón de eliminación en la página de productos.
+
+#### Dialog de confirmación
+
+```ts (products-page.ts)
+private dialogContent = () => html`
+    <h3>Seguro que deseas eliminar este elemento?</h3>
+
+    <form action="/products/delete/itemName" method="POST">
+        <button type="submit">Eliminar</button>
+        <button type="button" class="close">Cancelar</button>
+    </form>
+`;
+
+override renderMain({ mainTitle, mainContent }: PageContent) {
+  ${renderDialog(this.dialogContent())}
+  // ...
+}
+
+override render(info?: Partial<PageContent>) {
+  //  ...
+  info.script = this.pageScripts;
+  return super.render(info);
+}
+```
+
+Para gestionas este Dialog, incluido en la página de productos, se añade un script que maneja la apertura y cierre del dialog.
+
+```ts (public/confirm.js)
+const confirmDialog = () => {
+  const section = document.querySelector('.products');
+  const buttons = section.querySelectorAll('button[data-name]');
+  const elementDialog = section.querySelector('dialog');
+  const elementsClose = section.querySelectorAll('.close');
+
+  function handlerClick(event) {
+    const { target } = event;
+    const name = target.getAttribute('data-name');
+    elementDialog.showModal();
+    elementDialog.querySelector('form').action = `/products/delete/${name}`;
+  }
+
+  function handleClose() {
+    elementDialog.close();
+  }
+
+  buttons.forEach((button) => {
+    button.addEventListener('click', handlerClick);
+  });
+
+  elementsClose.forEach((element) => {
+    element.addEventListener('click', handleClose);
+  });
+};
+
+confirmDialog();
+```
+
+#### Controller: update class ProductsController (delete product)
+
+```ts (detail-page.ts)
+deleteProduct = (req: Request, res: Response, next: NextFunction) => {
+  debug('Petición DELETE recibida en deleteProduct');
+  const { name } = req.params;
+  try {
+    const index = this.data.findIndex((item) => item.name === name);
+    if (index < 0) {
+      const error = new HttpError(
+        `Product ${name} not found`,
+        404,
+        'Not Found',
+      );
+      throw error;
+    }
+    this.data.splice(index, 1);
+    res.redirect('/products');
+  } catch (error) {
+    next(error as HttpError);
+  }
+};
+```
+
+#### Update routes: delete product
+
+```ts (products.router.ts)
+productsRouter.post('/delete/:name', controller.deleteProduct);
+```
+
+## Arquitectura y persistencia: Modelo de datos
+
+- [] Los datos en un array (mock de datos)
+- [] Creación de un modelo de producto: carpeta **Models** (Product)

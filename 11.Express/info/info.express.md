@@ -492,18 +492,23 @@ Algunas librerías también utilizan la idea de renderizar componentes HTML a pa
 Evolución de la aplicación:
 
 - [] Estructura básica de la aplicación:
-  - [] Creación del servidor
-  - [] Creación de la aplicación express
-  - [] Middlewares de Express (json, static): carpeta **Public** (css, js, img, favicon...)
-  - [] Middleware de terceros (morgan, cors)
-  - [] Middlewares de logger (debug): carpeta **Middleware** (logger...)
-  - [] Middleware de errores: carpeta **Errors** (HttpError...)
-  - [] Controllers: carpeta **Controllers** (home, products, product)
-  - [] Carpeta **Views** (home, products, product, partials...)
-  - [] Rutas (opcionalmente Router - carpeta **Routes**)
-  - [] Rutas de error y no encontrado
-- [] Página de inicio (home / landing page)
+  - [x] Creación del servidor
+  - [x] Creación de la aplicación express
+  - [x] Middlewares de logger (debug): carpeta **Middleware** (logger...)
+  - [x] Middlewares de Express (json, static): carpeta **Public** (css, js, img, favicon...)
+  - [x] Middleware de terceros (morgan, cors)
+  - [x] Middleware de errores: carpeta **Errors** (HttpError...)
+  - [x] Rutas de error y no encontrado
+  - [x] Carpeta **Views** (base, errorPage, partials...)
+- [x] Página about (about page) - static
+- [x] Página de inicio (home / landing page)
+  - [x] Creación de una vista para la página home en la carpeta **Views** (home)
+  - [x] Creación de una ruta para la página home
+  - [x] Controllers: carpeta **Controllers** (home)
 - [] Listado de productos / página de productos
+  - [] Los datos en un fichero TS (mock de datos)
+  - [] Rutas (opcionalmente Router - carpeta **Routes**)
+  - [] Controllers: carpeta **Controllers** (products, product)
   - [] Los datos en un array (mock de datos)
   - [] Creación de un modelo de producto: carpeta **Models** (Product)
 - [] Detalle de un producto / página de producto
