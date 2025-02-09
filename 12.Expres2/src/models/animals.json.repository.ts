@@ -1,15 +1,15 @@
 import createDebug from 'debug';
 import { ODMLite } from '../odm/odm-lite.js';
 import type { TypeODM } from '../odm/odm.type.js';
-import type { Animal } from './animal.type.js';
+import { Animal } from './animal.type.js';
 import type { Repository } from './repository.type.js';
-const debug = createDebug('demo:controllers:products');
+const debug = createDebug('demo:repository:animalss');
 
 export class AnimalFileRepo implements Repository<Animal> {
     odm: TypeODM<Animal>;
     collection: string;
     constructor(file = ODMLite.filePath, collection = 'animals') {
-        debug('Instanciando', file);
+        debug('Instanciando repo for', file);
         this.odm = new ODMLite<Animal>(file, collection);
         this.collection = collection;
     }
@@ -22,6 +22,7 @@ export class AnimalFileRepo implements Repository<Animal> {
         return await this.odm.readById(id);
     }
     async create(data: Omit<Animal, 'id'>): Promise<Animal> {
+        Animal.parse({ ...data, id: '0' });
         return await this.odm.create(data);
     }
     async update(

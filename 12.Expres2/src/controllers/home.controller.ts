@@ -6,6 +6,11 @@ debug('Loaded module');
 
 export class HomeController {
     view = new HomePage();
+
+    constructor() {
+        debug('Instanciando controller');
+    }
+
     getPage = (_req: Request, res: Response) => {
         debug('Petición recibida en getPage');
         res.header('Content-Type', 'text/html');

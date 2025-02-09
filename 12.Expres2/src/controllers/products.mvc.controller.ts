@@ -1,20 +1,20 @@
 import { NextFunction, Request, Response } from 'express';
-import { ProductsPage } from '../views/pages/products/products-page.js';
 import createDebug from 'debug';
+import { ProductsPage } from '../views/pages/products/products-page.js';
 import { DetailPage } from '../views/pages/products/detail-page.js';
 import { UpsertProductsPage } from '../views/pages/products/upsert-page.js';
 import { HttpError } from '../errors/http-error.js';
-import type { Repository } from '../models/repository.type.js';
 import { AnimalFileRepo } from '../models/animals.json.repository.js';
-import { Animal } from '../models/animal.type.js';
-const debug = createDebug('demo:controllers:products');
+import type { Animal } from '../models/animal.type.js';
+import type { Repository } from '../models/repository.type.js';
+const debug = createDebug('demo:controllers:products-mvc');
 debug('Loaded module');
 
 export class ProductsController {
     model: Repository<Animal>;
 
     constructor() {
-        debug('Instanciando');
+        debug('Instanciando controller');
         this.model = new AnimalFileRepo();
     }
 
@@ -64,11 +64,20 @@ export class ProductsController {
         }
     };
 
-    createProduct = async (req: Request, res: Response) => {
+    createProduct = async (req: Request, res: Response, next: NextFunction) => {
         debug('Petición POST recibida en createProduct');
         const data = req.body;
-        const finalData = await this.model.create(data);
-        this.showDetailPage(finalData, res);
+        try {
+            const finalData = await this.model.create(data);
+            this.showDetailPage(finalData, res);
+        } catch (error) {
+            const finalError = new HttpError(
+                (error as Error).message,
+                400,
+                'Bad Request',
+            );
+            next(finalError);
+        }
     };
 
     updateProduct = async (req: Request, res: Response, next: NextFunction) => {

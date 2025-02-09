@@ -2,6 +2,10 @@ import { access, mkdir, readFile, writeFile } from 'node:fs/promises';
 import type { TypeODM } from './odm.type';
 import { resolve, dirname } from 'path';
 
+import createDebug from 'debug';
+const debug = createDebug('demo:odm:odm-lite');
+debug('Loaded module');
+
 export class ODMLite<T extends { id: string }> implements TypeODM<T> {
     static #filePath = '';
     static async initializeJSON(relativeFilePath = './data/db.json') {
@@ -46,6 +50,7 @@ export class ODMLite<T extends { id: string }> implements TypeODM<T> {
     file: string;
     collection: string;
     constructor(file: string, collection: string) {
+        debug('Instanciando odm for', file);
         this.file = file;
         this.collection = collection;
     }

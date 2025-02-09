@@ -1,16 +1,19 @@
 import { NextFunction, Request, Response } from 'express';
-import { ProductsPage } from '../views/pages/products/products-page.js';
-import { ANIMALS, type Animal } from '../data/mock.js';
 import createDebug from 'debug';
+import { ProductsPage } from '../views/pages/products/products-page.js';
 import { DetailPage } from '../views/pages/products/detail-page.js';
 import { UpsertProductsPage } from '../views/pages/products/upsert-page.js';
 import { HttpError } from '../errors/http-error.js';
+import type { Animal } from '../models/animal.type.js';
 const debug = createDebug('demo:controllers:products');
 debug('Loaded module');
 
 export class ProductsController {
-    debug = createDebug('Run getPAge');
-    data: Animal[] = ANIMALS;
+    data: Animal[] = [];
+
+    constructor() {
+        debug('Instanciando controller');
+    }
 
     getAllPage = (req: Request, res: Response) => {
         debug('Petición recibida en getAllPage');

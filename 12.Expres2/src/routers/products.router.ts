@@ -10,7 +10,6 @@ export const createProductsRouter = () => {
     const productsRouter = Router();
     const controller = new ProductsController();
     debug('Configurando rutas de productos');
-    debug(controller);
 
     productsRouter.get('/', controller.getAllPage);
     productsRouter.get('/create', controller.getCreatePage);
