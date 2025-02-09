@@ -76,21 +76,25 @@ export class ProductsController {
         this.showDetailPage(data, res);
     };
 
+    private getProductIndex = (name: string) => {
+        const index = this.data.findIndex((item) => item.name === name);
+        if (index < 0) {
+            const error = new HttpError(
+                `Product ${name} not found`,
+                404,
+                'Not Found',
+            );
+            throw error;
+        }
+        return index;
+    };
+
     updateProduct = (req: Request, res: Response, next: NextFunction) => {
         debug('Petición PUT recibida en updateProduct');
         const { name } = req.params;
         const data = { ...req.body, name };
         try {
-            const index = this.data.findIndex((item) => item.name === name);
-            if (index < 0) {
-                const error = new HttpError(
-                    `Product ${name} not found`,
-                    404,
-                    'Not Found',
-                );
-                throw error;
-            }
-            console.log(data);
+            const index = this.getProductIndex(name); // throws error if not found
             this.data[index] = data;
             this.showDetailPage(data, res);
         } catch (error) {
@@ -102,15 +106,7 @@ export class ProductsController {
         debug('Petición DELETE recibida en deleteProduct');
         const { name } = req.params;
         try {
-            const index = this.data.findIndex((item) => item.name === name);
-            if (index < 0) {
-                const error = new HttpError(
-                    `Product ${name} not found`,
-                    404,
-                    'Not Found',
-                );
-                throw error;
-            }
+            const index = this.getProductIndex(name); // throws error if not found
             this.data.splice(index, 1);
             res.redirect('/products');
         } catch (error) {
