@@ -10,4 +10,10 @@ export const productsRouter = Router();
 const controller = new ProductsController();
 
 productsRouter.get('/', controller.getAllPage);
+productsRouter.get('/create', controller.getCreatePage);
+productsRouter.get('/update/:name', controller.getUpdatePge);
 productsRouter.get('/:name', controller.getDetailPage);
+
+productsRouter.post('/create', controller.createProduct);
+productsRouter.put('/update/:name', controller.updateProduct);
+productsRouter.post('/update/:name', controller.updateProduct);

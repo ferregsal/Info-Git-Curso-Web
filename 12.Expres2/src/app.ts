@@ -3,6 +3,7 @@ import createDebug from 'debug';
 import { resolve } from 'path';
 import morgan from 'morgan';
 import cors from 'cors';
+import bodyParser from 'body-parser';
 import { debugLogger } from './middleware/debug-logger.js';
 import {
     notFoundController,
@@ -29,6 +30,7 @@ export const createApp = () => {
         app.use(morgan('dev'));
     }
     app.use(express.json());
+    app.use(bodyParser.urlencoded({ extended: true }));
     app.use(debugLogger('debug-logger'));
     app.use(express.static(publicPath));
 
