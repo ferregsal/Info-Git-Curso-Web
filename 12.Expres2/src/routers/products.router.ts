@@ -11,10 +11,10 @@ const controller = new ProductsController();
 
 productsRouter.get('/', controller.getAllPage);
 productsRouter.get('/create', controller.getCreatePage);
-productsRouter.get('/update/:name', controller.getUpdatePge);
-productsRouter.get('/:name', controller.getDetailPage);
+productsRouter.get('/update/:id', controller.getUpdatePge);
+productsRouter.get('/:id', controller.getDetailPage);
 
 productsRouter.post('/create', controller.createProduct);
-productsRouter.put('/update/:name', controller.updateProduct);
-productsRouter.post('/update/:name', controller.updateProduct);
-productsRouter.post('/delete/:name', controller.deleteProduct);
+productsRouter.put('/update/:id', controller.updateProduct);
+productsRouter.post('/update/:id', controller.updateProduct);
+productsRouter.post('/delete/:id', controller.deleteProduct);

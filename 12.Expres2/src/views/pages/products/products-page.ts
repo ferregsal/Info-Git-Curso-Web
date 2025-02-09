@@ -35,17 +35,17 @@ export class ProductsPage extends BasePage {
             .map(
                 (item) => html`
                     <article>
-                        <a href="/products/${item.name}">
+                        <a href="/products/${item.id}">
                             <h3>${item.name}</h3>
                             <p>
                                 <img src="${item.image}" alt="${item.name}" />
                             </p>
                         </a>
                         <div>
-                            <a href="/products/update/${item.name}">
+                            <a href="/products/update/${item.id}">
                                 <button>Editar</button>
                             </a>
-                            <button data-name=${item.name}>Eliminar</button>
+                            <button data-name=${item.id}>Eliminar</button>
                         </div>
                     </article>
                 `,

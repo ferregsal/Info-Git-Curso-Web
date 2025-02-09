@@ -140,6 +140,7 @@ export class UpsertProductsPage extends BasePage {
 
         if (!mainContent) {
             mainContent = {
+                id: '',
                 name: '',
                 sciName: '',
                 englishName: '',
@@ -151,9 +152,7 @@ export class UpsertProductsPage extends BasePage {
                 slogan: '',
             };
         }
-        const action = mainContent.name
-            ? 'update/' + mainContent.name
-            : 'create';
+        const action = mainContent.name ? 'update/' + mainContent.id : 'create';
         // const method = 'PUT/PATCH/DELETE' NO ES VÁLIDO EN HTML - se toma como GET;
         const method = 'POST';
         const textButton = mainContent.name ? 'Actualizar' : 'Crear';

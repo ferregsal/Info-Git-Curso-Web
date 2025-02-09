@@ -18,11 +18,11 @@ export class ProductsController {
         res.send(view.render({ mainContent: this.data }));
     };
 
-    private getProduct = (name: string) => {
-        const data = this.data.find((item) => item.name === name);
+    private getProduct = (id: string) => {
+        const data = this.data.find((item) => item.id === id);
         if (!data) {
             const error = new HttpError(
-                `Product ${name} not found`,
+                `Product ${id} not found`,
                 404,
                 'Not Found',
             );
@@ -39,9 +39,9 @@ export class ProductsController {
 
     getDetailPage = (req: Request, res: Response, next: NextFunction) => {
         debug('Petición recibida en getDetailPage');
-        const { name } = req.params;
+        const { id } = req.params;
         try {
-            const data = this.getProduct(name);
+            const data = this.getProduct(id);
             this.showDetailPage(data, res);
         } catch (error) {
             next(error as HttpError);
@@ -57,10 +57,10 @@ export class ProductsController {
 
     getUpdatePge = (req: Request, res: Response, next: NextFunction) => {
         debug('Petición recibida en updatePage');
-        const { name } = req.params;
+        const { id } = req.params;
         try {
-            const data = this.getProduct(name);
-            const title = `${name} update | Demo Products`;
+            const data = this.getProduct(id);
+            const title = `${data.name} update | Demo Products`;
             const view: UpsertProductsPage = new UpsertProductsPage(title);
             const page = view.render({ mainContent: data });
             res.send(page);
@@ -72,15 +72,16 @@ export class ProductsController {
     createProduct = (req: Request, res: Response) => {
         debug('Petición POST recibida en createProduct');
         const data = req.body;
+        data.id = crypto.randomUUID();
         this.data.push(data);
         this.showDetailPage(data, res);
     };
 
-    private getProductIndex = (name: string) => {
-        const index = this.data.findIndex((item) => item.name === name);
+    private getProductIndex = (id: string) => {
+        const index = this.data.findIndex((item) => item.id === id);
         if (index < 0) {
             const error = new HttpError(
-                `Product ${name} not found`,
+                `Product ${id} not found`,
                 404,
                 'Not Found',
             );
@@ -91,10 +92,10 @@ export class ProductsController {
 
     updateProduct = (req: Request, res: Response, next: NextFunction) => {
         debug('Petición PUT recibida en updateProduct');
-        const { name } = req.params;
-        const data = { ...req.body, name };
+        const { id } = req.params;
+        const data = { ...req.body, id };
         try {
-            const index = this.getProductIndex(name); // throws error if not found
+            const index = this.getProductIndex(id); // throws error if not found
             this.data[index] = data;
             this.showDetailPage(data, res);
         } catch (error) {
@@ -104,9 +105,9 @@ export class ProductsController {
 
     deleteProduct = (req: Request, res: Response, next: NextFunction) => {
         debug('Petición DELETE recibida en deleteProduct');
-        const { name } = req.params;
+        const { id } = req.params;
         try {
-            const index = this.getProductIndex(name); // throws error if not found
+            const index = this.getProductIndex(id); // throws error if not found
             this.data.splice(index, 1);
             res.redirect('/products');
         } catch (error) {
