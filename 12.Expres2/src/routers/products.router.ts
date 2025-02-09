@@ -17,3 +17,4 @@ productsRouter.get('/:name', controller.getDetailPage);
 productsRouter.post('/create', controller.createProduct);
 productsRouter.put('/update/:name', controller.updateProduct);
 productsRouter.post('/update/:name', controller.updateProduct);
+productsRouter.post('/delete/:name', controller.deleteProduct);

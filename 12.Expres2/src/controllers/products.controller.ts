@@ -97,4 +97,24 @@ export class ProductsController {
             next(error as HttpError);
         }
     };
+
+    deleteProduct = (req: Request, res: Response, next: NextFunction) => {
+        debug('Petición DELETE recibida en deleteProduct');
+        const { name } = req.params;
+        try {
+            const index = this.data.findIndex((item) => item.name === name);
+            if (index < 0) {
+                const error = new HttpError(
+                    `Product ${name} not found`,
+                    404,
+                    'Not Found',
+                );
+                throw error;
+            }
+            this.data.splice(index, 1);
+            res.redirect('/products');
+        } catch (error) {
+            next(error as HttpError);
+        }
+    };
 }
