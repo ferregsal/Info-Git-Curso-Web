@@ -12,6 +12,7 @@ const html = String.raw;
 type PageContent = {
     mainTitle: string;
     mainContent: string | unknown;
+    script?: string;
 };
 
 export abstract class BasePage {
@@ -74,7 +75,7 @@ export abstract class BasePage {
             mainContent: info?.mainContent || 'Section info',
         };
 
-        return html`
+        let page = html`
             <!DOCTYPE html>
             <html lang="en">
                 ${renderHead(this.title)}
@@ -85,5 +86,12 @@ export abstract class BasePage {
                 </body>
             </html>
         `;
+
+        if (info?.script) {
+            const add = html`<script src="${info.script}" defer></script>`;
+            page = page.replace('</head>', `${add}</head>`);
+        }
+
+        return page;
     }
 }

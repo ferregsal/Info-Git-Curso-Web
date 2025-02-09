@@ -2,11 +2,11 @@
 // import { renderHead } from '../partials/head.js';
 // import { renderFooter } from '../partials/footer.js';
 // import { renderDialogNav } from '../partials/dialog-nav.js';
-import type { Animal } from '../../data/mock';
-import { BasePage } from './base-page.js';
+import type { Animal } from '../../../data/mock';
+import { BasePage } from '../base-page.js';
 import createDebug from 'debug';
 
-const debug = createDebug('demo:views:products-page');
+const debug = createDebug('demo:views:detail-page');
 debug('Loaded module');
 
 const html = String.raw;
@@ -26,7 +26,7 @@ export class DetailPage extends BasePage {
         const renderItem = (item: Animal) => {
             return html`
                 <article>
-                    <h3 class="h4">${item.name} <i>(${item.sciName})</i></h3>
+                    <h3 class="h4"><i>(${item.sciName})</i></h3>
                     <p>
                         <img src="${item.image}" alt="${item.name}" />
                     </p>
@@ -53,7 +53,7 @@ export class DetailPage extends BasePage {
     override render(info?: Partial<PageContent>) {
         debug('Iniciando render');
         if (!info) return super.render();
-        info.mainTitle = 'Animals';
+        info.mainTitle = info.mainContent?.name;
         info.mainContent = info.mainContent as Animal;
         return super.render(info);
     }
