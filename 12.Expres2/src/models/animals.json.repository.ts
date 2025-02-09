@@ -1,12 +1,15 @@
+import createDebug from 'debug';
 import { ODMLite } from '../odm/odm-lite.js';
 import type { TypeODM } from '../odm/odm.type.js';
 import type { Animal } from './animal.type.js';
 import type { Repository } from './repository.type.js';
+const debug = createDebug('demo:controllers:products');
 
-export class RepoAnimalFile implements Repository<Animal> {
+export class AnimalFileRepo implements Repository<Animal> {
     odm: TypeODM<Animal>;
     collection: string;
-    constructor(file = 'db.json', collection = 'animals') {
+    constructor(file = ODMLite.filePath, collection = 'animals') {
+        debug('Instanciando', file);
         this.odm = new ODMLite<Animal>(file, collection);
         this.collection = collection;
     }

@@ -5,19 +5,17 @@ import { DetailPage } from '../views/pages/products/detail-page.js';
 import { UpsertProductsPage } from '../views/pages/products/upsert-page.js';
 import { HttpError } from '../errors/http-error.js';
 import type { Repository } from '../models/repository.type.js';
-import { RepoAnimalFile } from '../models/animals.json.repository.js';
+import { AnimalFileRepo } from '../models/animals.json.repository.js';
 import { Animal } from '../models/animal.type.js';
 const debug = createDebug('demo:controllers:products');
 debug('Loaded module');
 
 export class ProductsController {
-    debug = createDebug('Run getPage');
-    // data: Animal[] = [];
     model: Repository<Animal>;
 
     constructor() {
-        this.debug('Instanciando ProductsController');
-        this.model = new RepoAnimalFile();
+        debug('Instanciando');
+        this.model = new AnimalFileRepo();
     }
 
     getAllPage = async (req: Request, res: Response) => {

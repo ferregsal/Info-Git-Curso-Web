@@ -40,6 +40,9 @@ export class ODMLite<T extends { id: string }> implements TypeODM<T> {
         info.push(this.#filePath);
         return info;
     }
+    static get filePath() {
+        return this.#filePath;
+    }
     file: string;
     collection: string;
     constructor(file: string, collection: string) {
@@ -86,7 +89,7 @@ export class ODMLite<T extends { id: string }> implements TypeODM<T> {
         const allData = await this.readDB();
         const itemData = {
             ...initialData,
-            id: crypto.randomUUID().substring(0, 8),
+            id: crypto.randomUUID(), //.substring(0, 8),
         } as T;
         allData[this.collection].push(itemData);
         await this.writeDB(allData);

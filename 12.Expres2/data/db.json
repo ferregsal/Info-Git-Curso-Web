@@ -95,6 +95,30 @@
             "slogan": "¡El animal más rayado del mundo!",
             "group": "Mamíferos",
             "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Equus_quagga_burchellii_-_Etosha%2C_2014.jpg/640px-Equus_quagga_burchellii_-_Etosha%2C_2014.jpg"
+        },
+        {
+            "name": "Perro",
+            "sciName": "Cannis familiaris",
+            "englishName": "Dog",
+            "group": "Mamíferos",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/9/94/Cane_da_pastore_tedesco_adulto.jpg",
+            "diet": "Carnívoro",
+            "lifestyle": "Diurno",
+            "location": "Todo el planeta",
+            "slogan": "El mejos amigo del hombre",
+            "id": "b351cae3-fa18-4d94-96d1-5d6372cf1a2a"
+        },
+        {
+            "name": "Gato",
+            "sciName": "Felis catus",
+            "englishName": "Cat",
+            "group": "Mamíferos",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Cat03.jpg",
+            "diet": "Carnívoro",
+            "lifestyle": "Nocturno",
+            "location": "Todo el planeta",
+            "slogan": "El mejor amigo del hombre",
+            "id": "8f1cd0f3-ad41-44ee-8377-704b519dbb0a"
         }
     ]
 }
