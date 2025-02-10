@@ -1,18 +1,20 @@
-// import { html } from 'lit-html';
-import { createHeader } from './partials/header.js';
-import { createHead } from './partials/head.js';
-import { createFooter } from './partials/footer.js';
+import { renderHeader } from './partials/header.js';
+import { renderHead } from './partials/head.js';
+import { renderFooter } from './partials/footer.js';
+import { renderDialogNav } from './partials/dialog-nav.js';
 
 export const renderIndexHtml = () => {
-    const title = 'Inicio | Cliente de Express';
-    const pageTitle = 'Cliente de Express';
+    const title = 'Inicio | Express Demo';
+    const pageTitle = 'Express Demo';
 
-    return `
+    const html = String.raw;
+
+    return html`
         <!DOCTYPE html>
         <html lang="en">
-            ${createHead(title)}
+            ${renderHead(title)}
             <body>
-                ${createHeader(pageTitle)}
+                ${renderHeader(pageTitle)} ${renderDialogNav()}
 
                 <main>
                     <section>
@@ -92,7 +94,7 @@ export const renderIndexHtml = () => {
                         </p>
                     </section>
                 </main>
-                ${createFooter()}
+                ${renderFooter()}
             </body>
         </html>
     `;

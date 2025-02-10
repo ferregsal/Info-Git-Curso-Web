@@ -1,3 +1,4 @@
+import { renderMenu } from './menu.js';
 import { menuItems } from './header.js';
 
 const html = String.raw;
@@ -10,7 +11,7 @@ export function renderDialogNav() {
             </p>
             <nav class="h5">
                 <ul>
-                    ${menuItems}
+                    ${renderMenu(menuItems)}
                 </ul>
             </nav>
         </dialog>
