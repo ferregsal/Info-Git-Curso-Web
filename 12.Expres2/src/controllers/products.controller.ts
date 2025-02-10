@@ -5,11 +5,12 @@ import { DetailPage } from '../views/pages/products/detail-page.js';
 import { UpsertProductsPage } from '../views/pages/products/upsert-page.js';
 import { HttpError } from '../errors/http-error.js';
 import type { Animal } from '../models/animal.type.js';
+import { ANIMALS } from '../data/mock.js';
 const debug = createDebug('demo:controllers:products');
 debug('Loaded module');
 
 export class ProductsController {
-    data: Animal[] = [];
+    data: Animal[] = ANIMALS;
 
     constructor() {
         debug('Instanciando controller');
