@@ -34,6 +34,15 @@ export const createApp = () => {
     app.use(debugLogger('debug-logger'));
     app.use(express.static(publicPath));
 
+    // Got assets: static redirection
+
+    app.get('/src/assets/*', (req, res) => {
+        const url = req.url.replace('/src/assets/', './public/got/assets/');
+        const assetPath = resolve(__dirname, url);
+        debug('Serving asset:', url);
+        res.sendFile(assetPath);
+    });
+
     // Routes
 
     const homeController = new HomeController();
