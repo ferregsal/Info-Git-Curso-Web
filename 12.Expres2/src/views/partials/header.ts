@@ -1,31 +1,27 @@
+import { renderMenu } from './menu.js';
+
 const html = String.raw;
 
-const items = [
-    { label: 'Index', path: './' },
-    { label: 'Portfolio', path: './portfolio' },
-    { label: 'Contacts', path: './contacts' },
-    { label: 'About', path: './about' },
+export const menuItems = [
+    { label: 'Inicio', path: '/' },
+    { label: 'Productos', path: '/products' },
+    { label: 'About', path: '/about' },
 ];
 
-export const menuItems = items
-    .map(
-        (item) => `
-            <li class="menu-tablet">
-                <a href="${item.path}">${item.label}</a>
-            </li>
-        `,
-    )
-    .join('');
+export type MenuItem = {
+    label: string;
+    path: string;
+};
 
 export function renderHeader(title: string) {
-    const img = './assets/logo-golden-bisque.svg';
+    const img = '/assets/logo-brown-bisque.svg';
     const cssClass = 'main-header';
     const headerTemplate = html`
         <header class="${cssClass}">
             <nav>
                 <ul>
                     <li class="menu-header">
-                        <a href="./index.html">
+                        <a href="/">
                             <img src=${img} width="50" alt="Logo" />
                             <h1 id="header1" data-id="1" class="h2">
                                 ${title}
@@ -37,7 +33,7 @@ export function renderHeader(title: string) {
                             <span class="fa-solid fa-bars"></span>
                         </a>
                     </li>
-                    ${menuItems}
+                    ${renderMenu(menuItems)}
                 </ul>
             </nav>
         </header>
