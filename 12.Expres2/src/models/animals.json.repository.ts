@@ -3,7 +3,7 @@ import { ODMLite } from '../odm/odm-lite.js';
 import type { TypeODM } from '../odm/odm.type.js';
 import { Animal } from './animal.type.js';
 import type { Repository } from './repository.type.js';
-const debug = createDebug('demo:repository:animalss');
+const debug = createDebug('demo:repository:animals');
 
 export class AnimalFileRepo implements Repository<Animal> {
     odm: TypeODM<Animal>;
@@ -22,13 +22,14 @@ export class AnimalFileRepo implements Repository<Animal> {
         return await this.odm.readById(id);
     }
     async create(data: Omit<Animal, 'id'>): Promise<Animal> {
-        Animal.parse({ ...data, id: '0' });
+        await Animal.parseAsync({ ...data, id: '0' });
         return await this.odm.create(data);
     }
     async update(
         id: string,
         data: Partial<Omit<Animal, 'id'>>,
     ): Promise<Animal> {
+        await Animal.partial().parseAsync({ ...data, id });
         return await this.odm.updateById(id, data);
     }
     async delete(id: string): Promise<Animal> {

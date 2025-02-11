@@ -16,41 +16,6 @@ type PageContent = {
 };
 
 export abstract class BasePage {
-    // static title = '?? | Demo Products';
-    // static pageTitle = 'Products';
-
-    // protected static renderMain({ mainTitle, mainContent }: PageContent) {
-    //     debug('Iniciando renderMain');
-    //     return html`
-    //         <main>
-    //             <section>
-    //                 <h2 class="h3">${mainTitle}</h2>
-    //                 <p>${mainContent}</p>
-    //             </section>
-    //         </main>
-    //     `;
-    // }
-
-    // protected static render(info?: Partial<PageContent>) {
-    //     debug('Iniciando render', this);
-    //     const pageContent: PageContent = {
-    //         mainTitle: info?.mainTitle || 'Section title',
-    //         mainContent: info?.mainContent || 'Section info',
-    //     };
-
-    //     return html`
-    //         <!DOCTYPE html>
-    //         <html lang="en">
-    //             ${renderHead(this.title)}
-    //             <body>
-    //                 ${renderHeader(this.pageTitle)} ${renderDialogNav()}
-    //                 <main>${this.renderMain(pageContent)}</main>
-    //                 ${renderFooter()}
-    //             </body>
-    //         </html>
-    //     `;
-    // }
-
     constructor(
         protected title: string = '?? | Demo Products',
         protected pageTitle: string = 'Products',

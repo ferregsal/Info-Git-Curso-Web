@@ -1,15 +1,13 @@
 import { Router } from 'express';
-// import { ProductsController } from '../controllers/products.controller.js';
 import { ProductsController } from '../controllers/products.mvc.controller.js';
 import createDebug from 'debug';
 
 const debug = createDebug('demo:routers:products');
 debug('Loaded module');
 
-export const createProductsRouter = () => {
+export const createProductsRouter = (controller: ProductsController) => {
     const productsRouter = Router();
 
-    const controller = new ProductsController();
     debug('Configurando rutas de productos');
 
     productsRouter.get('/', controller.getAllPage);
