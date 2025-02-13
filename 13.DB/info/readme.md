@@ -21,6 +21,7 @@ title: SQL
       - [Primera Forma Normal](#primera-forma-normal)
       - [Segunda Forma Normal](#segunda-forma-normal)
       - [Tercera Forma Normal](#tercera-forma-normal)
+  - [Modelos gráficos E/R](#modelos-gráficos-er)
 - [MySQL](#mysql)
   - [Que es MySQL](#que-es-mysql)
   - [Características de MySQL](#características-de-mysql)
@@ -333,6 +334,8 @@ Si la información de la universidad se almacena en la tabla de candidatos, no h
 
 La mejor opción es crear una tabla separada de Universidades y vincularlo a la tabla candidatos con una llave de código de la universidad.
 
+### Modelos gráficos E/R
+
 ## MySQL
 
 ### Que es MySQL
@@ -353,7 +356,7 @@ Tradicionalmente se considera uno de los cuatro componentes del stack de desarro
 - MySQL
 - PHP
 
-Con estos stacks -> CRM basados en PHP (WordPress,Joomla, Drupal)
+Con estos stacks -> CRM basados en PHP (WordPress, Joomla, Drupal)
 
 Sitios web grandes y populares (Wikipedia)
 

@@ -734,16 +734,32 @@ Servidores Web: Node + Express
 
 ### Día 2 (11/02/2025) - M2.02 02
 
-<!-- - Bases de datos
-  - Conceptos generales
-  - Modelos de datos
-  - Bases de datos relacionales (SQL)
-  - Bases de datos no relacionales (NoSQL)
-  - ORM / ODM -->
-
 ### Día 3 (12/02/2025) - M2.02 03
 
-<!--   Bases de datos relacionales (SQL) -->
+Bases de datos
+
+- Conceptos generales
+- Modelos de datos
+- Bases de datos relacionales (SQL)
+- Bases de datos no relacionales (NoSQL)
+- ORM / ODM
+
+Bases de datos relacionales (SQL)
+
+- Conceptos generales: arquitectura cliente-servidor
+- Servidor
+  - MySQL: instalación del servidor local
+  - PostgreSQL: acceso a un servidor remoto SupaBase
+- Cliente
+  - MySQL Workbench
+  - pgAdmin
+  - Otras opciones: DBeaver...
+- SQL
+  - DDL => CREATE, ALTER, DROP
+  - DML => SELECT, INSERT, UPDATE, DELETE
+  - DCL => GRANT, REVOKE
+- Diseño de bases de datos: herramientas
+  - Diagramas Entidad-Relación (ER)
 
 ### Día 4 (13/02/2025) - M2.02 04
 
