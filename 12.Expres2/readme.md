@@ -1,6 +1,8 @@
 # Challenge Express Products
 
 - [Challenge Express Products](#challenge-express-products)
+  - [Planteamiento](#planteamiento)
+    - [Evolución de la aplicación](#evolución-de-la-aplicación)
   - [Creación de la estructura del proyecto](#creación-de-la-estructura-del-proyecto)
     - [Creación de los ficheros de configuración](#creación-de-los-ficheros-de-configuración)
     - [Creación de la estructura de carpetas](#creación-de-la-estructura-de-carpetas)
@@ -50,6 +52,88 @@
     - [ODMLite](#odmlite)
     - [Modelo de datos / Repositorio](#modelo-de-datos--repositorio)
     - [Inicialización de los datos](#inicialización-de-los-datos)
+
+## Planteamiento
+
+- Crear un nuevo proyecto de Express.
+- Páginas:
+
+  - Home - Página principal (semi estática) / Landing Page
+  - Productos -> Listado de productos (dinámico)
+    - Array de productos
+    - Productos/:id - Detalle de producto (dinámico)
+  - About - Fichero html
+
+- Crear proyecto con Express
+
+  - Crear server.js
+  - Crear app.js
+  - Carpetas
+    - public
+    - src
+      - [models]
+      - controllers
+      - views
+      - routes
+      - middlewares
+      - errors
+
+- Fase 2
+  - Añadir Crear un producto con un formulario
+  - Añadir un formulario para editar un producto
+  - Añadir borrar un producto
+  - Persistencia de datos con un fichero JSON
+
+### Evolución de la aplicación
+
+- [] Estructura básica de la aplicación:
+  - [x] Creación del servidor
+  - [x] Creación de la aplicación express
+  - [x] Middlewares de logger (debug): carpeta **Middleware** (logger...)
+  - [x] Middlewares de Express (json, static): carpeta **Public** (css, js, img, favicon...)
+  - [x] Middleware de terceros (morgan, cors)
+  - [x] Middleware de errores: carpeta **Errors** (HttpError...)
+  - [x] Rutas de error y no encontrado
+  - [x] Carpeta **Views** (base, errorPage, partials...)
+- [x] Página about (about page) - static
+- [x] Página de inicio (home / landing page)
+  - [x] Creación de una vista para la página home en la carpeta **Views** (home)
+  - [x] Creación de una ruta para la página home
+  - [x] Controllers: carpeta **Controllers** (home)
+- [] Listado de productos / página de productos
+  - [] Los datos en un fichero TS (mock de datos)
+  - [] Rutas (opcionalmente Router - carpeta **Routes**)
+  - [] Controllers: carpeta **Controllers** (products, product)
+  - [] Los datos en un array (mock de datos)
+  - [] Creación de un modelo de producto: carpeta **Models** (Product)
+- [] Detalle de un producto / página de producto
+- [] Los datos en un fichero JSON
+  - [] Acceso a los datos del fichero con una capa de datos (ODM): carpeta **Data** (orm)
+- [] Añadir las posibilidades de crear, modificar y eliminar productos
+  - [] Añadir la posibilidad de eliminar productos
+  - [] Creación de un formulario para la creación / modificación de productos
+
+Posibilidades adicionales para la siguiente versión:
+
+- [] Añadir la posibilidad de subir imágenes de los productos
+  - [] Subir imágenes de los productos (multer)
+  - [] Subir imágenes de los productos a Cloudinary
+- [] Añadir la posibilidad de autenticación y autorización
+  - [] Creación de un modelo de usuario: carpeta **Models** (User)
+  - [] Creación de un formulario para el registro y login de usuarios
+  - [] Añadir la posibilidad de autenticación y autorización
+- [] Añadir la posibilidad de comentarios y valoraciones
+  - [] Creación de un modelo de comentario: carpeta **Models** (Comment)
+  - [] Creación de un formulario para la creación de comentarios
+  - [] Añadir la posibilidad de valorar los productos
+- [] Añadir la posibilidad de búsqueda y filtrado de productos
+  - [] Creación de un formulario para la búsqueda y filtrado de productos
+  - [] Añadir la posibilidad de búsqueda y filtrado de productos
+  - [] Añadir la posibilidad de ordenar los productos
+  - [] Añadir la posibilidad de paginar los productos
+  - [] Añadir la posibilidad de mostrar los productos en un mapa
+  - [] Añadir la posibilidad de mostrar los productos en un calendario
+  - [] Añadir la posibilidad de mostrar los productos en un gráfico-
 
 ## Creación de la estructura del proyecto
 
