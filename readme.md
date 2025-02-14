@@ -724,64 +724,161 @@ Servidores Web: Node + Express
 
 ### Día 1 (10/02/2025) - M2.02 01
 
-<!-- Code review de la práctica de NodeJS
+Code review de la práctica de Servidor Web: Node + Express
 
-- Servidores Web: Node + Express
-  - Clean Architecture
-  - Patrón Repositorio
-  - Clases. Inyección de dependencias
--->
+Especial atención a
+
+- Server y app: separación de responsabilidades
+- Middleware
+  - Logger
+  - Cors
+  - Error Handler
+- Diferentes patrones de renderizado
+  - Servidor de ficheros estáticos (Static Site Generation)
+  - Publicación de Astro SSG
+  - Servidor dinámico: Server Side Rendering (SSR)
+- MVC (Clean Architecture)
+- Rutas y controladores, vistas
+  - Definición mediante clases
+  - Herencia y clases abstractas
+- Modelo: Patrón Repositorio
+  - ODM encapsulando NodeJS FS
+  - Modelo (Repo) como clase instanciable
 
 ### Día 2 (11/02/2025) - M2.02 02
 
-<!-- - Bases de datos
-  - Conceptos generales
-  - Modelos de datos
-  - Bases de datos relacionales (SQL)
-  - Bases de datos no relacionales (NoSQL)
-  - ORM / ODM -->
+Dudas de la code review de la práctica de Servidor Web: Node + Express
+
+- Inyección de dependencias. Patrón Repositorio
+  - Clases
+  - Funciones (e.g. Router)
+  - Inversión de control
+- Validaciones: Zod
 
 ### Día 3 (12/02/2025) - M2.02 03
 
-<!--   Bases de datos relacionales (SQL) -->
+Bases de datos
+
+- Conceptos generales
+- Modelos de datos
+- Bases de datos relacionales (SQL)
+- Bases de datos no relacionales (NoSQL)
+- ORM / ODM
+
+Bases de datos relacionales (SQL)
+
+- Conceptos generales: arquitectura cliente-servidor
+- Servidor
+  - MySQL: instalación del servidor local
+  - PostgreSQL: acceso a un servidor remoto SupaBase
+- Cliente
+  - MySQL Workbench
+  - pgAdmin
+  - Otras opciones: DBeaver...
+- SQL
+  - DDL => CREATE, ALTER, DROP
+  - DML => SELECT, INSERT, UPDATE, DELETE
+  - DCL => GRANT, REVOKE
+- Diseño de bases de datos: herramientas
+  - Diagramas Entidad-Relación (ER)
 
 ### Día 4 (13/02/2025) - M2.02 04
 
-<!--   Bases de datos relacionales (SQL) -->
+Bases de datos MySQL
+
+- Conceptos de diseño de bases de datos
+  - E/R. Claves y relaciones
+  - Normalización
+  - Diagramas E/R
+- MySQL
+  - Conexión
+  - Referencia: SQLBolt
+- DB y tablas
+  - Listado y creación de bases de datos
+  - Listado y uso de tablas
+  - Descripción de una tabla
+- Consultas: SELECT
+  - Restricciones (constrains)
+- Consultas avanzadas
+  - JOIN
+  - Sub-consultas
 
 ### Día 5 (14/02/2025) - M2.02 05
 
-<!--  Servidores Web: Node + Express
-- ORM (Prisma)
-- Patrón Repositorio con ORM
--->
+- Conceptos de diseño de bases de datos. Prácticas
+  - Diagramas E/R
+  - Normalización
+  - Diseño de tablas
 
 ## Semana 14 (Febrero)
 
 ### Día 1 (17/02/2025) - M2.02 06
 
-<!--   Bases de datos NO relacionales (Mongo) -->
+<!-- - Tipos de datos
+
+- DDL => CREATE, ALTER, DROP
+
+  - Conexión: Shell v. Workbench (GUI)
+  - Listado y Creación de bases de datos. Uso
+  - Listado y descripción de tablas
+  - Creación de tablas. Uso de IF NOT EXISTS
+    - Tipos de datos
+    - Restricciones
+      - NOT NULL
+      - UNIQUE
+      - DEFAULT
+      - CHECK (v. Named Constraints)
+      - AUTO_INCREMENT
+      - Claves primarias y foráneas
+        - PRIMARY KEY numérica
+        - PRIMARY KEY UUID
+        - FOREIGN KEY
+    - Named Constraints
+  - Borrado de tablas (DROP)
+  - Indexación
+  - Modificación de tablas (ALTER)
+  - Claves primarias y foráneas
+  - Creación de índices
+
+- DML => SELECT, INSERT, UPDATE, DELETE -->
 
 ### Día 2 (18/02/2025) - M2.02 07
 
-<!--   Bases de datos NO relacionales (Mongo) -->
+<!-- - MySQL: Consultas avanzadas
+  - JOIN
+  - Subconsultas
+  - Vistas
+  - Funciones
+  - Procedimientos almacenados
+  - Triggers -->
 
 ### Día 3 (19/02/2025) - M2.02 08
 
-<!--  Servidores Web: Node + Express
-- ODM (Mongoose)
-- Patrón Repositorio con ODM
--->
-
 ### Día 4 (20/02/2025) - M2.02 09
 
+<!--  Servidores Web: Node + Express
+- Driver nativo (MySQL2) - emulación de ORM
+- Patrón Repositorio con ORM
+-->
+
 ### Día 5 (21/02/2025) - M2.02 10
+
+<!--  Servidores Web: Node + Express
+- ORM (Prisma)
+-->
 
 ## Semana 15 (Febrero)
 
 ### Día 1 (24/02/2025) - M2.02 11
 
+<!--   Bases de datos NO relacionales (Mongo) -->
+
 ### Día 2 (25/02/2025) - M2.02 12
+
+<!--  Servidores Web: Node + Express
+- ODM (Mongoose)
+- Patrón Repositorio con ODM
+-->
 
 ### Día 3 (26/02/2025) - M2.02 13
 
@@ -797,13 +894,15 @@ Servidores Web: Node + Express
 
 ### Día 3 (04/03/2025) - M2.02 18
 
-### Día 4 (05/03/2025) - M2.01 01
+### Día 4 (05/03/2025) - M2.03 01
+
+Aplicaciones Web Distribuidas
 
 <!--
 - Servidores Web: Node + NestJS
 -->
 
-### Día 5 (06/03/2025) - M2.01 02
+### Día 5 (06/03/2025) - M2.03 02
 
 ## Semana 17 (Marzo)
 
@@ -812,31 +911,31 @@ Servidores Web: Node + Express
 - Gestión de imágenes: Multer
 - Almacenamiento de las imágenes: Cloudinary -->
 
-### Día 1 (09/03/2025) - M2.01 03
+### Día 1 (09/03/2025) - M2.03 03
 
-### Día 2 (10/03/2025) - M2.01 04
+### Día 2 (10/03/2025) - M2.03 04
 
-### Día 3 (11/03/2025) - M2.01 05
+### Día 3 (11/03/2025) - M2.03 05
 
-### Día 4 (12/03/2025) - M2.01 06
+### Día 4 (12/03/2025) - M2.03 06
 
-### Día 5 (13/03/2025) - M2.01 07
+### Día 5 (13/03/2025) - M2.03 07
 
 ## Semana 18 (Marzo)
 
-### Día 1 (16/03/2025) - M2.01 08
+### Día 1 (16/03/2025) - M2.03 08
 
 <!-- Sockets - Chat -->
 
-### Día 2 (17/03/2025) - M2.01 09
+### Día 2 (17/03/2025) - M2.03 09
 
-### Día 3 (18/03/2025) - M2.01 10
+### Día 3 (18/03/2025) - M2.03 10
 
-### Día 4 (19/03/2025) - M2.01 11
+### Día 4 (19/03/2025) - M2.03 11
 
 Examen Módulo 2 (Primera convocatoria)
 
-### Día 5 (20/03/2025) - M2.01 12
+### Día 5 (20/03/2025) - M2.03 12
 
 Examen Módulo 2 (Segunda convocatoria)
 
