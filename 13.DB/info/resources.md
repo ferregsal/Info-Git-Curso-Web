@@ -26,6 +26,11 @@ title: SQL Resources
   Video de Soy Dalto en YouTube. Abril 2023.
   Curso completo de SQL desde cero (más de 7 horas).
 
+- [SQL Course for Beginners [Full Course]](https://www.youtube.com/watch?v=7S_tz1z_5bA)
+  Video de Programming with Mosh. Marzo 2019.
+  Curso completo de SQL para principiantes (más de 3 horas).
+  Incluye un completo conjunto de bases de datas con multiples tablas descargable como sql script.
+
 ## Cursos interactivos de SQL
 
 - [SQLBolt](https://sqlbolt.com/)

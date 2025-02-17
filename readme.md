@@ -857,18 +857,27 @@ Bases de datos MySQL
     - Named Constraints
   - Borrado de tablas (DROP)
   - Indexación
-  - Modificación de tablas (ALTER)
+  - *** Modificación de tablas (ALTER)
   - Claves primarias y foráneas
   - Creación de índices
 
   - Ejemplos / ejercicios - creación de tablas simples
+    - red social: usuarios, posts, comentarios, likes, seguidores
+    - named constraints: likes, seguidores
+    - red social amigos / enemigos
+    - películas: películas, géneros, actores, directores, estudios
 
-- DML => SELECT, INSERT, UPDATE, DELETE -->
+- DML =>
+  - SELECT,
+  - *** INSERT, UPDATE, DELETE
+  - JOIN
+  - Group y Funciones de agregación
+  - Otras funciones
+  -->
 
 ### Día 3 (19/02/2025) - M2.02 08
 
 <!-- - MySQL: Consultas avanzadas
-  - JOIN
   - Subconsultas
   - Vistas
   - Funciones
