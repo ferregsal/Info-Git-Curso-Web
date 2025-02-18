@@ -835,7 +835,7 @@ Bases de datos MySQL
 
 ### Día 2 (18/02/2025) - M2.02 07
 
-<!-- - Tipos de datos
+Tipos de datos
 
 - DDL => CREATE, ALTER, DROP
 
@@ -857,7 +857,7 @@ Bases de datos MySQL
     - Named Constraints
   - Borrado de tablas (DROP)
   - Indexación
-  - *** Modificación de tablas (ALTER)
+  - Modificación de tablas (ALTER)
   - Claves primarias y foráneas
   - Creación de índices
 
@@ -869,11 +869,11 @@ Bases de datos MySQL
 
 - DML =>
   - SELECT,
-  - *** INSERT, UPDATE, DELETE
   - JOIN
+  - UNION
+  - INSERT, UPDATE, DELETE
   - Group y Funciones de agregación
   - Otras funciones
-  -->
 
 ### Día 3 (19/02/2025) - M2.02 08
 

@@ -981,26 +981,31 @@ Entre las restricciones que podemos añadir a un campo,
 - `AUTO_INCREMENT` para que el campo se incremente automáticamente
 - `ZERO_FILL` para que el campo se rellene con ceros a la izquierda
 
+<!-- -------------------------------- -->
+
 Por ejemplo, tablas users
 id, user_alias, email, first_name, surname, phone, created_at, modified_at
 
+<!-- -------------------------------- -->
+
 ```shell
   CREATE TABLE users (
-    id INT AUTO_INCREMENT,
+    user_id INT AUTO_INCREMENT,
     user_alias VARCHAR(50) NOT NULL UNIQUE,
     email VARCHAR(50) NOT NULL UNIQUE,
     first_name VARCHAR(100) NOT NULL,
-    surname VARCHAR(100)
-    phone CHAR(12) UNIQUE
-    created_at TIMESTAMP NOT NULL DEFAULT (NOW())
+    surname VARCHAR(100),
+    phone CHAR(12) UNIQUE,
+    created_at TIMESTAMP NOT NULL DEFAULT (NOW()),
+    updated_at TIMESTAMP NOT NULL DEFAULT (NOW())
     PRIMARY KEY (user_id)
-  );
+    );
 ```
 
 Alternativamente, para el user_Id
 
 ```shell
-  id BINARY(16) DEFAULT (UUID_TO_BIN(UUID()))
+  user_id BINARY(16) DEFAULT (UUID_TO_BIN(UUID()))
 ```
 
 #### Foreign Key
@@ -1011,11 +1016,11 @@ id, title, is_important, content, autor, created_at
 
 ```shell
   CREATE TABLE notes (
-    id BINARY(16) DEFAULT (UUID_TO_BIN(UUID()))
+    note_id BINARY(16) DEFAULT (UUID_TO_BIN(UUID()))
     title VARCHAR(255) NOT NULL,
     is_important BOOLEAN DEFAULT FALSE,
     content TEXT,
-    author BINARY(16) NOT NULL,
+    author_id BINARY(16) NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT (NOW())
     PRIMARY KEY (id)
     FOREIGN KEY (author) REFERENCES users(id)
@@ -1024,17 +1029,27 @@ id, title, is_important, content, autor, created_at
 
 En otro ejemplo vemos una relación N:N, de una tabla consigo misma
 
+<!-- -------------------------------- -->
+
 Por ejemplo, una tabla releja las relaciones de unos usuarios con otros, como amigos o enemigos
+
+- first_user_id
+- second_user_id
+- relation_type
+
+<!-- -------------------------------- -->
 
 ```shell
   CREATE TABLE user_others (
-    first_user_id INT NOT NULL
-    second_user_id INT NOT NULL
-    relation_type ENUM('friend', 'enemy')
-    FOREIGN KEY(first_user_id) REFERENCES(users)
-    FOREIGN KEY(second_user_id) REFERENCES(users)
-    PRIMARY KEY (source_user_id, target_user_id)
-  )
+    source_user_id BINARY(16) NOT NULL,
+    target_user_id BINARY(16) NOT NULL,
+    relation_type ENUM('friend', 'enemy'),
+    created_at TIMESTAMP NOT NULL DEFAULT (NOW()),
+	  updated_at TIMESTAMP NOT NULL DEFAULT (NOW()),
+    PRIMARY KEY (source_user_id, target_user_id),
+    FOREIGN KEY(source_user_id) REFERENCES users(user_id),
+    FOREIGN KEY(target_user_id) REFERENCES users(user_id)
+  );
 ```
 
 #### Restricciones posteriores
@@ -1071,7 +1086,23 @@ Con su restricción
 
 #### Tablas de relación
 
+<!-- -------------------------------- -->
+
 Un ejemplo más habitual, con relación n:m entre dos tablas, movies y genres, creando una tabla de relación entre ambas movies_genres
+
+- movies
+  - movie_id
+  - title
+  - year
+  - director
+  - duration
+  - poster
+  - rate
+- genres
+  - movie_id
+  - name
+
+<!-- -------------------------------- -->
 
 ```shell
 
