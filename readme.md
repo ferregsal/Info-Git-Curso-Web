@@ -814,7 +814,28 @@ Bases de datos MySQL
 
 ### Día 1 (17/02/2025) - M2.02 06
 
-<!-- - Tipos de datos
+- Review conceptos de diseño de bases de datos.
+
+  - Un sistema para gestionar una biblioteca
+  - Un sistema para gestionar venta de billetes de avión
+    - usuario
+    - aerolínea (carrier)
+    - conexión (connection) - Madrid - Barcelona (10) // Barcelona - Madrid (11)
+    - vuelo (fly) - fecha
+    - pasaje (booking)
+    - aviones (airplane)
+  - Un sistema para gestionar una tienda de determinados productos
+    - Product
+    - Client
+    - Category
+    - Provider
+    - Order
+    - Order_item
+    - Shipper
+
+### Día 2 (18/02/2025) - M2.02 07
+
+Tipos de datos
 
 - DDL => CREATE, ALTER, DROP
 
@@ -840,19 +861,28 @@ Bases de datos MySQL
   - Claves primarias y foráneas
   - Creación de índices
 
-- DML => SELECT, INSERT, UPDATE, DELETE -->
+  - Ejemplos / ejercicios - creación de tablas simples
+    - red social: usuarios, posts, comentarios, likes, seguidores
+    - named constraints: likes, seguidores
+    - red social amigos / enemigos
+    - películas: películas, géneros, actores, directores, estudios
 
-### Día 2 (18/02/2025) - M2.02 07
+- DML =>
+  - SELECT,
+  - JOIN
+  - UNION
+  - INSERT, UPDATE, DELETE
+  - Group y Funciones de agregación
+  - Otras funciones
+
+### Día 3 (19/02/2025) - M2.02 08
 
 <!-- - MySQL: Consultas avanzadas
-  - JOIN
   - Subconsultas
   - Vistas
   - Funciones
   - Procedimientos almacenados
   - Triggers -->
-
-### Día 3 (19/02/2025) - M2.02 08
 
 ### Día 4 (20/02/2025) - M2.02 09
 
