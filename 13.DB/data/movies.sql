@@ -34,6 +34,8 @@ CREATE TABLE movies_generes (
   PRIMARY KEY (movie_id, genere_id)
 );
 
+BEGIN;
+
 INSERT INTO generes (name)
 VALUES ('Action'),
         ('Comedy'),
@@ -227,3 +229,6 @@ VALUES
 
  ((SELECT movie_id FROM movies WHERE title = 'The Intouchables'),
   (SELECT genere_id FROM generes WHERE name = 'Crime'));
+  
+-- COMMIT
+-- ROLLBACK;

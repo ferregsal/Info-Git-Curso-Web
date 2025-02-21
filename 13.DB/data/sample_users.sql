@@ -9,6 +9,8 @@ CREATE TABLE users (
     first_name VARCHAR(100) NOT NULL,
     surname VARCHAR(100),
     phone CHAR(12) UNIQUE,
+	friends INT DEFAULT 0,
+    enemies INT DEFAULT 0,
     created_at TIMESTAMP NOT NULL DEFAULT (NOW()),
     updated_at TIMESTAMP NOT NULL DEFAULT (NOW()),
     INDEX idx_user_alias (user_alias),

@@ -848,13 +848,13 @@ Tipos de datos
       - NOT NULL
       - UNIQUE
       - DEFAULT
-      - CHECK (v. Named Constraints)
+      - CHECK
       - AUTO_INCREMENT
       - Claves primarias y foráneas
         - PRIMARY KEY numérica
         - PRIMARY KEY UUID
         - FOREIGN KEY
-    - Named Constraints
+    - Añadiendo Named Constraints (e.g. CHECK)
   - Borrado de tablas (DROP)
   - Indexación
   - Modificación de tablas (ALTER)
@@ -865,10 +865,9 @@ Tipos de datos
     - red social: usuarios, posts, comentarios, likes, seguidores
     - named constraints: likes, seguidores
     - red social amigos / enemigos
-    - películas: películas, géneros, actores, directores, estudios
 
 - DML =>
-  - SELECT,
+  - SELECT
   - JOIN
   - UNION
   - INSERT, UPDATE, DELETE
@@ -877,12 +876,15 @@ Tipos de datos
 
 ### Día 3 (19/02/2025) - M2.02 08
 
-<!-- - MySQL: Consultas avanzadas
+- MySQL: Consultas avanzadas
   - Subconsultas
   - Vistas
-  - Funciones
-  - Procedimientos almacenados
-  - Triggers -->
+    - ejemplos con NorthWind Table
+  - Bloqueos y Transacciones - e.g. películas: películas, géneros, actores, directores, estudios
+  - Procedimientos almacenados y Funciones
+  - Triggers
+- SQLite
+- Ejercicios: Users relations - Uso de triggers
 
 ### Día 4 (20/02/2025) - M2.02 09
 
