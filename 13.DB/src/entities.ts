@@ -12,10 +12,12 @@ export type SqlError = {
 //     name: string;
 // };
 
-export type Generes = {
+export type Genere = {
     id: number;
     name: string;
-} & RowDataPacket;
+};
+
+export type GenereRow = Genere & RowDataPacket;
 
 export type Movie = {
     id: string;
@@ -25,6 +27,7 @@ export type Movie = {
     director: string;
     poster: string;
     rate: number;
+    generes?: string[];
 };
 
 export type MovieRow = Movie & RowDataPacket;

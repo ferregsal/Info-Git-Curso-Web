@@ -21,8 +21,8 @@ try {
     //     console.log(result);
     // }
 
-    const movies = await manageMovies.getAllMovies();
-    console.log({ movies });
+    const movies = await manageMovies.getAllMoviesWithGenere();
+    console.log(movies);
 
     const newMovie = await manageMovies.createMovie({
         title: 'The Godfather 3: The Godfather Coda',
