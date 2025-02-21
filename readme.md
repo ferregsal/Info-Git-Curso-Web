@@ -888,14 +888,22 @@ Tipos de datos
 
 ### Día 4 (20/02/2025) - M2.02 09
 
-<!--  Servidores Web: Node + Express
+- Code review: Ejercicio users relations - Uso de triggers
+- Node + MySQL
 - Driver nativo (MySQL2) - emulación de ORM
-- Patrón Repositorio con ORM
--->
+  - Instalación y conexión a DB
+  - Operaciones CRUD: tabla generes
+- Ejercicio: Operaciones CRUD con MySQL2
+  - Tabla de películas y relaciones con géneros
 
 ### Día 5 (21/02/2025) - M2.02 10
 
-<!--  Servidores Web: Node + Express
+- Code review: Ejercicio Operaciones CRUD con MySQL2
+
+<!--
+Servidores Web: Node + Express + MySQL
+- Driver nativo (MySQL2) - emulación de ORM
+- Patrón Repositorio con ORM
 - ORM (Prisma)
 -->
 
