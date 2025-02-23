@@ -1,4 +1,3 @@
-import { Connection } from 'mysql2/promise';
 import express from 'express';
 import createDebug from 'debug';
 import { resolve } from 'path';
@@ -15,11 +14,12 @@ import { HomeController } from './controllers/home.controller.js';
 import { createProductsRouter } from './routers/products.router.js';
 import { HomePage } from './views/pages/home-page.js';
 import { ProductsController } from './controllers/products.mvc.controller.js';
-import { AnimalSqlRepo } from './models/animals.sql.repository.js';
+import { AnimalFileRepo } from './models/animals.json.repository.js';
+
 const debug = createDebug('demo:app');
 debug('Loaded module');
 
-export const createApp = (connection: Connection) => {
+export const createApp = () => {
     debug('Iniciando App...');
 
     const app = express();
@@ -54,7 +54,7 @@ export const createApp = (connection: Connection) => {
     app.get('/', homeController.getPage);
 
     // const animalModel = new AnimalFileRepo();
-    const animalModel = new AnimalSqlRepo(connection);
+    const animalModel = new AnimalFileRepo();
     const productsController = new ProductsController(animalModel);
 
     app.use('/products', createProductsRouter(productsController));

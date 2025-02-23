@@ -266,3 +266,40 @@ import sqlite3 from 'sqlite3';
 
 const db = new sqlite3.Database('movies.db');
 ```
+
+sqlite3 trabaja con callbacks, en lugar de promesas, por lo que es necesario utilizar funciones de callback para realizar las operaciones de consulta.
+
+Existen básicamente los siguientes métodos para realizar consultas:
+
+- `all`: para obtener todos los registros de una consulta
+- `get`: para obtener un solo registro de una consulta
+- `run`: para realizar operaciones de modificación de la base de datos (INSERT, UPDATE, DELETE)
+- `each`: para obtener los registros de una consulta de forma iterativa
+- `exec`: para ejecutar una o varias sentencias SQL
+
+No es difícil crear un wrapper de estos métodos para trabajar con promesas en lugar de callbacks
+
+```typescript
+import util from 'node:util';
+import sqlite3 from 'sqlite3';
+
+SQLite3 = {
+  // run: util.promisify(db.run.bind(db)),
+  run (...args) {
+    return new Promise((resolve, reject) => {
+      db.run(...args, function (err) {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(this);
+        }
+      });
+    });
+  }
+  all: util.promisify(db.all.bind(db)),
+  get: util.promisify(db.get.bind(db)),
+  each: util.promisify(db.each.bind(db)),
+  exec: util.promisify(db.exec.bind(db)),
+}
+
+```

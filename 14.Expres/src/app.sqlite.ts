@@ -1,4 +1,4 @@
-import { Connection } from 'mysql2/promise';
+import { Database } from 'sqlite3';
 import express from 'express';
 import createDebug from 'debug';
 import { resolve } from 'path';
@@ -15,11 +15,11 @@ import { HomeController } from './controllers/home.controller.js';
 import { createProductsRouter } from './routers/products.router.js';
 import { HomePage } from './views/pages/home-page.js';
 import { ProductsController } from './controllers/products.mvc.controller.js';
-import { AnimalSqlRepo } from './models/animals.sql.repository.js';
+import { AnimalSqliteRepo } from './models/animals.sqlite.repository.js';
 const debug = createDebug('demo:app');
 debug('Loaded module');
 
-export const createApp = (connection: Connection) => {
+export const createApp = (db: Database) => {
     debug('Iniciando App...');
 
     const app = express();
@@ -53,8 +53,8 @@ export const createApp = (connection: Connection) => {
     const homeController = new HomeController(homeView);
     app.get('/', homeController.getPage);
 
-    // const animalModel = new AnimalFileRepo();
-    const animalModel = new AnimalSqlRepo(connection);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const animalModel = new AnimalSqliteRepo(db);
     const productsController = new ProductsController(animalModel);
 
     app.use('/products', createProductsRouter(productsController));
