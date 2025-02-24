@@ -1,10 +1,10 @@
 import { Connection, ResultSetHeader } from 'mysql2/promise';
-import type { Generes, Movie, MovieRow } from './entities';
+import type { GenereRow, Movie, MovieRow } from './entities';
 
 export class ManageMovies {
     constructor(private connection: Connection) {}
 
-    async getAllMovies(): Promise<MovieRow[]> {
+    async getAllMovies(): Promise<Movie[]> {
         const q = `select 
                     BIN_TO_UUID(movie_id) as id, 
                     title, 
@@ -16,6 +16,35 @@ export class ManageMovies {
                 from movies`;
         const [rows] = await this.connection.query<MovieRow[]>(q);
         return rows;
+    }
+
+    async getAllMoviesWithGenere(): Promise<Movie[]> {
+        const q = `select 
+                    BIN_TO_UUID(m.movie_id) as id, 
+                    title, 
+                    release_year as year, 
+                    director, 
+                    duration, 
+                    poster, 
+                    rate,
+                    name as generes 
+                from movies m
+                join movies_generes mg on m.movie_id = mg.movie_id
+                join generes g on mg.genere_id = g.genere_id`;
+        const [rows] = await this.connection.query<MovieRow[]>(q);
+
+        const ids = Array.from(new Set(rows.map((row) => row.id)));
+        const movies = ids.map((id) => {
+            const movie = rows.find((row) => row.id === id);
+            return {
+                ...movie,
+                generes: rows
+                    .filter((row) => row.id === id)
+                    .map((row) => row.generes as unknown as string),
+            };
+        });
+
+        return movies as Movie[];
     }
 
     async findMovieById(id: string): Promise<MovieRow> {
@@ -49,7 +78,7 @@ export class ManageMovies {
         return rows[0];
     }
 
-    async findMovieWithGeneresByTitle(title: string): Promise<MovieRow> {
+    async findMovieWithGeneresByTitle(title: string): Promise<Movie> {
         const q = `select 
                     BIN_TO_UUID(m.movie_id) as id, 
                     title, 
@@ -58,7 +87,7 @@ export class ManageMovies {
                     duration, 
                     poster, 
                     rate,
-                    name as genere 
+                    name as generes 
                 from movies m
                 join movies_generes mg on m.movie_id = mg.movie_id
                 join generes g on mg.genere_id = g.genere_id
@@ -68,11 +97,16 @@ export class ManageMovies {
 
         // if (rows.length !== 1) {
 
-        rows[0].genere = rows.map((row) => row.genere);
+        rows[0].generes = rows.map((row) => row.generes as unknown as string);
         return rows[0];
     }
 
-    async createMovie(data: Omit<Movie, 'id'>): Promise<MovieRow> {
+    async createMovie(data: Omit<Movie, 'id' | 'generes'>): Promise<Movie> {
+        // const id = crypto.randomUUID();
+        // const q = `insert into movies
+        //             (movie_id, title, release_year, director, duration, poster, rate)
+        //             VALUES (UUID_TO_BIN(${id}), ?, ?, ?, ?, ?, ?);`;
+
         const q = `insert into movies 
                     (title, release_year, director, duration, poster, rate) 
                     VALUES (?, ?, ?, ?, ?, ?);`;
@@ -89,9 +123,17 @@ export class ManageMovies {
             throw new Error('Movie not created');
         }
 
-        const row = await this.findMovieByTitle(data.title);
-        console.log('Movie created with id:', row.id);
-        return row;
+        const [inserted] = await this.connection.query<MovieRow[]>(`
+            SELECT BIN_TO_UUID(@last_inserted_uuid) as id;
+       `);
+
+        const { id } = inserted[0];
+        console.log('Movie created with id:', id);
+
+        //const row = await this.findMovieById(id);
+        //return row;
+
+        return { ...data, id };
     }
 
     async changeMovieGeneres(
@@ -99,7 +141,7 @@ export class ManageMovies {
         genere: string[],
     ): Promise<void> {
         const q0 = `select genere_id as id from generes where name = ?`;
-        const [rows] = await this.connection.query<Generes[]>(q0, [genere]);
+        const [rows] = await this.connection.query<GenereRow[]>(q0, [genere]);
         if (rows.length !== 1) {
             throw new Error('Genere not found');
         }
@@ -158,18 +200,21 @@ export class ManageMovies {
         const fields: string[] = [];
         const values: unknown[] = [];
 
-        Object.entries(data)
-
-            .forEach(([key, value]) => {
-                if (!validFields[key]) {
-                    throw new Error(`Invalid search field: ${key}`);
-                }
-                fields.push(`${validFields[key]} = ?`);
-                values.push(value);
-            });
+        Object.entries(data).forEach(([key, value]) => {
+            if (!validFields[key]) {
+                throw new Error(`Invalid search field: ${key}`);
+            }
+            fields.push(`${validFields[key]} = ?`);
+            values.push(value);
+        });
 
         const q = `update movies set ${fields.join(', ')}
         where movie_id = UUID_TO_BIN(?);`;
+
+        // update movies set title = ?, release_year = ?,
+        // director = ?, duration = ?, poster = ?, rate = ?
+        // where movie_id = UUID_TO_BIN(?);
+
         const [result] = await this.connection.query<ResultSetHeader>(q, [
             ...values,
             id,
@@ -184,7 +229,7 @@ export class ManageMovies {
         return row;
     }
 
-    async deleteMovieById(id: string): Promise<MovieRow> {
+    async deleteMovieById(id: string): Promise<Movie> {
         const movieForDelete = await this.findMovieById(id);
 
         const q = `delete from movies where movie_id = UUID_TO_BIN(?);`;

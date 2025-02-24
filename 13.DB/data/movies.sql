@@ -16,6 +16,17 @@ CREATE TABLE movies (
   created_at TIMESTAMP DEFAULT (NOW())
 );
 
+DELIMITER //
+
+CREATE TRIGGER after_usuario_movie
+AFTER INSERT ON movies
+FOR EACH ROW
+BEGIN
+    SET @last_inserted_uuid = NEW.movie_id;
+END //
+
+DELIMITER ;
+
 
 CREATE TABLE generes (
   genere_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,

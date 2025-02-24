@@ -1,22 +1,27 @@
 import type { Connection, ResultSetHeader } from 'mysql2/promise';
-import type { Generes } from './entities';
+import type { Genere, GenereRow } from './entities';
 
 export class ManageGeneres {
     constructor(private connection: Connection) {}
 
-    getAllGeneres = async () => {
+    async getAllGeneres(): Promise<Genere[]> {
         const q = 'select genere_id as id, name from generes';
-        const [rows] = await this.connection.query<Generes[]>(q);
+        const [rows] = await this.connection.query<GenereRow[]>(q);
         return rows;
-    };
+    }
 
-    getGenereById = async (id: number) => {
+    async getGenereById(id: number): Promise<Genere> {
         const q = `select genere_id as id, name from generes where genere_id = ?`;
-        const [rows] = await this.connection.query<Generes[]>(q, [id]);
-        return rows;
-    };
+        const [rows] = await this.connection.query<GenereRow[]>(q, [id]);
 
-    createGenere = async (name: string) => {
+        if (rows.length === 0) {
+            throw new Error(`Genere with id ${id} not found`);
+        }
+
+        return rows[0];
+    }
+
+    async createGenere(name: string): Promise<Genere> {
         const q = `insert into generes (name) VALUES (?);`;
         const [result] = await this.connection.query<ResultSetHeader>(q, [
             name,
@@ -27,10 +32,10 @@ export class ManageGeneres {
             return this.getGenereById(result.insertId);
         }
 
-        return result;
-    };
+        throw new Error('Genere not created');
+    }
 
-    updateGenere = async (id: number, name: string) => {
+    async updateGenere(id: number, name: string): Promise<Genere> {
         const q = `update generes set name = ? where genere_id = ?;`;
         const [result] = await this.connection.query<ResultSetHeader>(q, [
             name,
@@ -42,10 +47,10 @@ export class ManageGeneres {
             return this.getGenereById(id);
         }
 
-        return result;
-    };
+        throw new Error('Genere not updated');
+    }
 
-    deleteGenere = async (id: number) => {
+    async deleteGenere(id: number): Promise<Genere> {
         const genereForDelete = await this.getGenereById(id);
 
         const q = `delete from generes where genere_id = ?;`;
@@ -56,6 +61,6 @@ export class ManageGeneres {
             return genereForDelete;
         }
 
-        return result;
-    };
+        throw new Error('Genere not deleted');
+    }
 }
