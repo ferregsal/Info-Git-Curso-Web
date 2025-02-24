@@ -906,34 +906,47 @@ Tipos de datos
 
 Servidores Web: Node + Express + MySQL
 
-- Driver nativo (MySQL2) - emulación de ORM
-- Driver nativo (SQLite)
+- Planteamiento y estructura del proyecto
+- Patrón Repositorio
+- Posibilidades
+
+  - Driver nativo (SQLite)
+  - Driver nativo (MySQL2) - emulación de ORM
 
 ## Semana 15 (Febrero)
+
+### Día 1 (24/02/2025) - M2.02 11
+
+<!--
+Servidores Web: Node + Express + MySQL
+- Driver nativo (SQLite)
+-->
+
+### Día 2 (25/02/2025) - M2.02 12
 
 <!--
 Servidores Web: Node + Express + MySQL
 - Driver nativo (MySQL2) - emulación de ORM
+-->
+
+### Día 3 (26/02/2025) - M2.02 13
+
+<!--
+Servidores Web: Node + Express + MySQL
 - Patrón Repositorio con ORM
 - ORM (Prisma)
 -->
 
-### Día 1 (24/02/2025) - M2.02 11
+### Día 4 (27/02/2025) - M2.02 14
 
 <!--   Bases de datos NO relacionales (Mongo) -->
 
-### Día 2 (25/02/2025) - M2.02 12
+### Día 5 (28/02/2025) - M2.02 15
 
 <!--  Servidores Web: Node + Express
 - ODM (Mongoose)
 - Patrón Repositorio con ODM
 -->
-
-### Día 3 (26/02/2025) - M2.02 13
-
-### Día 4 (27/02/2025) - M2.02 14
-
-### Día 5 (28/02/2025) - M2.02 15
 
 ## Semana 16 (Marzo)
 
