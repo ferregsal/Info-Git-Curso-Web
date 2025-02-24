@@ -5,16 +5,16 @@ import { resolve } from 'path';
 import morgan from 'morgan';
 import cors from 'cors';
 import bodyParser from 'body-parser';
-import { debugLogger } from './middleware/debug-logger.js';
+import { debugLogger } from '../middleware/debug-logger.js';
 import {
     notFoundController,
     notMethodController,
-} from './controllers/base.controller.js';
-import { errorManager } from './controllers/errors.controller.js';
-import { HomeController } from './controllers/home.controller.js';
-import { createProductsRouter } from './routers/products.router.js';
-import { HomePage } from './views/pages/home-page.js';
-import { ProductsController } from './controllers/products.mvc.controller.js';
+} from '../controllers/base.controller.js';
+import { errorManager } from '../controllers/errors.controller.js';
+import { HomeController } from '../controllers/home.controller.js';
+import { createProductsRouter } from '../routers/products.router.js';
+import { HomePage } from '../views/pages/home-page.js';
+import { ProductsController } from '../controllers/products.mvc.controller.js';
 import { AnimalSqliteRepo } from './models/animals.sqlite.repository.js';
 const debug = createDebug('demo:app');
 debug('Loaded module');
