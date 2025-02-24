@@ -899,6 +899,17 @@ Tipos de datos
 ### Día 5 (21/02/2025) - M2.02 10
 
 - Code review: Ejercicio Operaciones CRUD con MySQL2
+  - Read (SELECT) y transformación de tablas a objetos
+  - Create (INSERT) y recuperación de ids no auto-incrementales
+  - Update (UPDATE) tipo 'patch' (sin proporcionar todos los datos)
+  - Delete (DELETE)
+
+Servidores Web: Node + Express + MySQL
+
+- Driver nativo (MySQL2) - emulación de ORM
+- Driver nativo (SQLite)
+
+## Semana 15 (Febrero)
 
 <!--
 Servidores Web: Node + Express + MySQL
@@ -906,8 +917,6 @@ Servidores Web: Node + Express + MySQL
 - Patrón Repositorio con ORM
 - ORM (Prisma)
 -->
-
-## Semana 15 (Febrero)
 
 ### Día 1 (24/02/2025) - M2.02 11
 
