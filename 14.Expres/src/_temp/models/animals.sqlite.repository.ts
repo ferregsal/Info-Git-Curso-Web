@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Connection } from 'mysql2/promise.js';
-import { Animal } from './animal.type.js';
-import type { Repository } from './repository.type.js';
+import { Database } from 'sqlite3';
+import { Animal } from '../../models/animal.type.js';
+import type { Repository } from '../../models/repository.type.js';
 
-export class AnimalSqlRepo implements Repository<Animal> {
-    constructor(private connection: Connection) {}
+export class AnimalSqliteRepo implements Repository<Animal> {
+    constructor(private db: Database) {}
 
     async read(): Promise<Animal[]> {
         throw new Error('Method not implemented.');

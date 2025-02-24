@@ -1,7 +1,7 @@
 import { createServer } from 'node:http';
 import createDebug from 'debug';
-import { listenManager } from './server/listen-manager.js';
-import { errorManager } from './server/error-manager.js';
+import { listenManager } from '../server/listen-manager.js';
+import { errorManager } from '../server/error-manager.js';
 import { createApp } from './app.sqlite.js';
 import { connectSQLite } from './server/connect.db.js';
 
