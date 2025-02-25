@@ -917,16 +917,22 @@ Servidores Web: Node + Express + MySQL
 
 ### Día 1 (24/02/2025) - M2.02 11
 
-<!--
 Servidores Web: Node + Express + MySQL
+
 - Driver nativo (SQLite)
--->
+- Funciones basadas en callbacks
+- Promisificación
 
 ### Día 2 (25/02/2025) - M2.02 12
 
-<!--
 Servidores Web: Node + Express + MySQL
-- Driver nativo (MySQL2) - emulación de ORM
+
+- Driver nativo (SQLite) (revisión (Pormisificación en TS) y finalización)
+- Driver nativo (MySQL2)
+- Gestión de errores
+
+<!--
+- ¿Driver nativo (MySQL2) - emulación de ORM?
 -->
 
 ### Día 3 (26/02/2025) - M2.02 13
@@ -950,13 +956,13 @@ Servidores Web: Node + Express + MySQL
 
 ## Semana 16 (Marzo)
 
-### Día 1 (02/03/2025) - M2.02 16
+### Día 1 (03/03/2025) - M2.02 16
 
-### Día 2 (03/03/2025) - M2.02 17
+### Día 2 (04/03/2025) - M2.02 17
 
-### Día 3 (04/03/2025) - M2.02 18
+### Día 3 (05/03/2025) - M2.02 18
 
-### Día 4 (05/03/2025) - M2.03 01
+### Día 4 (06/03/2025) - M2.03 01
 
 Aplicaciones Web Distribuidas
 
@@ -964,7 +970,11 @@ Aplicaciones Web Distribuidas
 - Servidores Web: Node + NestJS
 -->
 
-### Día 5 (06/03/2025) - M2.03 02
+### Día 5 (07/03/2025) - M2.03 02
+
+<!--
+- Servidores Web: Node + NestJS
+-->
 
 ## Semana 17 (Marzo)
 
@@ -973,82 +983,82 @@ Aplicaciones Web Distribuidas
 - Gestión de imágenes: Multer
 - Almacenamiento de las imágenes: Cloudinary -->
 
-### Día 1 (09/03/2025) - M2.03 03
+### Día 1 (10/03/2025) - M2.03 03
 
-### Día 2 (10/03/2025) - M2.03 04
+### Día 2 (11/03/2025) - M2.03 04
 
-### Día 3 (11/03/2025) - M2.03 05
+### Día 3 (12/03/2025) - M2.03 05
 
-### Día 4 (12/03/2025) - M2.03 06
+### Día 4 (13/03/2025) - M2.03 06
 
-### Día 5 (13/03/2025) - M2.03 07
+### Día 5 (14/03/2025) - M2.03 07
 
 ## Semana 18 (Marzo)
 
-### Día 1 (16/03/2025) - M2.03 08
+### Día 1 (17/03/2025) - M2.03 08
 
 <!-- Sockets - Chat -->
 
-### Día 2 (17/03/2025) - M2.03 09
+### Día 2 (18/03/2025) - M2.03 09
 
-### Día 3 (18/03/2025) - M2.03 10
+### Día 3 (19/03/2025) - M2.03 10
 
-### Día 4 (19/03/2025) - M2.03 11
+### Día 4 (20/03/2025) - M2.03 11
 
 Examen Módulo 2 (Primera convocatoria)
 
-### Día 5 (20/03/2025) - M2.03 12
+### Día 5 (21/03/2025) - M2.03 12
 
 Examen Módulo 2 (Segunda convocatoria)
 
 ## Semana 19 (Marzo)
 
-### Día 1 (23/03/2025) - M3.00 01
+### Día 1 (24/03/2025) - M3.00 01
 
 <!-- Testing -->
 
-### Día 2 (24/03/2025) - M3.00 02
+### Día 2 (25/03/2025) - M3.00 02
 
-### Día 3 (25/03/2025) - M3.00 03
+### Día 3 (26/03/2025) - M3.00 03
 
-### Día 4 (26/03/2025) - M3.00 04
+### Día 4 (27/03/2025) - M3.00 04
 
-### Día 5 (27/03/2025) - M3.00 05
+### Día 5 (28/03/2025) - M3.00 05
 
 ## Semana 20 (Marzo)
 
-### Día 1 (30/03/2025) - M3.00 06
+### Día 1 (31/03/2025) - M3.00 06
 
-### Día 2 (31/03/2025) - M3.00 07
+### Día 2 (01/03/2025) - M3.00 07
 
-### Día 3 (01/04/2025) - M3.00 08
+### Día 3 (02/04/2025) - M3.00 08
 
-### Día 4 (02/04/2025) - M3.00 09
+### Día 4 (03/04/2025) - M3.00 09
 
-### Día 5 (03/04/2025) - M3.00 10
+### Día 5 (04/04/2025) - M3.00 10
 
 ## Semana 21 (Abril)
 
-### Día 1 (06/04/2025) - M3.00 11
+### Día 1 (07/04/2025) - M3.00 11
 
-### Día 2 (07/04/2025) - M3.00 12
+### Día 2 (08/04/2025) - M3.00 12
 
-### Día 3 (08/04/2025) - M3.00 13
+### Día 3 (09/04/2025) - M3.00 13
 
-### Día 4 (09/04/2025) - M3.00 14
+### Día 4 (10/04/2025) - M3.00 14
 
-### Día 5 (10/04/2025) - M3.00 15
+### Día 5 (11/04/2025) - M3.00 15
 
-## Semana Santa 13/04/2025 - 19/04/2025
+## Semana Santa 12/04/2025 - 20/04/2025
 
 ## Semana 22 (Abril)
 
-### Día 1 (20/04/2025) - M3.00 16
+### Día 1 (21/04/2025) - M3.00 16
 
-### Día 2 (21/04/2025) - M3.00 17
+### Día 2 (22/04/2025) - M3.00 17
 
 Examen Módulo 3 (Primera convocatoria)
 
-### Día 3 (22/04/2025) - M3.00 18
+### Día 3 (23/04/2025) - M3.00 18
 
 Examen Módulo 3 (Segunda convocatoria)
