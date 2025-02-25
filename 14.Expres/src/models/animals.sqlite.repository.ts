@@ -226,24 +226,26 @@ export class AnimalSqliteRepo implements Repository<Animal> {
         // const q = `update animals set ${fields.join(', ')}
         // where id = UUID_TO_BIN(?);`;
 
-        const result = await SQL(this.dataBase).run(q, [...values, id]);
+        const { changes } = await SQL(this.dataBase).run(q, [...values, id]);
 
-        // result.lastID // result.changes
-        // if (result.affectedRows !== 1) {
-        //    throw new Error('Movie not updated');
-        // }
+        if (changes !== 1) {
+            throw new Error('Animal not updated');
+        }
 
-        const row = await this.readById(id.toString());
+        const updatedAnimal = await this.readById(id.toString());
 
-        console.log('Movie updated with id:', id);
-        return row;
+        console.log('Animal updated with id:', id);
+        return updatedAnimal;
     }
     async delete(id: string): Promise<Animal> {
         const data = await this.readById(id);
 
         const query = `DELETE FROM animals WHERE id = ?`;
-        await SQL(this.dataBase).run(query, [id]);
+        const { changes } = await SQL(this.dataBase).run(query, [id]);
 
+        if (changes !== 1) {
+            throw new Error('Animal not deleted');
+        }
         return data;
     }
 }
