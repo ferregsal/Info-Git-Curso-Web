@@ -21,7 +21,16 @@ title: SQL y ECMAScript (JavaScript)
       - [Configuración, cadena de conexión y modelo de datos](#configuración-cadena-de-conexión-y-modelo-de-datos)
     - [Generate v. Migrate](#generate-v-migrate)
   - [Sintaxis en Prisma: Modelos](#sintaxis-en-prisma-modelos)
-    - [Crear un modelo](#crear-un-modelo)
+    - [Campos](#campos)
+      - [Tipos](#tipos)
+      - [Modificadores](#modificadores)
+      - [Directivas](#directivas)
+      - [Primary Key](#primary-key)
+    - [Relaciones entre tablas](#relaciones-entre-tablas)
+    - [Relaciones 1:1](#relaciones-11)
+    - [Relaciones N:M Implícitas](#relaciones-nm-implícitas)
+    - [Relaciones N:M Explícitas](#relaciones-nm-explícitas)
+    - [Crear un modelo: Ejemplo de un blog](#crear-un-modelo-ejemplo-de-un-blog)
   - [Migraciones](#migraciones)
   - [Uso de Prisma Client](#uso-de-prisma-client)
 
@@ -541,7 +550,306 @@ Prisma tiene una sintaxis fácil de entender para crear modelos. Está basada en
 
 Es recomendable instalar el **plugin** de Prisma para **VS Code**. Este plugin revisa y limpia tu archivo de esquema.
 
-#### Crear un modelo
+#### Campos
+
+La definición de cada campo incluye los siguientes elementos:
+
+El **nombre** del campo (por ejemplo, id).
+El **tipo** de campo (por ejemplo, Int).
+Opcionalmente modificadores del tipo (por ejemplo [], ?).
+**Directivas** (atributos) opcionales que modifican el comportamiento del campo (por ejemplo, @id).
+
+##### Tipos
+
+- `String`: Cadena de texto.
+- `Int`: Número entero.
+- `DateTime`: Fecha y hora.
+- `Boolean`: Valor booleano (true o false).
+- `Float`: Número de punto flotante.
+- `Json`: Objeto JSON.
+- `Enum`: Enumeración de valores fijos.
+- `Bytes`: Datos binarios.
+- `Decimal`: Número decimal.
+- `BigInt`: Número entero grande.
+
+##### Modificadores
+
+- []: Lista de valores.
+- ?: Valor opcional.
+
+##### Directivas
+
+- `@id`: Campo de identificación.
+- `@unique`: Campo único.
+- `@default`: Valor predeterminado.
+- `@map`: Mapeo de nombre de campo.
+- `@db`: Configuración de base de datos.
+- `@ignore`: Ignorar campo.
+- `@relation`: Relación entre modelos.
+- `@updatedAt`: Campo de fecha y hora de actualización.
+
+Las directivas pueden admitir argumentos, como @default(now()) o @relation("UserPosts").
+
+En esos argumentos se pueden incluir funciones, como
+
+- `now()` para la fecha y hora actuales.
+- `uuid()` para un identificador único universal.
+- `cuid()` para un identificador único corto.
+- `autoincrement()` para un valor autoincremental.
+- `randomUUID()` para un identificador único aleatorio.
+- `randomString()` para una cadena aleatoria.
+- `randomBytes()` para datos binarios aleatorios.
+
+Algunas directivas también se pueden aplicar al modelo en su conjunto, como @@unique y @@map. En esos casos, se usan dos arrobas en lugar de una.
+
+```prisma
+model User {
+    id        Int      @id @default(autoincrement()) @map("user_id")
+    email     String   @unique
+    name      String?  @map("handler_name")
+    firstName String   @map("first_name")
+    lastName  String   @map("last_name")
+    isAdmin   Boolean  @default(false)
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+  @@unique([firstName, lastName])
+  @@map("users")
+
+  }
+```
+
+##### Primary Key
+
+El campo de identificación se define con la directiva @id. Si no se especifica, Prisma creará un campo de identificación automático llamado id.
+
+En las bases de datos relacionales es necesario tener un campo de identificación único para cada fila de una tabla. Este campo se llama clave primaria (PK). Es tradicional que la clave primaria sea un número entero autoincremental,
+
+```prisma
+model User {
+  id  Int  @id @default(autoincrement())
+  ...
+}
+```
+
+La PK también puede ser una cadena de texto única o un UUID.
+
+```prisma
+model User {
+  id  String   @id @default(uuid())
+  ...
+}
+```
+
+En el caso de los UUID se puede guardar como binario en la base de datos, lo que reduce el tamaño de la tabla.
+
+```prisma
+model User {
+  id  Bytes  @id @default(dbgenerated("(uuid_to_bin(uuid()))"))
+  ...
+}
+```
+
+Opcionalmente, ademas del tipo valido para Prisma, se pueda especificar el tipo de campo en la base de datos.
+
+```prisma
+model User {
+  id  Bytes  @id @default(dbgenerated("(uuid_to_bin(uuid()))")) @db.Binary(16)
+  name String @db.VarChar(255)
+  email String @db.VarChar(255)
+  ...
+}
+```
+
+#### Relaciones entre tablas
+
+Las relaciones entre tablas se definen con la directiva @relation.
+Esta directiva se aplica al **campo de Prisma** que representa la relación y se usa para especificar la relación entre dos modelos.
+
+Este campo no existirá en la base de datos, pero se usará en el código para acceder a los datos relacionados.
+
+Después de aplicar la directiva de relación sin parámetros, Prisma indica la necesidad de especificar los campos de relación manualmente o ejecutar `prisma format` para que prisma complete el proceso.
+
+```prisma
+
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  name      String?
+
+}
+
+model Post {
+  id        Int      @id @default(autoincrement())
+  title     String
+  content   String?
+  published Boolean  @default(false)
+  author    User     @relation
+}
+```
+
+```shell
+npm prisma format
+```
+
+En la directiva de relación, se especificarán los campos que se relacionan entre sí.
+
+- `fields`: los campos del modelo actual que constituyen la clave foránea (FK) relativa al modelo relacionado.
+- `references`: los campos del modelo relacionado, por ejemplo la PK, a los que corresponde la FK del modelo actual.
+
+```prisma
+
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  name      String?
+
+  Post Post[]
+
+}
+
+model Post {
+  id        Int      @id @default(autoincrement())
+  title     String
+  content   String?
+  published Boolean  @default(false)
+  author    User     @relation(fields: [authorId], references: [id]) // Campo de relación, que no existe en la base de datos
+  userId  Int // FK en la tabla SQL
+}
+
+```
+
+En este caso, interpretándola como una relación 1:N, Prisma crea también
+
+- un campo userId en la tabla `Post` que contiene el id del usuario
+- un campo `Post[]` en el modelo `User` que contiene todos los posts del usuario. Se trata de un campo virtual, que no existe en la base de datos.
+
+Además de las relaciones uno a muchos, también se pueden definir relaciones 1:1 y N:M.
+
+#### Relaciones 1:1
+
+Para una relación 1:1, después de usar `Prisma format`, se necesitan dos modificaciones:
+
+- el campo de relación en uno de los modelos debe ser único
+- el campo de relación en el otro modelo debe ser opcional y sin incluir el modificador de lista `[]`
+
+```prisma
+
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  name      String?
+
+  Post Post[]
+
+}
+
+model Address {
+  id     Int    @id @default(autoincrement())
+  street String
+  city   String
+  zip    String
+  user   User   @relation(fields: [userId], references: [id])
+  userId Int @unique()
+}
+```
+
+#### Relaciones N:M Implícitas
+
+Para las relaciones N:M, se necesitan dos modelos y una relación que puede ser implícita o explicita.
+
+En el primer caso, la tabla de unión que será generada por Prisma y basta con indicar en los dos modelos la relación con el otro con el modificador de lista `[]`.
+
+```prisma
+
+model Post {
+  id        Int      @id @default(autoincrement())
+  title     String
+  ...
+
+  tags Tag[]
+}
+
+model Tag {
+  id        Int      @id @default(autoincrement())
+  name      String
+  ...
+
+  posts Post[]
+}
+```
+
+#### Relaciones N:M Explícitas
+
+En este caso, se crea un modelo adicional que representa la tabla de unión.
+
+```prisma
+
+model Post {
+  id        Int      @id @default(autoincrement())
+  title     String
+  ...
+
+  categories CategoriesOnPost[]
+}
+
+model Category {
+  id        Int      @id @default(autoincrement())
+  name      String
+  ...
+
+  posts CategoriesOnPost[]
+}
+
+model CategoriesOnPost {
+  Post       Post     @relation(fields: [postId], references: [id])
+  Category   Category @relation(fields: [categoryId], references: [id])
+  postId     Int
+  categoryId Int
+  @@unique([postId, categoryId])
+}
+```
+
+En el modelo que representa la relación se pueden añadir campos adicionales, como la fecha de creación o el orden.
+
+Finalmente es posible modelar las autorelaciones, de forma que un modelo se relacione consigo mismo, con las cardinalidades 1:N, 1:1 y N:M.
+
+Por ejemplo, en una caso 1:N, un modelo `User` puede tener un campo `supervisor` que se relaciona con otro usuario.
+
+```prisma
+
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  name      String?
+  supervisorId Int
+  supervisor   User  @relation("Supervisor", fields: [supervisorId], references: [id])
+  supervised   User[] @relation("Supervisor")
+}
+
+```
+
+Para una relación N:M implícita, un modelo `User` puede tener un campo `friends` que se relaciona con otros usuarios.
+
+```prisma
+
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  name      String?
+
+  friends   User[] @relation("Friends")
+  friendsWith User[]  @relation("Friends")
+
+  followedBy User[]  @relation("UserFollows")
+  following  User[]  @relation("UserFollows")
+}
+
+```
+
+En el caso de "Friends", los dos campos representan las dos direcciones de la relación, como indica el nombre de la relación en ambos campos. Aunque la dirección de la relación es la misma, los nombres de los campos deben ser diferentes y deben indicarse ambos.
+
+#### Crear un modelo: Ejemplo de un blog
 
 Para crear un modelo en Prisma, se debe escribir el nombre del modelo seguido de una llave de apertura y cierre. Dentro de las llaves, se escriben los campos del modelo.
 
