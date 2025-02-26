@@ -277,7 +277,37 @@ Existen básicamente los siguientes métodos para realizar consultas:
 - `each`: para obtener los registros de una consulta de forma iterativa
 - `exec`: para ejecutar una o varias sentencias SQL
 
-No es difícil crear un wrapper de estos métodos para trabajar con promesas en lugar de callbacks
+```typescript
+db.all('SELECT * FROM movies where year = ?', [findYear], (err, rows) => {
+  if (err) {
+    console.error(err);
+  } else {
+    console.log(rows);
+  }
+});
+
+db.get('SELECT * FROM movies where id = ?', [movieId], (err, row) => {
+  if (err) {
+    console.error(err);
+  } else {
+    console.log(row);
+  }
+});
+
+db.run(
+  'INSERT INTO movies (title, year, director) VALUES (?, ?, ?)',
+  [title, year, director],
+  function (err) {
+    if (err) {
+      console.error(err);
+    } else {
+      console.log(this.lastID);
+    }
+  },
+);
+```
+
+En JavaScript no es difícil crear un wrapper de estos métodos para trabajar con promesas en lugar de callbacks
 
 ```typescript
 import util from 'node:util';
@@ -297,9 +327,23 @@ SQLite3 = {
     });
   }
   all: util.promisify(db.all.bind(db)),
+    // all (...args) {
+    // return new Promise((resolve, reject) => {
+    //   db.all(...args, function (err, rows) {
+    //     if (err) {
+    //       reject(err);
+    //       } else {
+    //       resolve(rows);
+    //     }
+    //   });
+    // });
+    // }
+
   get: util.promisify(db.get.bind(db)),
   each: util.promisify(db.each.bind(db)),
   exec: util.promisify(db.exec.bind(db)),
 }
 
 ```
+
+<https://github.com/TryGhost/node-sqlite3/wiki/API>

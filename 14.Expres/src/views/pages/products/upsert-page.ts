@@ -104,8 +104,8 @@ export class UpsertProductsPage extends BasePage {
                         ${item && `value="${item.lifestyle}"`}
                     >
                         <option></option>
-                        <option>Diurno</option>
-                        <option>Nocturno</option>
+                        <option ${item?.lifestyle === 'Diurno' && 'selected'}>Diurno</option>
+                        <option ${item?.lifestyle === 'Nocturno' && 'selected'}>Nocturno</option>
                     </select>
                   </label>
                 </label>
@@ -135,6 +135,7 @@ export class UpsertProductsPage extends BasePage {
 
     override renderMain({ mainTitle, mainContent }: PageContent) {
         debug('Iniciando renderMain');
+        debug('mainContent:', mainContent);
 
         const action = mainContent ? 'update/' + mainContent.id : 'create';
         // const method = 'PUT/PATCH/DELETE' NO ES VÁLIDO EN HTML - se toma como GET;
