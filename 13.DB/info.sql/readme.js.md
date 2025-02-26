@@ -369,7 +369,7 @@ Prisma es un **ORM** (Object-Relational Mapping) para bases de datos.
 Es una herramienta que nos permite interactuar con la base de datos sin tener que escribir SQL.
 Prisma se encarga de traducir nuestras consultas en código JavaScript a SQL.
 
-Esta especialmete pensado para trabajar con **TypeScript** y **Node.js**, proporcionando un tipado seguro.
+Esta especialmencdte pensado para trabajar con **TypeScript** y **Node.js**, proporcionando un tipado seguro.
 
 Soporta diversos tipos de bases de datos
 
