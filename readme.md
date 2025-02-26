@@ -930,12 +930,13 @@ Servidores Web: Node + Express + MySQL
 - Driver nativo (SQLite) (revisión (Pormisificación en TS) y finalización)
 - Driver nativo (MySQL2)
 - Gestión de errores
+- Configuración de la base de datos y seedings
+
+### Día 3 (26/02/2025) - M2.02 13
 
 <!--
 - ¿Driver nativo (MySQL2) - emulación de ORM?
 -->
-
-### Día 3 (26/02/2025) - M2.02 13
 
 <!--
 Servidores Web: Node + Express + MySQL
