@@ -12,10 +12,6 @@ export class FilmRepo implements Repository<Film> {
         this.prisma = new PrismaClient();
     }
 
-    private filmRowToFilm(row: unknown): Film {
-        return row as Film;
-    }
-
     async read(): Promise<Film[]> {
         const films = await this.prisma.film.findMany();
         debug(films);
