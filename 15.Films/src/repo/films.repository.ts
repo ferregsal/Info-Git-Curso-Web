@@ -3,24 +3,25 @@ import type { Repository } from './repository.type.js';
 import { PrismaClient } from '@prisma/client';
 import { Film } from '@prisma/client';
 
-const debug = createDebug('demo:repository:films');
+const debug = createDebug('films:repository:films');
 
 export class FilmRepo implements Repository<Film> {
     prisma: PrismaClient;
     constructor() {
-        debug('Instanciando repo for films');
+        debug('Instanciando');
         this.prisma = new PrismaClient();
     }
 
     async read(): Promise<Film[]> {
+        debug('Reading films');
         const films = await this.prisma.film.findMany();
-        debug(films);
         return films;
 
         // return await this.prisma.film.findMany();
     }
 
     async readById(id: string): Promise<Film> {
+        debug('Reading film with id');
         const film = await this.prisma.film.findUniqueOrThrow({
             where: { id },
         });
@@ -29,6 +30,7 @@ export class FilmRepo implements Repository<Film> {
     }
 
     async create(data: Omit<Film, 'id'>): Promise<Film> {
+        debug('Creating new film');
         const film = await this.prisma.film.create({
             data,
         });
@@ -48,6 +50,7 @@ export class FilmRepo implements Repository<Film> {
     }
 
     async delete(id: string): Promise<Film> {
+        debug('Deleting film with id:', id);
         const film = await this.prisma.film.delete({
             where: {
                 id,

@@ -12,7 +12,11 @@ import {
 
 import { errorManager } from './controllers/errors.controller.js';
 
-import { filmsRouter } from './router/films.router.js';
+import { createFilmsRouter } from './router/films.router.js';
+import { Repository } from './repo/repository.type.js';
+import { Film } from '@prisma/client';
+import { FilmRepo } from './repo/films.repository.js';
+import { FilmsController } from './controllers/films.controller.js';
 
 // import { createProductsRouter } from './routers/products.router.js';
 // import { HomePage } from './views/pages/home-page.js';
@@ -41,12 +45,12 @@ export const createApp = () => {
     app.use(debugLogger('debug-logger'));
     app.use(express.static(publicPath));
 
-    // Routes
+    const repoFilms: Repository<Film> = new FilmRepo();
+    const filmsController = new FilmsController(repoFilms);
+    const filmsRouter = createFilmsRouter(filmsController);
 
-    // app.use('/apì/films', createFilmssRouter(filmsController));
-    //createFilmssRouter(filmsController));
-
-    app.use('/apì/films', filmsRouter);
+    // Routes registry
+    app.use('/api/films', filmsRouter);
 
     app.get('*', notFoundController); // 404
     app.use('*', notMethodController); // 405
