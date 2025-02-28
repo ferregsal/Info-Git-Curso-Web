@@ -12,6 +12,8 @@ import {
 
 import { errorManager } from './controllers/errors.controller.js';
 
+import { filmsRouter } from './router/films.router.js';
+
 // import { createProductsRouter } from './routers/products.router.js';
 // import { HomePage } from './views/pages/home-page.js';
 
@@ -41,31 +43,10 @@ export const createApp = () => {
 
     // Routes
 
-    // const homeView = new HomePage();
-    // const homeController = new HomeController(homeView);
-    // app.get('/', homeController.getPage);
+    // app.use('/apì/films', createFilmssRouter(filmsController));
+    //createFilmssRouter(filmsController));
 
-    // let animalModel: Repository<Animal>;
-    // switch (process.env.REPO as 'file' | 'sqlite' | 'mysql' | 'prisma') {
-    //     case 'sqlite':
-    //         animalModel = new AnimalSqliteRepo();
-    //         break;
-    //     case 'mysql':
-    //         animalModel = new AnimalMySqlRepo();
-    //         break;
-    //     case 'prisma':
-    //         animalModel = new AnimalPrismaRepo();
-    //         break;
-    //     case 'file':
-    //         animalModel = new AnimalFileRepo();
-    //         break;
-    //     default:
-    //         throw new Error('Invalid repository');
-    // }
-
-    // const productsController = new ProductsController(animalModel);
-
-    // app.use('/products', createProductsRouter(productsController));
+    app.use('/apì/films', filmsRouter);
 
     app.get('*', notFoundController); // 404
     app.use('*', notMethodController); // 405
