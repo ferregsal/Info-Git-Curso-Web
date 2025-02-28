@@ -812,7 +812,7 @@ model CategoriesOnPost {
 
 En el modelo que representa la relación se pueden añadir campos adicionales, como la fecha de creación o el orden.
 
-Finalmente es posible modelar las autorelaciones, de forma que un modelo se relacione consigo mismo, con las cardinalidades 1:N, 1:1 y N:M.
+Finalmente es posible modelar las **autorelaciones**, de forma que un modelo se relacione consigo mismo, con las cardinalidades 1:N, 1:1 y N:M.
 
 Por ejemplo, en una caso 1:N, un modelo `User` puede tener un campo `supervisor` que se relaciona con otro usuario.
 

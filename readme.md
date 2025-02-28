@@ -949,6 +949,16 @@ Nuevo proyecto: API REST con Prisma: Películas
 
 ### Día 4 (27/02/2025) - M2.02 14
 
+API REST Películas
+
+- Servidores Web: Node + Express
+- ORM (Prisma)
+- Verbos HTTP, enrutamiento y controladores
+- Modelo de datos y repositorios con Prisma
+- Operaciones CRUD
+
+### Día 5 (28/02/2025) - M2.02 15
+
 <!--
 
 API REST
@@ -957,8 +967,6 @@ API REST
 - Operaciones CRUD
 - Validaciones
 --->
-
-### Día 5 (28/02/2025) - M2.02 15
 
 ## Semana 16 (Marzo)
 
