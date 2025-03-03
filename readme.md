@@ -959,18 +959,29 @@ API REST Películas
 
 ### Día 5 (28/02/2025) - M2.02 15
 
-<!--
-
-API REST
-- Verbos HTTP, enrutamiento y controladores
-- Modelo de datos y repositorios con Prisma
-- Operaciones CRUD
-- Validaciones
---->
+- Review de la API REST Películas:
+  - Arquitectura en capas: server, app, routes, controllers, repositories
+  - Router como función
+  - Controladores como clases: completando las operaciones CRUD
+  - Modelo de datos y repositorios con Prisma
+  - Inyección de dependencias en app: router, controller, repository
+  - Control de errores
+- Nuevo proyecto: Node + TS + Prisma
+  - DB World: Introspección
+  - Ejercicio: Queries con Prisma
 
 ## Semana 16 (Marzo)
 
 ### Día 1 (03/03/2025) - M2.02 16
+
+<!---
+Code review queries con Prisma
+
+API REST
+- Completando el control de Errors
+- Validaciones
+
+--->
 
 <!--
 
