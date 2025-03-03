@@ -34,6 +34,7 @@ export const errorManager = (
             status: 'Bad Request',
         };
     } else if (!('status' in err)) {
+        console.error(err);
         err = {
             ...err,
             statusCode: 500,
