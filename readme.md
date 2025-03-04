@@ -974,17 +974,132 @@ API REST Películas
 
 ### Día 1 (03/03/2025) - M2.02 16
 
-<!---
 Code review queries con Prisma
 
-API REST
-- Completando el control de Errors
-- Validaciones
+API REST: Films
 
+- Completando el control de Errors
+
+  - Errores de Prisma
+
+- Usuarios - Auth
+
+  - Autenticación: ¿Tienes permiso?
+  - Autorización: ¿De que tienes permiso
+
+- Registro
+  - Password: Hash y No reenviarla
+- Login
+
+### Día 2 (04/03/2025) - M2.03 01
+
+<!-- Aplicaciones Web Distribuidas -->
+
+<!---
+API REST
+
+- Usuarios: Autenticación: Login
+- Validaciones
+  - UsersDTOs con Zod
+  - Validaciones en el controladores
+  - FilmsDTOs con Zod
+  - Validaciones extendiendo el modelo
+- Usuarios: Autorización
 --->
 
 <!--
 
+
+
+### Día 3 (05/03/2025) - M2.03 02 - 1/2 día
+
+<!-- Aplicaciones Web Distribuidas -->
+
+### Día 4 (06/03/2025) - M2.03 03
+
+<!-- Aplicaciones Web Distribuidas -->
+
+<!--
+Aplicación de TypeScript
+
+- Tipos avanzados
+- Decoradores
+-->
+
+### Día 5 (07/03/2025) - M2.03 04
+
+<!--
+- Servidores Web: Node + NestJS
+-->
+
+## Semana 17 (Marzo)
+
+### Día 1 (10/03/2025) - M2.03 05
+
+_Tardes NestJS_
+
+<!--
+- Servidores Web: Node + NestJS
+-->
+
+### Día 2 (11/03/2025) - M2.03 06
+
+_Tardes NestJS_
+
+### Día 3 (12/03/2025) - M2.03 07
+
+_Tardes NestJS_
+
+<!-- Autenticación: JWT en Nest -->
+
+### Día 4 (13/03/2025) - M2.03 08
+
+_Tardes NestJS_
+
+<!--
+- Gestión de imágenes: Multer
+- Almacenamiento de las imágenes: Cloudinary
+- -->
+
+### Día 5 (14/03/2025) - M2.03 09
+
+_Tardes NestJS_
+
+<!-- Gestión de ficheros e imágenas en Nest -->
+
+## Semana 18 (Marzo)
+
+### Día 1 (17/03/2025) - M2.03 10
+
+_Tardes NestJS_
+
+<!-- Angular -->
+
+### Día 2 (18/03/2025) - M2.03 11
+
+_Tardes NestJS_
+
+<!-- Angular -->
+
+### Día 3 (19/03/2025) - M2.03 12
+
+_Tardes NestJS_
+
+<!-- Angular -->
+
+### Día 4 (20/03/2025) - M2.02 17
+
+_Tardes NestJS_
+
+Examen Módulo 2 (Primera convocatoria)
+
+### Día 5 (21/03/2025) - M2.02 18
+
+_Tardes NestJS_
+
+Examen Módulo 2 (Segunda convocatoria)
+
+<!--
 [Opción -> último día del módulo]
 
 Bases de datos NO relacionales (Mongo)
@@ -993,77 +1108,10 @@ Servidores Web: Node + Express
 - ODM (Mongoose)
 - Patrón Repositorio con ODM
 -->
-
-### Día 2 (04/03/2025) - M2.03 01
-
-Aplicaciones Web Distribuidas
-
-<!--
-Aplicación de TypeScript
-
-- Tipos avanzados
-- Decoradores
-
--->
-
-### Día 3 (05/03/2025) - M2.03 02
-
-<!--
-- Servidores Web: Node + NestJS
--->
-
-### Día 4 (06/03/2025) - M2.03 03
-
-<!--
-- Servidores Web: Node + NestJS
--->
-
-### Día 5 (07/03/2025) - M2.03 04
-
-## Semana 17 (Marzo)
-
 <!-- - Autenticación: JWT
 - Uso de la autenticación desde el cliente
-- Gestión de imágenes: Multer
-- Almacenamiento de las imágenes: Cloudinary -->
+-->
 
-### Día 1 (10/03/2025) - M2.03 05
-
-### Día 2 (11/03/2025) - M2.03 06
-
-### Día 3 (12/03/2025) - M2.03 07
-
-### Día 4 (13/03/2025) - M2.03 08
-
-<!-- Autenticación: JWT en Nest -->
-
-### Día 5 (14/03/2025) - M2.03 09
-
-<!-- Gestión de ficheros e imágenas en Nest -->
-
-## Semana 18 (Marzo)
-
-### Día 1 (17/03/2025) - M2.03 10
-
-<!-- Angular -->
-
-### Día 2 (18/03/2025) - M2.03 11
-
-<!-- Angular -->
-
-### Día 3 (19/03/2025) - M2.03 12
-
-<!-- Angular -->
-
-### Día 4 (20/03/2025) - M2.02 17
-
-Examen Módulo 2 (Primera convocatoria)
-
-### Día 5 (21/03/2025) - M2.02 18
-
-Examen Módulo 2 (Segunda convocatoria)
-
-<!-- ¿MongoDB? -->
 <!-- ¿Sockets - Chat? -->
 
 ## Semana 19 (Marzo)
