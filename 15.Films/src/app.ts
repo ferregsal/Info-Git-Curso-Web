@@ -19,13 +19,17 @@ import { FilmRepo } from './repo/films.repository.js';
 import { FilmsController } from './controllers/films.controller.js';
 import { UsersController } from './controllers/users.controller.js';
 import { AuthInterceptor } from './middleware/auth.interceptor.js';
-// import session from 'express-session';
-
-// import { createProductsRouter } from './routers/products.router.js';
-// import { HomePage } from './views/pages/home-page.js';
+import session from 'express-session';
+import { Payload } from './services/auth.service.js';
 
 const debug = createDebug('films:app');
 debug('Loaded module');
+
+declare module 'express-session' {
+    interface SessionData {
+        user: Payload;
+    }
+}
 
 export const createApp = () => {
     debug('Iniciando App...');
@@ -45,11 +49,13 @@ export const createApp = () => {
     }
     app.use(express.json());
     app.use(bodyParser.urlencoded({ extended: true }));
-    // app.use(
-    //     session({
-    //         secret: '',
-    //     }),
-    // );
+    app.use(
+        session({
+            secret: 'secreto de sesión',
+            resave: false,
+            saveUninitialized: true,
+        }),
+    );
 
     app.use(debugLogger('debug-logger'));
     app.use(express.static(publicPath));

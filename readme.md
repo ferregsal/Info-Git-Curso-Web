@@ -1021,10 +1021,6 @@ API REST
 - Update user model with roles
 - Uso de Postman como APIRest Client
 
-<!--
-  https://blog.logrocket.com/extend-express-request-object-typescript/
--->
-
 ### Día 4 (06/03/2025) - M2.03 03
 
 <!-- Aplicaciones Web Distribuidas (3)-->
