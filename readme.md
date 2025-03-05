@@ -976,6 +976,8 @@ API REST Películas
 
 Code review queries con Prisma
 
+<!-- Aplicaciones Web Distribuidas (0) -->
+
 API REST: Films
 
 - Completando el control de Errors
@@ -993,42 +995,55 @@ API REST: Films
 
 ### Día 2 (04/03/2025) - M2.03 01
 
-<!-- Aplicaciones Web Distribuidas -->
+<!-- Aplicaciones Web Distribuidas (1) -->
 
-<!---
 API REST
 
 - Usuarios: Autenticación: Login
+  - JWT
 - Validaciones
   - UsersDTOs con Zod
   - Validaciones en el controladores
   - FilmsDTOs con Zod
   - Validaciones extendiendo el modelo
 - Usuarios: Autorización
---->
-
-<!--
-
-
 
 ### Día 3 (05/03/2025) - M2.03 02 - 1/2 día
 
-<!-- Aplicaciones Web Distribuidas -->
+<!-- Aplicaciones Web Distribuidas  (2) -->
+
+- Review de la API REST Films
+
+  - Usuarios: register (singUp)
+  - Usuarios: login (signIn): Autorización
+  - Request with JWT
+
+- Update user model with roles
+- Uso de Postman como APIRest Client
+
+<!--
+  https://blog.logrocket.com/extend-express-request-object-typescript/
+-->
 
 ### Día 4 (06/03/2025) - M2.03 03
 
-<!-- Aplicaciones Web Distribuidas -->
+<!-- Aplicaciones Web Distribuidas (3)-->
 
 <!--
-Aplicación de TypeScript
+  - Authorization: roles (admin, editor)
+  - Authorization: owner
 
-- Tipos avanzados
-- Decoradores
 -->
 
 ### Día 5 (07/03/2025) - M2.03 04
 
 <!--
+
+Aplicación de TypeScript
+
+- Tipos avanzados
+- Decoradores
+
 - Servidores Web: Node + NestJS
 -->
 
