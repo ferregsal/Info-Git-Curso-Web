@@ -3,9 +3,9 @@ import { Review } from '@prisma/client';
 import { Repository } from '../repo/repository.type.js';
 import { AppResponse } from '../types/app-response.js';
 import createDebug from 'debug';
-// import { ReviewCreateDTO } from '../dto/reviews.dto.js';
+import { ReviewCreateDTO } from '../dto/reviews.dto.js';
 
-const debug = createDebug('films:controllers:reviews');
+const debug = createDebug('movies:controller:reviews');
 
 export class ReviewsController {
     constructor(private repoReviews: Repository<Review>) {
@@ -44,10 +44,9 @@ export class ReviewsController {
     create = async (req: Request, res: Response, next: NextFunction) => {
         debug('create');
         try {
-            // ReviewCreateDTO.parse(req.body);
+            ReviewCreateDTO.parse(req.body);
 
-            // const newData: ReviewCreateDTO = req.body;
-            const newData = req.body;
+            const newData: ReviewCreateDTO = req.body;
             const review = await this.repoReviews.create(newData);
             res.json(this.makeResponse([review]));
         } catch (error) {
