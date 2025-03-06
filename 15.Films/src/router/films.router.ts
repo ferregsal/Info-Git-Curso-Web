@@ -4,7 +4,7 @@ import createDebug from 'debug';
 import { AuthInterceptor } from '../middleware/auth.interceptor.js';
 import { Role } from '@prisma/client';
 
-const debug = createDebug('films:router:films');
+const debug = createDebug('movies:router:films');
 
 export const createFilmsRouter = (
     authInterceptor: AuthInterceptor,
