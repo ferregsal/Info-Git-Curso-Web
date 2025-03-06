@@ -1049,22 +1049,50 @@ API REST
 
 <!-- Aplicaciones Web Distribuidas (3)-->
 
-<!--
-  - Authorization: roles (admin, editor)
-  - Authorization: owner
+- Planteamiento del proyecto: Films - Users - Reviews
 
--->
+- Films: Endpoints ya creados
+
+  - GET /films
+  - GET /films/:id
+  - POST /films
+  - PUT /films/:id
+  - DELETE /films/:id
+
+- Usuarios: Endpoints ya creados
+
+  - POST /users/register
+  - POST /users/login
+
+- Authorization: roles (admin, editor)
+- Nuevo modelo: Reviews
+
+  - Repositorio, Controller, DTOs, Rutas
+  - Endpoints
+    - GET /reviews
+    - POST /reviews
 
 ### Día 5 (07/03/2025) - M2.03 04
 
 <!--
 
-Aplicación de TypeScript
+  Endpoints Reviews (continuación)
+    - GET /reviews/:id
+    - PATCH /reviews/:id
+    - DELETE /reviews/:id
 
-- Tipos avanzados
-- Decoradores
+  Rutas review:/id -> Authorization: owner
 
-- Servidores Web: Node + NestJS
+  Rutas films -> comprobar y revisar Auth
+
+  Rutas users -> revisar auth y añadir las que faltan
+
+  - GET /users
+  - GET /users/:id
+  - PATCH /users/role/:id
+  - PATCH /users/:id
+  - DELETE /users/:id
+
 -->
 
 ## Semana 17 (Marzo)
@@ -1074,6 +1102,13 @@ Aplicación de TypeScript
 _Tardes NestJS_
 
 <!--
+
+Aplicación de TypeScript
+
+- Tipos avanzados
+- Decoradores
+
+
 - Servidores Web: Node + NestJS
 -->
 
