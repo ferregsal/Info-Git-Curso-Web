@@ -4,7 +4,7 @@ import { resolve } from 'path';
 import morgan from 'morgan';
 import cors from 'cors';
 import bodyParser from 'body-parser';
-import { Film } from '@prisma/client';
+import { Film, Review } from '@prisma/client';
 import { debugLogger } from './middleware/debug-logger.js';
 import {
     notFoundController,
@@ -19,15 +19,17 @@ import { FilmRepo } from './repo/films.repository.js';
 import { FilmsController } from './controllers/films.controller.js';
 import { UsersController } from './controllers/users.controller.js';
 import { AuthInterceptor } from './middleware/auth.interceptor.js';
-import session from 'express-session';
 import { Payload } from './services/auth.service.js';
+import { ReviewsController } from './controllers/reviews.controller.js';
+import { ReviewRepo } from './repo/reviews.repository.js';
+import { createReviewsRouter } from './router/reviews.router.js';
 
 const debug = createDebug('films:app');
 debug('Loaded module');
 
-declare module 'express-session' {
-    interface SessionData {
-        user: Payload;
+declare module 'express' {
+    interface Request {
+        user?: Payload;
     }
 }
 
@@ -49,14 +51,6 @@ export const createApp = () => {
     }
     app.use(express.json());
     app.use(bodyParser.urlencoded({ extended: true }));
-    app.use(
-        session({
-            secret: 'secreto de sesión',
-            resave: false,
-            saveUninitialized: true,
-        }),
-    );
-
     app.use(debugLogger('debug-logger'));
     app.use(express.static(publicPath));
 
@@ -64,14 +58,22 @@ export const createApp = () => {
     const repoFilms: Repository<Film> = new FilmRepo();
     const filmsController = new FilmsController(repoFilms);
 
+    const repoReviews: Repository<Review> = new ReviewRepo();
+    const reviewsController = new ReviewsController(repoReviews);
+
     const filmsRouter = createFilmsRouter(authInterceptor, filmsController);
     const repoUsers = new UsersRepo();
     const usersController = new UsersController(repoUsers);
     const usersRouter = createUsersRouter(usersController);
+    const reviewsRouter = createReviewsRouter(
+        authInterceptor,
+        reviewsController,
+    );
 
     // Routes registry
     app.use('/api/films', filmsRouter);
     app.use('/api/users', usersRouter);
+    app.use('/api/reviews', reviewsRouter);
 
     app.get('*', notFoundController); // 404
     app.use('*', notMethodController); // 405
