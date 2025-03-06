@@ -42,6 +42,30 @@ Formador / Desarrollador Web FullStack
 17. Oscar Javier <https://github.com/OscarJavierDosSantos>
 18. Raúl <https://github.com/chef2324>
 
+## Skill
+
+- **HTML**
+- **CSS**
+- **JavaScript**,
+- **TypeScript**
+- **Astro**
+- **Angular**,
+- **NodeJS**,
+- **Express**,
+- **NestJS**,
+  **Prisma**,
+- **MySQL**,
+- **MongoDB**,
+- **Jest / Vitest**,
+
+- Vite,
+- ESLint / Prettier,
+- **Git** / **GitHub**,
+- Visual Studio Code,
+- Chrome DevTools,
+- **Postman**,
+- **Swagger**,
+
 ## Previsión de días
 
 - Modulo 1: 36 días
