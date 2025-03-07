@@ -1056,7 +1056,7 @@ API REST
   - GET /films
   - GET /films/:id
   - POST /films
-  - PUT /films/:id
+  - PATCH /films/:id
   - DELETE /films/:id
 
 - Usuarios: Endpoints ya creados
@@ -1074,12 +1074,9 @@ API REST
 
 ### Día 5 (07/03/2025) - M2.03 04
 
-<!--
+Endpoints Reviews (continuación) - GET /reviews/:id - PATCH /reviews/:id - DELETE /reviews/:id
 
-  Endpoints Reviews (continuación)
-    - GET /reviews/:id
-    - PATCH /reviews/:id
-    - DELETE /reviews/:id
+<!--
 
   Rutas review:/id -> Authorization: owner
 
