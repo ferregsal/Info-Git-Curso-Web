@@ -1,6 +1,6 @@
 import { Prisma } from '@prisma/client';
 import createDebug from 'debug';
-const debug = createDebug('films:dto:film');
+const debug = createDebug('movies:dto:film');
 debug('Loaded module');
 
 import { z } from 'zod';
@@ -13,7 +13,7 @@ export const FilmCreateDTO = z.object({
     director: z.string().nonempty(),
     duration: z.number().int().positive(),
     poster: z.string().url(),
-    categories: z.array(z.string()).optional(),
+    // categories: z.array(z.string()).optional(),
 }) satisfies z.Schema<Prisma.FilmCreateInput>;
 
 // extract the inferred type

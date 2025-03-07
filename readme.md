@@ -42,6 +42,30 @@ Formador / Desarrollador Web FullStack
 17. Oscar Javier <https://github.com/OscarJavierDosSantos>
 18. Raúl <https://github.com/chef2324>
 
+## Skill
+
+- **HTML**
+- **CSS**
+- **JavaScript**,
+- **TypeScript**
+- **Astro**
+- **Angular**,
+- **NodeJS**,
+- **Express**,
+- **NestJS**,
+  **Prisma**,
+- **MySQL**,
+- **MongoDB**,
+- **Jest / Vitest**,
+
+- Vite,
+- ESLint / Prettier,
+- **Git** / **GitHub**,
+- Visual Studio Code,
+- Chrome DevTools,
+- **Postman**,
+- **Swagger**,
+
 ## Previsión de días
 
 - Modulo 1: 36 días
@@ -976,6 +1000,8 @@ API REST Películas
 
 Code review queries con Prisma
 
+<!-- Aplicaciones Web Distribuidas (0) -->
+
 API REST: Films
 
 - Completando el control de Errors
@@ -993,43 +1019,77 @@ API REST: Films
 
 ### Día 2 (04/03/2025) - M2.03 01
 
-<!-- Aplicaciones Web Distribuidas -->
+<!-- Aplicaciones Web Distribuidas (1) -->
 
-<!---
 API REST
 
 - Usuarios: Autenticación: Login
+  - JWT
 - Validaciones
   - UsersDTOs con Zod
   - Validaciones en el controladores
   - FilmsDTOs con Zod
   - Validaciones extendiendo el modelo
 - Usuarios: Autorización
---->
-
-<!--
-
-
 
 ### Día 3 (05/03/2025) - M2.03 02 - 1/2 día
 
-<!-- Aplicaciones Web Distribuidas -->
+<!-- Aplicaciones Web Distribuidas  (2) -->
+
+- Review de la API REST Films
+
+  - Usuarios: register (singUp)
+  - Usuarios: login (signIn): Autorización
+  - Request with JWT
+
+- Update user model with roles
+- Uso de Postman como APIRest Client
 
 ### Día 4 (06/03/2025) - M2.03 03
 
-<!-- Aplicaciones Web Distribuidas -->
+<!-- Aplicaciones Web Distribuidas (3)-->
 
-<!--
-Aplicación de TypeScript
+- Planteamiento del proyecto: Films - Users - Reviews
 
-- Tipos avanzados
-- Decoradores
--->
+- Films: Endpoints ya creados
+
+  - GET /films
+  - GET /films/:id
+  - POST /films
+  - PATCH /films/:id
+  - DELETE /films/:id
+
+- Usuarios: Endpoints ya creados
+
+  - POST /users/register
+  - POST /users/login
+
+- Authorization: roles (admin, editor)
+- Nuevo modelo: Reviews
+
+  - Repositorio, Controller, DTOs, Rutas
+  - Endpoints
+    - GET /reviews
+    - POST /reviews
 
 ### Día 5 (07/03/2025) - M2.03 04
 
+Endpoints Reviews (continuación) - GET /reviews/:id - PATCH /reviews/:id - DELETE /reviews/:id
+
 <!--
-- Servidores Web: Node + NestJS
+
+  Rutas review:/id -> Authorization: owner
+
+  Rutas films -> comprobar y revisar Auth
+
+  Rutas users -> revisar auth y añadir las que faltan
+
+  - GET /users
+  - GET /users/:id
+  - PATCH /users/role/:id
+  - PATCH /users/:id
+  - DELETE /users/:id
+
 -->
 
 ## Semana 17 (Marzo)
@@ -1039,6 +1099,13 @@ Aplicación de TypeScript
 _Tardes NestJS_
 
 <!--
+
+Aplicación de TypeScript
+
+- Tipos avanzados
+- Decoradores
+
+
 - Servidores Web: Node + NestJS
 -->
 
