@@ -1076,12 +1076,11 @@ API REST
 
 Endpoints Reviews (continuación) - GET /reviews/:id - PATCH /reviews/:id - DELETE /reviews/:id
 
+Rutas review:/id -> Authorization: owner
+
+Rutas films -> comprobar y revisar Auth
+
 <!--
-
-  Rutas review:/id -> Authorization: owner
-
-  Rutas films -> comprobar y revisar Auth
-
   Rutas users -> revisar auth y añadir las que faltan
 
   - GET /users
