@@ -4,7 +4,6 @@ import { resolve } from 'path';
 import morgan from 'morgan';
 import cors from 'cors';
 import bodyParser from 'body-parser';
-import { Film } from '@prisma/client';
 import { debugLogger } from './middleware/debug-logger.js';
 import {
     notFoundController,
@@ -13,7 +12,6 @@ import {
 import { errorManager } from './controllers/errors.controller.js';
 import { createFilmsRouter } from './router/films.router.js';
 import { createUsersRouter } from './router/users.router.js';
-import type { Repository } from './repo/repository.type.js';
 import { UsersRepo } from './repo/users.repository.js';
 import { FilmRepo } from './repo/films.repository.js';
 import { FilmsController } from './controllers/films.controller.js';
@@ -59,7 +57,7 @@ export const createApp = () => {
 
     // Controllers, Repositories... instances
 
-    const filmsRepo: Repository<Film> = new FilmRepo();
+    const filmsRepo = new FilmRepo();
     const usersRepo = new UsersRepo();
     const reviewsRepo: ReviewRepo = new ReviewRepo();
     const categoriesRepo = new CategoryRepo();
