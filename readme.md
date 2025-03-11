@@ -1092,6 +1092,32 @@ Rutas users -> revisar auth y añadir las que faltan
 
 ### Día 1 (10/03/2025) - M2.03 05
 
+Review de la API REST Films - Users - Reviews
+
+- Route users protected for owners:
+
+  - PATCH /users/:id
+  - DELETE /users/:id
+
+- Categories
+
+  - Review of the model
+  - Repositories, Controllers, Routes
+  - Endpoints
+    - GET /categories
+    - POST /categories
+
+- Films permite añadir categorías al crearlo
+
+- Films:permite añadir/eliminar categorías posteriormente
+
+  - POST /films/:id/categories/:id
+  - DELETE /films/:id/categories/:id
+
+  - PATCH /films/:id/categories/:id
+
+### Día 2 (11/03/2025) - M2.03 06
+
 <!--
 
 Aplicación de TypeScript
@@ -1102,8 +1128,6 @@ Aplicación de TypeScript
 
 - Servidores Web: Node + NestJS
 -->
-
-### Día 2 (11/03/2025) - M2.03 06
 
 ### Día 3 (12/03/2025) - M2.03 07
 
