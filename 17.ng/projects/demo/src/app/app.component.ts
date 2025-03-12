@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { MenuComponent } from './components/menu/menu.component';
+import { HeaderComponent } from './core/components/header/header.component';
+import { FooterComponent } from './core/components/footer/footer.component';
+import { MenuComponent } from './core/components/menu/menu.component';
 
 @Component({
   selector: 'cas-root',
@@ -12,12 +12,17 @@ import { MenuComponent } from './components/menu/menu.component';
       <cas-menu />
     </cas-header>
     <main>
-      <p>1</p>
-      <p>2</p>
       <router-outlet />
+      <!-- Página elegida -->
     </main>
     <cas-footer />
   `,
-  styles: [],
+  styles: [
+    `
+      main {
+        margin: 3rem;
+      }
+    `,
+  ],
 })
 export class AppComponent {}
