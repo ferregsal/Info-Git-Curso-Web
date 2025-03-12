@@ -9,6 +9,7 @@ import { Component } from '@angular/core';
   styles: `
     :host {
       display: block;
+      text-align: center;
     }
   `,
 })
