@@ -1,11 +1,18 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'cas-greeting',
-  imports: [],
+  imports: [FormsModule],
   template: `
     <p>Hola {{ user || 'amigo' }}</p>
-    <input type="text" placeholder="Escribe tu nombre" />
+    <!-- <input
+      type="text"
+      placeholder="Escribe tu nombre"
+      [value]="user"
+      (input)="setUserName($event)"
+    /> -->
+    <input type="text" placeholder="Escribe tu nombre" [(ngModel)]="user" />
     <button (click)="clean()">Borrar</button>
   `,
   styles: `
@@ -25,13 +32,6 @@ export class GreetingComponent {
 
   // setUserName(event: Event) {
   //   const target: HTMLInputElement = event.target as HTMLInputElement;
-  //   return target.value;
+  //   this.user = target.value;
   // }
 }
-
-// <input
-//       type="text"
-//       placeholder="Escribe tu nombre"
-//       (input)="user = setUserName($event)"
-//       [value]="user"
-//     />
