@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { routes } from '../../../app.routes';
 
 type MenuItem = {
   path: string;
@@ -71,19 +72,30 @@ export class MenuComponent {
   items: MenuItem[];
   isLogin = false;
   constructor() {
-    this.items = [
-      {
-        path: '/home',
-        label: 'Home',
-      },
-      {
-        path: '/films',
-        label: 'Films',
-      },
-      {
-        path: '/about',
-        label: 'About',
-      },
-    ];
+    // this.items = [
+    //   {
+    //     path: '/home',
+    //     label: 'Home',
+    //   },
+    //   {
+    //     path: '/films',
+    //     label: 'Films',
+    //   },
+    //   {
+    //     path: '/about',
+    //     label: 'About',
+    //   },
+    // ];
+
+    this.items = this.setRoutes();
+  }
+
+  private setRoutes() {
+    return routes
+      .filter((route) => route.path !== '**' && route.path !== '')
+      .map((route) => ({
+        path: route.path!,
+        label: route.data!['label'] as string,
+      }));
   }
 }
