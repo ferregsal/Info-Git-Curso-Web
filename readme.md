@@ -1134,6 +1134,17 @@ API REST Films - Users - Reviews
 
 ### Día 3 (12/03/2025) - M2.03 07
 
+- Angular
+
+  - Añadir ESlint y Prettier
+  - Enrutamiento: componentes-páginas
+  - Lazy loading
+  - Elementos del template:
+    - interpolación
+    - directivas: estructurales y de atributo
+    - controles de flujo
+    - eventos
+
 <!--
 
 Aplicación de TypeScript
