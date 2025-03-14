@@ -1,24 +1,23 @@
 import { Component, input, output } from '@angular/core';
 import { Film } from '../../types/film';
-import { AddComponent } from '../add/add.component';
 
 @Component({
   selector: 'cas-film',
-  imports: [AddComponent],
+  imports: [],
   template: `
     <div>
-      <strong>{{ film()?.title }}</strong> ({{ film()?.releaseYear }})
+      <strong>{{ film().title }}</strong> ({{ film().releaseYear }})
       <button (click)="openEdit()">Editar</button>
       <button (click)="sendDelete()">Eliminar</button>
       @if (isEditing) {
-        <cas-add (addEvent)="updateFilm($event)"></cas-add>
+        <ng-content></ng-content>
       }
     </div>
   `,
   styles: ``,
 })
 export class FilmComponent {
-  film = input<Film>();
+  film = input.required<Film>();
   eventDelete = output<string>();
   isEditing = false;
 
@@ -28,9 +27,5 @@ export class FilmComponent {
   }
   openEdit() {
     this.isEditing = !this.isEditing;
-  }
-
-  updateFilm(film: Film) {
-    console.log(film);
   }
 }
