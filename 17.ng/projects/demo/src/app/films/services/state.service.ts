@@ -21,8 +21,14 @@ export class StateService {
   }
 
   deleteFilm(id: string) {
-    // deleteRepo
-    this._films.set(this._films().filter((film) => film.id !== id));
+    this.repo.deleteFilm(id).subscribe({
+      next: () => {
+        this._films.set(this._films().filter((film) => film.id !== id));
+      },
+      error: (error) => {
+        console.error('Error deleting film', error);
+      },
+    });
   }
 
   addFilm(film: Omit<Film, 'id'>) {
@@ -37,13 +43,19 @@ export class StateService {
   }
 
   updateFilm(film: Film) {
-    // updateRepo
-    this._films.set(
-      this._films().map((f) =>
-        f.id === film.id
-          ? { ...f, title: film.title, releaseYear: film.releaseYear }
-          : f,
-      ),
-    );
+    this.repo.updateFilm(film).subscribe({
+      next: (film) => {
+        this._films.set(
+          this._films().map((f) =>
+            f.id === film.id
+              ? { ...f, title: film.title, releaseYear: film.releaseYear }
+              : f,
+          ),
+        );
+      },
+      error: (error) => {
+        console.error('Error updating film', error);
+      },
+    });
   }
 }

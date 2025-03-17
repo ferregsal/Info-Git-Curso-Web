@@ -2,6 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { Film } from '../types/film';
 import { HttpClient } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
+import { UserService } from '../../user/services/user.service';
 
 type ApiResponse = {
   results: Film[];
@@ -14,6 +15,7 @@ type ApiResponse = {
 export class RepoService {
   url = 'http://localhost:3000/api/films';
   httpClient = inject(HttpClient);
+  userService = inject(UserService);
 
   loadFilms(): Observable<Film[]> {
     return this.httpClient
@@ -30,8 +32,38 @@ export class RepoService {
     film.duration = 120;
 
     return this.httpClient
-      .post<ApiResponse>(this.url, film)
+      .post<ApiResponse>(this.url, film, {
+        headers: {
+          Authorization: `Bearer ${this.userService.token}`,
+        },
+      })
       .pipe(map((r) => r.results[0]));
+  }
+  updateFilm(film: Film): Observable<Film> {
+    film.description = 'Created by Angular';
+    film.director = 'Director';
+    film.rating = 5;
+    film.poster = 'https://via.placeholder.com/150';
+    film.categories = ['Action'];
+    film.duration = 120;
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { id, categories, ...rest } = film;
+    return this.httpClient
+      .patch<ApiResponse>(`${this.url}/${id}`, rest, {
+        headers: {
+          Authorization: `Bearer ${this.userService.token}`,
+        },
+      })
+      .pipe(map((r) => r.results[0]));
+  }
+
+  deleteFilm(id: string): Observable<void> {
+    return this.httpClient.delete<void>(`${this.url}/${id}`, {
+      headers: {
+        Authorization: `Bearer ${this.userService.token}`,
+      },
+    });
   }
 }
 
