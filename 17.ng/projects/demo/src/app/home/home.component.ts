@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { RegisterComponent } from '../user/register/register.component';
-import { LoginComponent } from '../user/login/login.component';
+import { RegisterComponent } from '../user/components/register/register.component';
+import { LoginComponent } from '../user/components/login/login.component';
 import { TimeService } from '../core/services/time.service';
 
 @Component({
@@ -10,12 +10,25 @@ import { TimeService } from '../core/services/time.service';
   template: `
     <h1>Home</h1>
     <p>Esta es la página de inicio</p>
-    <cas-register></cas-register>
-    <cas-login></cas-login>
+    @if (!showRegister) {
+      <cas-login></cas-login>
+      <p>
+        Si no tienes cuenta regístrate
+        <button (click)="showRegister = !showRegister">aquí</button>
+      </p>
+    }
+    @if (showRegister) {
+      <cas-register></cas-register>
+      <p>
+        Si ya tienes cuenta inicia sesión
+        <button (click)="showRegister = !showRegister">aquí</button>
+      </p>
+    }
     {{ timeService.getTime() }}
   `,
   styles: ``,
 })
 export default class HomeComponent {
   timeService = inject(TimeService);
+  showRegister = false;
 }
