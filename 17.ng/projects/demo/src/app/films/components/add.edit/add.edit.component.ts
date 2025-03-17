@@ -54,8 +54,9 @@ export class AddEditComponent implements OnInit {
 
   sendEvent() {
     if (this.isAdding()) {
-      this.film().id = crypto.randomUUID();
-      this.filmsState.addFilm({ ...this.filmData });
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const { id, ...rest } = this.filmData;
+      this.filmsState.addFilm(rest);
     } else {
       this.filmsState.updateFilm({ ...this.filmData });
     }

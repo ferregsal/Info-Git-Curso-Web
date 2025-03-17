@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Film } from '../types/film';
-// import { FILMS } from '../../../../data/films';
+import { HttpClient } from '@angular/common/http';
+import { map, Observable } from 'rxjs';
 
 type ApiResponse = {
   results: Film[];
@@ -12,24 +13,63 @@ type ApiResponse = {
 })
 export class RepoService {
   url = 'http://localhost:3000/api/films';
+  httpClient = inject(HttpClient);
 
-  async loadFilms(): Promise<Film[]> {
-    const response = await fetch(this.url);
-    const results: ApiResponse = await response.json();
-    console.log(results.results);
-    return results.results;
+  loadFilms(): Observable<Film[]> {
+    return this.httpClient
+      .get<ApiResponse>(this.url)
+      .pipe(map((r) => r.results));
   }
 
-  // loadFilms(): Promise<Film[]> {
-  //   return new Promise((resolve) => {
-  //     setTimeout(() => {
-  //       resolve(FILMS);
-  //       console.log('Films loaded from API');
-  //     }, 2000);
-  //   });
-  // }
+  createFilm(film: Omit<Film, 'id'>): Observable<Film> {
+    film.description = 'Created by Angular';
+    film.director = 'Director';
+    film.rating = 5;
+    film.poster = 'https://via.placeholder.com/150';
+    film.categories = ['Action'];
+    film.duration = 120;
 
-  // async loadFilms(): Promise<Film[]> {
-  //   return FILMS
-  // }
+    return this.httpClient
+      .post<ApiResponse>(this.url, film)
+      .pipe(map((r) => r.results[0]));
+  }
 }
+
+// export class RepoServiceFetch {
+//   url = 'http://localhost:3000/api/films';
+
+//   async loadFilms(): Promise<Film[]> {
+//     const response = await fetch(this.url);
+//     const results: ApiResponse = await response.json();
+//     console.log(results.results);
+//     return results.results;
+//   }
+
+//   createFilm(film: Film): Promise<Film> {
+//     return fetch(this.url, {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//       body: JSON.stringify(film),
+//     })
+//       .then((response) => response.json())
+//       .then((result) => {
+//         console.log('Film created', result);
+//         return result;
+//       });
+//   }
+
+//   // loadFilms(): Promise<Film[]> {
+//   //   return new Promise((resolve) => {
+//   //     setTimeout(() => {
+//   //       resolve(FILMS);
+//   //       console.log('Films loaded from API');
+//   //     }, 2000);
+//   //   });
+//   // }
+
+//   // async loadFilms(): Promise<Film[]> {
+//   //   return FILMS
+//   // }
+// }
