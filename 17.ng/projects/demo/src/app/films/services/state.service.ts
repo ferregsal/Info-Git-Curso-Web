@@ -1,5 +1,5 @@
 import { computed, inject, Injectable, signal } from '@angular/core';
-import { Film } from '../types/film';
+import { Film } from '../../core/types/film';
 import { RepoService } from './repo.service';
 
 @Injectable({
