@@ -1178,23 +1178,28 @@ API REST Films - Users - Reviews
 - Angular
 
   - Http: HttpClient en el servicio repo
+    - RxJS y Observables
   - Operaciones CRUD en rutas no protegidas
 
-  - Login: servicio userService y JWT-decoded
+  - Login: servicio userService: token y JWT-decoded
   - Token en el cliente: servicio userService y local storage
   - Operaciones CRUD en rutas protegidas: cabeceras con token
+  - Interfaz: login / logout y register
 
 ### Día 2 (18/03/2025) - M2.03 11
 
-<!-- - Angular
+- Angular
 
   - Formularios: Reactive Forms
   - Validaciones
-  - Formularios: Template Driven
+  <!--  - Formularios: Template Driven -->
 
--->
+  - Signals en userService
+  - GUI dependiendo de la sesión de usuario iniciada
 
 ### Día 3 (19/03/2025) - M2.03 12
+
+- Angular: página de detalle
 
 <!--
 - Gestión de imágenes: Multer
