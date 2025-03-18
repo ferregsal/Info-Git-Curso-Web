@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
+import { computed, inject, Injectable, signal } from '@angular/core';
 import { map } from 'rxjs';
 import { jwtDecode } from 'jwt-decode';
+import { DTOUser, User } from '../../core/types/user';
 
 type UserLogin = {
   email: string;
@@ -15,8 +16,13 @@ type UserLogged = {
   role: string;
 };
 
-type ApiResponse = {
+type LoginApiResponse = {
   results: { token: string };
+  error: string;
+};
+
+type ApiResponse = {
+  results: User[];
   error: string;
 };
 
@@ -26,22 +32,19 @@ type ApiResponse = {
 export class UserService {
   private url = 'http://localhost:3000/api/users';
   private httpClient = inject(HttpClient);
-  private _token: string | null = null;
-  private _currentUser: UserLogged | null = null;
+  private _token = signal<string | null>(null);
+  private _currentUser = signal<UserLogged | null>(null);
 
-  get token() {
-    return this._token;
-  }
-
-  get currentUser() {
-    return this._currentUser;
-  }
+  token = computed(() => this._token());
+  // token = this._token;
+  currentUser = computed(() => this._currentUser());
+  // currentUser = this._currentUser;
 
   login(data: UserLogin) {
     console.log(data);
     const url = this.url + '/login';
     this.httpClient
-      .post<ApiResponse[]>(url, data)
+      .post<LoginApiResponse[]>(url, data)
       .pipe(map((r) => r[0].results.token))
       .subscribe({
         next: (token) => {
@@ -56,11 +59,30 @@ export class UserService {
   }
 
   getToken() {
-    this._token = localStorage.getItem('token');
-    if (this._token) {
-      this._currentUser = jwtDecode(this._token);
-      console.log('Token', this._token);
-      console.log('User', this._currentUser);
+    this._token.set(localStorage.getItem('token'));
+
+    const token = this._token();
+    if (token) {
+      this._currentUser.set(jwtDecode(token));
+      console.log('Token', this._token());
+      console.log('User', this._currentUser());
     }
+  }
+
+  register(data: DTOUser) {
+    console.log(data);
+    const url = this.url + '/register';
+    return this.httpClient
+      .post<ApiResponse>(url, data)
+      .pipe(map((r) => r.results[0]));
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    this._token.set(null);
+    this._currentUser.set(null);
+    console.log('Token', this.token());
+    console.log('User', this.currentUser());
+    location.href = '/';
   }
 }

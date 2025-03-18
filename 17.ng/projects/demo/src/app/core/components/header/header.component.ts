@@ -25,7 +25,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   userService = inject(UserService);
   title: string;
   constructor() {
-    const user = this.userService.currentUser?.email.split('@')[0];
+    const user = this.userService.currentUser()?.email.split('@')[0];
     this.title = user || 'demo';
     console.log('Constructor HeaderComponent');
     console.log(this.title);

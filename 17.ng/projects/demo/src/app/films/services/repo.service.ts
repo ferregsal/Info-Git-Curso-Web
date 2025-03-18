@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { Film } from '../types/film';
+import { Film } from '../../core/types/film';
 import { HttpClient } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
 import { UserService } from '../../user/services/user.service';
@@ -34,7 +34,7 @@ export class RepoService {
     return this.httpClient
       .post<ApiResponse>(this.url, film, {
         headers: {
-          Authorization: `Bearer ${this.userService.token}`,
+          Authorization: `Bearer ${this.userService.token()}`,
         },
       })
       .pipe(map((r) => r.results[0]));
@@ -52,7 +52,7 @@ export class RepoService {
     return this.httpClient
       .patch<ApiResponse>(`${this.url}/${id}`, rest, {
         headers: {
-          Authorization: `Bearer ${this.userService.token}`,
+          Authorization: `Bearer ${this.userService.token()}`,
         },
       })
       .pipe(map((r) => r.results[0]));
@@ -61,7 +61,7 @@ export class RepoService {
   deleteFilm(id: string): Observable<void> {
     return this.httpClient.delete<void>(`${this.url}/${id}`, {
       headers: {
-        Authorization: `Bearer ${this.userService.token}`,
+        Authorization: `Bearer ${this.userService.token()}`,
       },
     });
   }

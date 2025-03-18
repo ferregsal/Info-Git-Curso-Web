@@ -1,5 +1,5 @@
 import { Component, inject, input } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 import { MenuItem } from '../../../app.component';
 import { UserService } from '../../../user/services/user.service';
@@ -62,11 +62,11 @@ export class MenuComponent {
   // @Input() items: MenuItem[] = [];
   items = input<MenuItem[]>();
   userService = inject(UserService);
-  isLogin = this.userService.token !== null;
+  router = inject(Router);
+  isLogin = this.userService.token() !== null;
 
   logout(event: Event) {
     event.preventDefault();
-    localStorage.removeItem('token');
-    location.href = '/';
+    this.userService.logout();
   }
 }
