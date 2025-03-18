@@ -50,7 +50,8 @@ export class UserService {
         next: (token) => {
           console.log(token);
           localStorage.setItem('token', token);
-          location.href = '/';
+          this._token.set(token);
+          this._currentUser.set(jwtDecode(token));
         },
         error: (error) => {
           console.error('Error login user', error);
@@ -83,6 +84,5 @@ export class UserService {
     this._currentUser.set(null);
     console.log('Token', this.token());
     console.log('User', this.currentUser());
-    location.href = '/';
   }
 }
