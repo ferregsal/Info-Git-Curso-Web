@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, ElementRef, inject, ViewChild } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { UserService } from '../../services/user.service';
 import { DTOUser, User } from '../../../core/types/user';
@@ -49,7 +49,12 @@ import { JsonPipe } from '@angular/common';
 
         <label>
           <span>Avatar</span>
-          <input type="file" />
+          <input
+            type="file"
+            formControlName="avatar"
+            #avatar
+            (change)="onChangeAvatar()"
+          />
         </label>
 
         <label>
@@ -100,9 +105,11 @@ export class RegisterComponent {
     password: ['', [Validators.required, Validators.minLength(5)]],
     firstName: ['', Validators.required],
     lastName: ['', Validators.required],
+    avatar: [null],
   });
   checkedPasswd = this.checkPasswd();
   user: User | null = null;
+  @ViewChild('avatar') fileAvatar!: ElementRef;
 
   constructor() {
     this.formGroup.get('password')?.valueChanges.subscribe(() => {
@@ -110,11 +117,28 @@ export class RegisterComponent {
     });
   }
 
+  onChangeAvatar() {
+    const avatar = this.formGroup.get('avatar');
+    console.log('Avatar', avatar);
+    if (avatar) {
+      const fileInput: HTMLInputElement = this.fileAvatar.nativeElement;
+      const file: File | undefined = fileInput.files?.[0];
+
+      if (!file) {
+        return;
+      }
+
+      console.dir(fileInput);
+      console.log('File', file);
+      this.formGroup.patchValue({ avatar: file });
+    }
+  }
+
   onSubmit() {
     this.userServices.register(this.formGroup.value as DTOUser).subscribe({
       next: (user) => {
         this.formGroup.reset();
-        this.user = user;
+        this.user = user as unknown as User;
       },
       error: (error) => {
         console.error('Error register user', error);

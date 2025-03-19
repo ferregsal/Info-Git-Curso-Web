@@ -71,10 +71,17 @@ export class UserService {
   }
 
   register(data: DTOUser) {
-    console.log(data);
+    const formData = new FormData();
+    formData.append('email', data.email);
+    formData.append('password', data.password);
+    formData.append('firstName', data.firstName);
+    formData.append('lastName', data.lastName);
+    formData.append('avatar', data.avatar as Blob);
+    console.log(formData);
+    console.log(Object.fromEntries(formData));
     const url = this.url + '/register';
     return this.httpClient
-      .post<ApiResponse>(url, data)
+      .post<ApiResponse>(url, formData)
       .pipe(map((r) => r.results[0]));
   }
 

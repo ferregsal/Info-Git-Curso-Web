@@ -16,4 +16,5 @@ export type DTOUser = {
   password: string;
   firstName: string;
   lastName: string;
+  avatar?: Blob;
 };
