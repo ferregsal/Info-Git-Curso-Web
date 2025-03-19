@@ -23,6 +23,11 @@ export class RepoService {
       .pipe(map((r) => r.results));
   }
 
+  getFilmById(id: string): Observable<Film[]> {
+    const url = `${this.url}/${id}`;
+    return this.httpClient.get<ApiResponse>(url).pipe(map((r) => r.results));
+  }
+
   createFilm(film: Omit<Film, 'id'>): Observable<Film> {
     film.description = 'Created by Angular';
     film.director = 'Director';
