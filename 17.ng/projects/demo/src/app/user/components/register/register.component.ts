@@ -1,8 +1,21 @@
 import { Component, ElementRef, inject, ViewChild } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { UserService } from '../../services/user.service';
 import { DTOUser, User } from '../../../core/types/user';
 import { JsonPipe } from '@angular/common';
+
+type UserForm = {
+  email: FormControl<string>;
+  password: FormControl<string>;
+  firstName: FormControl<string>;
+  lastName: FormControl<string>;
+  avatar: FormControl<File | null>;
+};
 
 @Component({
   selector: 'cas-register',
@@ -49,12 +62,7 @@ import { JsonPipe } from '@angular/common';
 
         <label>
           <span>Avatar</span>
-          <input
-            type="file"
-            formControlName="avatar"
-            #avatar
-            (change)="onChangeAvatar()"
-          />
+          <input type="file" #avatar (change)="onChangeAvatar()" />
         </label>
 
         <label>
@@ -100,12 +108,25 @@ import { JsonPipe } from '@angular/common';
 export class RegisterComponent {
   userServices = inject(UserService);
   fb = inject(FormBuilder);
-  formGroup = this.fb.group({
-    email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required, Validators.minLength(5)]],
-    firstName: ['', Validators.required],
-    lastName: ['', Validators.required],
-    avatar: [null],
+  // formGroup = this.fb.group<UserForm>({
+  //   email: ['', [Validators.required, Validators.email]],
+  //   password: ['', [Validators.required, Validators.minLength(5)]],
+  //   firstName: ['', Validators.required],
+  //   lastName: ['', Validators.required],
+  //   avatar: [null],
+  // });
+  formGroup = this.fb.group<UserForm>({
+    email: this.fb.nonNullable.control('', [
+      Validators.required,
+      Validators.email,
+    ]),
+    password: this.fb.nonNullable.control('', [
+      Validators.required,
+      Validators.minLength(5),
+    ]),
+    firstName: this.fb.nonNullable.control('', Validators.required),
+    lastName: this.fb.nonNullable.control('', Validators.required),
+    avatar: this.fb.control(null),
   });
   checkedPasswd = this.checkPasswd();
   user: User | null = null;
