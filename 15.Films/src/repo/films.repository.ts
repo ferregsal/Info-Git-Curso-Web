@@ -7,7 +7,7 @@ import { FilmCreateDTO } from '../dto/films.dto.js';
 const debug = createDebug('movies:repository:films');
 
 export class FilmRepo implements Repository<Film> {
-    prisma: PrismaClient;
+    private prisma: PrismaClient;
     constructor() {
         debug('Instanciando');
         this.prisma = new PrismaClient();
