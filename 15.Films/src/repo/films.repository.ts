@@ -11,6 +11,8 @@ export class FilmRepo implements Repository<Film> {
     constructor() {
         debug('Instanciando');
         this.prisma = new PrismaClient();
+
+        // console.log(this.prisma);
     }
 
     async read(): Promise<Film[]> {

@@ -22,6 +22,12 @@ vi.mock('@prisma/client', () => ({
     },
 }));
 
+// vi.mock('@prisma/client', () => ({
+//     PrismaClient: function (this: typeof mockPrisma) {
+//         this.film = mockPrisma.film;
+//     },
+// }));
+
 describe('Given class FilmRepo', () => {
     let filmRepo: FilmRepo;
     beforeAll(() => {
