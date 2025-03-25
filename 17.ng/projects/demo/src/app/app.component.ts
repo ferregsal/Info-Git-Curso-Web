@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './core/components/header/header.component';
 import { FooterComponent } from './core/components/footer/footer.component';
 import { MenuComponent } from './core/components/menu/menu.component';
 import { routes } from './app.routes';
+import { UserService } from './user/services/user.service';
 
 export type MenuItem = {
   path: string;
@@ -33,9 +34,11 @@ export type MenuItem = {
 })
 export class AppComponent {
   routes: MenuItem[];
+  userService = inject(UserService);
   constructor() {
+    this.userService.getToken();
     this.routes = routes
-      .filter((route) => route.path !== '**' && route.path !== '')
+      .filter((route) => route.data)
       .map((route) => ({
         path: route.path!,
         label: route.data!['label'] as string,

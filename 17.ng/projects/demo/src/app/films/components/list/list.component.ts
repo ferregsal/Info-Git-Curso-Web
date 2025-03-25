@@ -1,19 +1,27 @@
-import { Component } from '@angular/core';
-import { AddComponent } from '../add/add.component';
+import { Component, inject } from '@angular/core';
+import { AddEditComponent } from '../add.edit/add.edit.component';
 import { FilmComponent } from '../film/film.component';
-import { Film } from '../../types/film';
-import { FILMS } from '../../../../../data/films';
+import { StateService } from '../../services/state.service';
+import { UserService } from '../../../user/services/user.service';
 
 @Component({
   selector: 'cas-list',
-  imports: [AddComponent, FilmComponent],
+  imports: [AddEditComponent, FilmComponent],
   template: `
-    <cas-add (addEvent)="addFilm($event)"></cas-add>
+    @if (
+      userService.currentUser() &&
+      (userService.currentUser()?.role === 'ADMIN' ||
+        userService.currentUser()?.role === 'EDITOR')
+    ) {
+      <cas-add-edit [isAdding]="true"></cas-add-edit>
+    }
     <h3>Listado de películas</h3>
     <ul>
-      @for (film of films; track film.id) {
+      @for (film of films(); track film.id) {
         <li>
-          <cas-film [film]="film" (eventDelete)="deleteFilm($event)"></cas-film>
+          <cas-film [film]="film">
+            <cas-add-edit [isAdding]="false" [film]="film"></cas-add-edit>
+          </cas-film>
         </li>
       }
     </ul>
@@ -28,13 +36,12 @@ import { FILMS } from '../../../../../data/films';
   `,
 })
 export class ListComponent {
-  films: Film[] = FILMS;
+  filmsState = inject(StateService);
+  userService = inject(UserService);
+  films = this.filmsState.getFilms();
 
-  deleteFilm(id: string) {
-    this.films = this.films.filter((film) => film.id !== id);
-  }
-
-  addFilm(film: Film) {
-    this.films = [...this.films, film];
-  }
+  // films: WritableSignal<Film[]>;
+  //constructor() {
+  // this.films = this.filmsState.getFilms();
+  //}
 }
