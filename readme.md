@@ -1203,7 +1203,6 @@ API REST Films - Users - Reviews
 
 <!--
 - Gestión de imágenes: Multer
-- Almacenamiento de las imágenes: Cloudinary
 - -->
 
 ### Día 4 (20/03/2025) - M2.02 17
@@ -1217,7 +1216,7 @@ Examen Módulo 2 (Primera convocatoria)
 Code review del examen
 
 Upload de ficheros desde Angular
-Cloudinary
+Almacenamiento de las imágenes: Cloudinary
 
 <!--
 [Opción -> último día del módulo]
@@ -1246,19 +1245,37 @@ Testing
 
 - Introducción. Tipos
 - Vitest. Instalación
-- TDD. Ejemplo
+- TDD. Ejemplo (Fizzbuzz)
 
 ### Día 2 (25/03/2025) - M3.00 02
 
+- Test con Vitest.
+  - Ejemplos en códigos previos
+- Testing unitario del backend
+  - Repositories
+
 ### Día 3 (26/03/2025) - M3.00 03
+
+- Testing unitario del backend
+  - Controllers
+  - Servicios
 
 ### Día 4 (27/03/2025) - M3.00 04
 
+- Testing unitario del backend
+  - Servicios
+  - Interceptores (Middleware)
+
 ### Día 5 (28/03/2025) - M3.00 05
+
+- Testing e2e del backend: Supertest
+  - Rutas
 
 ## Semana 20 (Marzo)
 
 ### Día 1 (31/03/2025) - M3.00 06
+
+Test unitario del frontend
 
 ### Día 2 (01/03/2025) - M3.00 07
 
